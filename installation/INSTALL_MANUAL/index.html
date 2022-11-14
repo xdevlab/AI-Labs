@@ -824,6 +824,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-conda-environment-fails-on-macos" class="md-nav__link">
+    Create Conda Environment fails on MacOS
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Conda Environment fails on MacOS">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#preload_modelspy-or-invokepy-crashes-at-an-early-stage" class="md-nav__link">
     preload_models.py or invoke.py crashes at an early stage
@@ -1395,15 +1408,23 @@ version of the package that is causing the incompatibility. For example:</p>
 script runs without errors. Please report to
 <a href="https://github.com/invoke-ai/InvokeAI/issues">Issues</a> what you were able to do
 to work around the problem so that others can benefit from your investigation.</p>
+<h3 id="create-conda-environment-fails-on-macos">Create Conda Environment fails on MacOS<a class="headerlink" href="#create-conda-environment-fails-on-macos" title="Permanent link">#</a></h3>
+<p>If conda create environment fails with lmdb error, this is most likely caused by Clang.
+Run brew config to see which Clang is installed on your Mac. If Clang isn't installed, that's causing the error.
+Start by installing additional XCode command line tools, followed by brew install llvm.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>xcode-select --install
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>brew install llvm
+</code></pre></div>
+<p>If brew config has Clang installed, update to the latest llvm and try creating the environment again.</p>
 <h4 id="preload_modelspy-or-invokepy-crashes-at-an-early-stage"><code>preload_models.py</code> or <code>invoke.py</code> crashes at an early stage<a class="headerlink" href="#preload_modelspy-or-invokepy-crashes-at-an-early-stage" title="Permanent link">#</a></h4>
 <p>This is usually due to an incomplete or corrupted Conda install. Make sure you
 have linked to the correct environment file and run <code>conda update</code> again.</p>
 <p>If the problem persists, a more extreme measure is to clear Conda's caches and
 remove the <code>invokeai</code> environment:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>conda deactivate
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>conda env remove -n invokeai
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>conda clean -a
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>conda update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>conda deactivate
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>conda env remove -n invokeai
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>conda clean -a
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>conda update
 </code></pre></div>
 <p>This removes all cached library files, including ones that may have been
 corrupted somehow. (This is not supposed to happen, but does anyway).</p>
@@ -1427,12 +1448,12 @@ the magic incantations for Conda and PIP.</p>
 <ul>
 <li>conda</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>conda install pytorch torchvision torchaudio pytorch-cuda<span class="o">=</span><span class="m">11</span>.6 -c pytorch -c nvidia
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>conda install pytorch torchvision torchaudio pytorch-cuda<span class="o">=</span><span class="m">11</span>.6 -c pytorch -c nvidia
 </code></pre></div>
 <ul>
 <li>pip</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
 </code></pre></div>
 </div>
 <div class="admonition todo">
@@ -1440,13 +1461,13 @@ the magic incantations for Conda and PIP.</p>
 <ul>
 <li>conda</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>conda activate invokeai
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.2/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>conda activate invokeai
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.2/
 </code></pre></div>
 <ul>
 <li>pip</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.2/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.2/
 </code></pre></div>
 </div>
 <p>More information and troubleshooting tips can be found at <a href="https://pytorch.org">https://pytorch.org</a>.</p>
@@ -1456,7 +1477,7 @@ the magic incantations for Conda and PIP.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2022</span>
       
         <br>
         Created:
