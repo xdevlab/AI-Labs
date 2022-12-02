@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_PATCHMATCH/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_PCP/</loc>
          <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
