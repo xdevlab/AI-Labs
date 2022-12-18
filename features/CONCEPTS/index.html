@@ -1222,6 +1222,20 @@ generated using the command-line client and the Stable Diffusion 1.5 model:</p>
 </table>
 </figure>
 <h2 id="using-a-hugging-face-concept">Using a Hugging Face Concept<a class="headerlink" href="#using-a-hugging-face-concept" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Authenticating to HuggingFace</p>
+<p>Some concepts require valid authentication to HuggingFace. Without it, they will not be downloaded
+and will be silently ignored.</p>
+<p>If you used an installer to install InvokeAI, you may have already set a HuggingFace token.
+If you skipped this step, you can:</p>
+<ul>
+<li>run the InvokeAI configuration script again (if you used a manual installer): <code>scripts/configure_invokeai.py</code></li>
+<li>set one of the <code>HUGGINGFACE_TOKEN</code> or <code>HUGGING_FACE_HUB_TOKEN</code> environment variables to contain your token</li>
+</ul>
+<p>Finally, if you already used any HuggingFace library on your computer, you might already have a token
+in your local cache. Check for a hidden <code>.huggingface</code> directory in your home folder. If it
+contains a <code>token</code> file, then you are all set.</p>
+</div>
 <p>Hugging Face TI concepts are downloaded and installed automatically as you
 require them. This requires your machine to be connected to the Internet. To
 find out what each concept is for, you can browse the
@@ -1281,7 +1295,7 @@ associated paper for details and limitations.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2022</span>
       
         <br>
         Created:

@@ -1687,11 +1687,11 @@ time. Note that this method only works with the PIP method.</p>
 greatest version, launch the Anaconda window, enter <code>InvokeAI</code> and type:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git pull
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>conda env update
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>python scripts/configure_invokeai.py --no-interactive  <span class="c1">#optional</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>python scripts/configure_invokeai.py --skip-sd-weights <span class="c1">#optional</span>
 </code></pre></div>
 <p>This will bring your local copy into sync with the remote one. The last step may
 be needed to take advantage of new features or released models. The
-<code>--no-interactive</code> flag will prevent the script from prompting you to download
+<code>--skip-sd-weights</code> flag will prevent the script from prompting you to download
 the big Stable Diffusion weights files.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>Here are some common issues and their suggested solutions.</p>
@@ -1781,7 +1781,7 @@ the magic incantations for Conda and PIP.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2022</span>
       
         <br>
         Created:
