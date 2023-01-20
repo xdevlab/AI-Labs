@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/070_INSTALL_XFORMERS/</loc>
+         <lastmod>2023-01-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_AUTOMATED/</loc>
          <lastmod>2023-01-20</lastmod>
          <changefreq>daily</changefreq>
