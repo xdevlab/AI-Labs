@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/features/MODEL_MERGING/</loc>
+         <lastmod>2023-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/features/NSFW/</loc>
          <lastmod>2023-01-23</lastmod>
          <changefreq>daily</changefreq>
