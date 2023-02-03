@@ -141,16 +141,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_AUTOMATED/</loc>
-         <lastmod>2023-02-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_MANUAL/</loc>
-         <lastmod>2023-02-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/installation/Developers_documentation/BUILDING_BINARY_INSTALLERS/</loc>
          <lastmod>2023-02-03</lastmod>
          <changefreq>daily</changefreq>
