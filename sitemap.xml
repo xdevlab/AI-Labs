@@ -101,7 +101,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/TROUBLESHOOT/</loc>
+         <loc>https://invoke-ai.github.io/InvokeAI/help/deprecated/TROUBLESHOOT/</loc>
          <lastmod>2023-02-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -117,6 +117,11 @@
     </url>
     <url>
          <loc>https://invoke-ai.github.io/InvokeAI/installation/020_INSTALL_MANUAL/</loc>
+         <lastmod>2023-02-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/030_INSTALL_CUDA_AND_ROCM/</loc>
          <lastmod>2023-02-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
