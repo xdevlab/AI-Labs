@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/contributing/LOCAL_DEVELOPMENT/</loc>
+         <lastmod>2023-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/features/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
@@ -47,11 +52,6 @@
     </url>
     <url>
          <loc>https://invoke-ai.github.io/InvokeAI/features/INPAINTING/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/features/LORAS/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -111,47 +111,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/help/SAMPLER_CONVERGENCE/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/IDE-Settings/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/IDE-Settings/vs-code/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/contributing/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/contributing/010_PULL_REQUEST/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/contributing/020_ISSUES/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/contributing/030_DOCS/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/help/contributing/090_NODE_TRANSFORMATION/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
