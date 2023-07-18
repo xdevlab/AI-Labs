@@ -1112,110 +1112,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation-via-invokeai-configure" class="md-nav__link">
-    Installation via invokeai-configure
+  <a href="#installation-via-invokeai-model-install" class="md-nav__link">
+    Installation via invokeai-model-install
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#installation-via-the-cli" class="md-nav__link">
-    Installation via the CLI
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation via the CLI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-individual-ckpt-and-safetensors-models" class="md-nav__link">
-    Installing individual .ckpt and .safetensors models
+  <a href="#installation-via-the-web-gui" class="md-nav__link">
+    Installation via the Web GUI
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#importing-a-batch-of-ckpt-and-safetensors-models-from-a-directory" class="md-nav__link">
-    Importing a batch of .ckpt and .safetensors models from a directory
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-diffusers-models" class="md-nav__link">
-    Installing diffusers models
+  <a href="#installation-via-the-autoimport-function" class="md-nav__link">
+    Installation via the autoimport function
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#converting-legacy-models-into-diffusers" class="md-nav__link">
-    Converting legacy models into diffusers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optimizing-a-previously-installed-model" class="md-nav__link">
-    Optimizing a previously-installed model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#related-cli-commands" class="md-nav__link">
-    Related CLI Commands
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manually-editing-configsmodelsyaml" class="md-nav__link">
-    Manually editing configs/models.yaml
-  </a>
-  
-    <nav class="md-nav" aria-label="Manually editing configs/models.yaml">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-legacy-model" class="md-nav__link">
-    A legacy model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#a-diffusers-model" class="md-nav__link">
-    A diffusers model
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-via-the-webui" class="md-nav__link">
-    Installation via the WebUI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model-management-startup-options" class="md-nav__link">
-    Model Management Startup Options
-  </a>
   
 </li>
       
@@ -1569,103 +1487,7 @@ into performant <code>diffusers</code> models.</p>
 find them listed in the master models file
 <code>configs/INITIAL_MODELS.yaml</code> in the InvokeAI root directory. The
 subset that are currently installed are found in
-<code>configs/models.yaml</code>. As of v2.3.1, the list of starter models is:</p>
-<table>
-<thead>
-<tr>
-<th>Model Name</th>
-<th>HuggingFace Repo ID</th>
-<th>Description</th>
-<th>URL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stable-diffusion-1.5</td>
-<td>runwayml/stable-diffusion-v1-5</td>
-<td>Stable Diffusion version 1.5 diffusers model (4.27 GB)</td>
-<td><a href="https://huggingface.co/runwayml/stable-diffusion-v1-5">https://huggingface.co/runwayml/stable-diffusion-v1-5</a></td>
-</tr>
-<tr>
-<td>sd-inpainting-1.5</td>
-<td>runwayml/stable-diffusion-inpainting</td>
-<td>RunwayML SD 1.5 model optimized for inpainting, diffusers version (4.27 GB)</td>
-<td><a href="https://huggingface.co/runwayml/stable-diffusion-inpainting">https://huggingface.co/runwayml/stable-diffusion-inpainting</a></td>
-</tr>
-<tr>
-<td>stable-diffusion-2.1</td>
-<td>stabilityai/stable-diffusion-2-1</td>
-<td>Stable Diffusion version 2.1 diffusers model, trained on 768 pixel images (5.21 GB)</td>
-<td><a href="https://huggingface.co/stabilityai/stable-diffusion-2-1">https://huggingface.co/stabilityai/stable-diffusion-2-1</a></td>
-</tr>
-<tr>
-<td>sd-inpainting-2.0</td>
-<td>stabilityai/stable-diffusion-2-inpainting</td>
-<td>Stable Diffusion version 2.0 inpainting model (5.21 GB)</td>
-<td><a href="https://huggingface.co/stabilityai/stable-diffusion-2-inpainting">https://huggingface.co/stabilityai/stable-diffusion-2-inpainting</a></td>
-</tr>
-<tr>
-<td>analog-diffusion-1.0</td>
-<td>wavymulder/Analog-Diffusion</td>
-<td>An SD-1.5 model trained on diverse analog photographs (2.13 GB)</td>
-<td><a href="https://huggingface.co/wavymulder/Analog-Diffusion">https://huggingface.co/wavymulder/Analog-Diffusion</a></td>
-</tr>
-<tr>
-<td>deliberate-1.0</td>
-<td>XpucT/Deliberate</td>
-<td>Versatile model that produces detailed images up to 768px (4.27 GB)</td>
-<td><a href="https://huggingface.co/XpucT/Deliberate">https://huggingface.co/XpucT/Deliberate</a></td>
-</tr>
-<tr>
-<td>d&amp;d-diffusion-1.0</td>
-<td>0xJustin/Dungeons-and-Diffusion</td>
-<td>Dungeons &amp; Dragons characters (2.13 GB)</td>
-<td><a href="https://huggingface.co/0xJustin/Dungeons-and-Diffusion">https://huggingface.co/0xJustin/Dungeons-and-Diffusion</a></td>
-</tr>
-<tr>
-<td>dreamlike-photoreal-2.0</td>
-<td>dreamlike-art/dreamlike-photoreal-2.0</td>
-<td>A photorealistic model trained on 768 pixel images based on SD 1.5 (2.13 GB)</td>
-<td><a href="https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0">https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0</a></td>
-</tr>
-<tr>
-<td>inkpunk-1.0</td>
-<td>Envvi/Inkpunk-Diffusion</td>
-<td>Stylized illustrations inspired by Gorillaz, FLCL and Shinkawa; prompt with "nvinkpunk" (4.27 GB)</td>
-<td><a href="https://huggingface.co/Envvi/Inkpunk-Diffusion">https://huggingface.co/Envvi/Inkpunk-Diffusion</a></td>
-</tr>
-<tr>
-<td>openjourney-4.0</td>
-<td>prompthero/openjourney</td>
-<td>An SD 1.5 model fine tuned on Midjourney; prompt with "mdjrny-v4 style" (2.13 GB)</td>
-<td><a href="https://huggingface.co/prompthero/openjourney">https://huggingface.co/prompthero/openjourney</a></td>
-</tr>
-<tr>
-<td>portrait-plus-1.0</td>
-<td>wavymulder/portraitplus</td>
-<td>An SD-1.5 model trained on close range portraits of people; prompt with "portrait+" (2.13 GB)</td>
-<td><a href="https://huggingface.co/wavymulder/portraitplus">https://huggingface.co/wavymulder/portraitplus</a></td>
-</tr>
-<tr>
-<td>seek-art-mega-1.0</td>
-<td>coreco/seek.art_MEGA</td>
-<td>A general use SD-1.5 "anything" model that supports multiple styles (2.1 GB)</td>
-<td><a href="https://huggingface.co/coreco/seek.art_MEGA">https://huggingface.co/coreco/seek.art_MEGA</a></td>
-</tr>
-<tr>
-<td>trinart-2.0</td>
-<td>naclbit/trinart_stable_diffusion_v2</td>
-<td>An SD-1.5 model finetuned with ~40K assorted high resolution manga/anime-style images (2.13 GB)</td>
-<td><a href="https://huggingface.co/naclbit/trinart_stable_diffusion_v2">https://huggingface.co/naclbit/trinart_stable_diffusion_v2</a></td>
-</tr>
-<tr>
-<td>waifu-diffusion-1.4</td>
-<td>hakurei/waifu-diffusion</td>
-<td>An SD-1.5 model trained on 680k anime/manga-style images (2.13 GB)</td>
-<td><a href="https://huggingface.co/hakurei/waifu-diffusion">https://huggingface.co/hakurei/waifu-diffusion</a></td>
-</tr>
-</tbody>
-</table>
+<code>configs/models.yaml</code>.</p>
 <p>Note that these files are covered by an "Ethical AI" license which
 forbids certain uses. When you initially download them, you are asked
 to accept the license terms. In addition, some of these models carry
@@ -1673,8 +1495,7 @@ additional license terms that limit their use in commercial
 applications or on public servers. Be sure to familiarize yourself
 with the model terms by visiting the URLs in the table above.</p>
 <h2 id="community-contributed-models">Community-Contributed Models<a class="headerlink" href="#community-contributed-models" title="Permanent link">#</a></h2>
-<p>There are too many to list here and more are being contributed every
-day.  <a href="https://huggingface.co/models?library=diffusers">HuggingFace</a>
+<p><a href="https://huggingface.co/models?library=diffusers">HuggingFace</a>
 is a great resource for diffusers models, and is also the home of a
 <a href="https://huggingface.co/sd-concepts-library">fast-growing repository</a>
 of embedding (".bin") models that add subjects and/or styles to your
@@ -1686,244 +1507,111 @@ Library</a> for more information.</p>
 only <code>.safetensors</code> and <code>.ckpt</code> models, but they can be easily loaded
 into InvokeAI and/or converted into optimized <code>diffusers</code> models. Be
 aware that CIVITAI hosts many models that generate NSFW content.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>InvokeAI 2.3.x does not support directly importing and
-running Stable Diffusion version 2 checkpoint models. You may instead
-convert them into <code>diffusers</code> models using the conversion methods
-described below.</p>
-</div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<p>There are multiple ways to install and manage models:</p>
+<p>There are two ways to install and manage models:</p>
 <ol>
 <li>
-<p>The <code>invokeai-configure</code> script which will download and install them for you.</p>
-</li>
-<li>
-<p>The command-line tool (CLI) has commands that allows you to import, configure and modify
-   models files.</p>
+<p>The <code>invokeai-model-install</code> script which will download and install
+them for you.  In addition to supporting main models, you can install
+ControlNet, LoRA and Textual Inversion models.</p>
 </li>
 <li>
 <p>The web interface (WebUI) has a GUI for importing and managing
    models.</p>
 </li>
+<li>
+<p>By placing models (or symbolic links to models) inside one of the
+InvokeAI root directory's <code>autoimport</code> folder.</p>
+</li>
 </ol>
-<h3 id="installation-via-invokeai-configure">Installation via <code>invokeai-configure</code><a class="headerlink" href="#installation-via-invokeai-configure" title="Permanent link">#</a></h3>
-<p>From the <code>invoke</code> launcher, choose option (6) "re-run the configure
-script to download new models." This will launch the same script that
-prompted you to select models at install time. You can use this to add
-models that you skipped the first time around. It is all right to
-specify a model that was previously downloaded; the script will just
-confirm that the files are complete.</p>
-<h3 id="installation-via-the-cli">Installation via the CLI<a class="headerlink" href="#installation-via-the-cli" title="Permanent link">#</a></h3>
-<p>You can install a new model, including any of the community-supported ones, via
-the command-line client's <code>!import_model</code> command.</p>
-<h4 id="installing-individual-ckpt-and-safetensors-models">Installing individual <code>.ckpt</code> and <code>.safetensors</code> models<a class="headerlink" href="#installing-individual-ckpt-and-safetensors-models" title="Permanent link">#</a></h4>
-<p>If the model is already downloaded to your local disk, use
-<code>!import_model /path/to/file.ckpt</code> to load it. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>invoke&gt;<span class="w"> </span>!import_model<span class="w"> </span>C:/Users/fred/Downloads/martians.safetensors
+<h3 id="installation-via-invokeai-model-install">Installation via <code>invokeai-model-install</code><a class="headerlink" href="#installation-via-invokeai-model-install" title="Permanent link">#</a></h3>
+<p>From the <code>invoke</code> launcher, choose option [5] "Download and install
+models." This will launch the same script that prompted you to select
+models at install time. You can use this to add models that you
+skipped the first time around. It is all right to specify a model that
+was previously downloaded; the script will just confirm that the files
+are complete.</p>
+<p>The installer has different panels for installing main models from
+HuggingFace, models from Civitai and other arbitrary web sites,
+ControlNet models, LoRA/LyCORIS models, and Textual Inversion
+embeddings. Each section has a text box in which you can enter a new
+model to install. You can refer to a model using its:</p>
+<ol>
+<li>Local path to the .ckpt, .safetensors or diffusers folder on your local machine</li>
+<li>A directory on your machine that contains multiple models</li>
+<li>A URL that points to a downloadable model</li>
+<li>A HuggingFace repo id</li>
+</ol>
+<p>Previously-installed models are shown with checkboxes. Uncheck a box
+to unregister the model from InvokeAI. Models that are physically
+installed inside the InvokeAI root directory will be deleted and
+purged (after a confirmation warning). Models that are located outside
+the InvokeAI root directory will be unregistered but not deleted.</p>
+<p>Note: The installer script uses a console-based text interface that requires
+significant amounts of horizontal and vertical space. If the display
+looks messed up, just enlarge the terminal window and/or relaunch the
+script.</p>
+<p>If you wish you can script model addition and deletion, as well as
+listing installed models. Start the "developer's console" and give the
+command <code>invokeai-model-install --help</code>. This will give you a series
+of command-line parameters that will let you control model
+installation. Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># (list all controlnet models)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>invokeai-model-install --list controlnet
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># (install the model at the indicated URL)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>invokeai-model-install --add http://civitai.com/2860
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a># (delete the named model)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>invokeai-model-install --delete sd-1/main/analog-diffusion
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Forward Slashes</p>
-<p>On Windows systems, use forward slashes rather than backslashes
-in your file paths.
-If you do use backslashes,
-you must double them like this:
-<code>C:\\Users\\fred\\Downloads\\martians.safetensors</code></p>
-</div>
-<p>Alternatively you can directly import the file using its URL:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>invoke&gt;<span class="w"> </span>!import_model<span class="w"> </span>https://example.org/sd_models/martians.safetensors
-</code></pre></div>
-<p>For this to work, the URL must not be password-protected. Otherwise
-you will receive a 404 error.</p>
-<p>When you import a legacy model, the CLI will first ask you what type
-of model this is. You can indicate whether it is a model based on
-Stable Diffusion 1.x (1.4 or 1.5), one based on Stable Diffusion 2.x,
-or a 1.x inpainting model. Be careful to indicate the correct model
-type, or it will not load correctly. You can correct the model type
-after the fact using the <code>!edit_model</code> command.</p>
-<p>The system will then ask you a few other questions about the model,
-including what size image it was trained on (usually 512x512), what
-name and description you wish to use for it, and whether you would
-like to install a custom VAE (variable autoencoder) file for the
-model. For recent models, the answer to the VAE question is usually
-"no," but it won't hurt to answer "yes".</p>
-<p>After importing, the model will load. If this is successful, you will
-be asked if you want to keep the model loaded in memory to start
-generating immediately. You'll also be asked if you wish to make this
-the default model on startup. You can change this later using
-<code>!edit_model</code>.</p>
-<h4 id="importing-a-batch-of-ckpt-and-safetensors-models-from-a-directory">Importing a batch of <code>.ckpt</code> and <code>.safetensors</code> models from a directory<a class="headerlink" href="#importing-a-batch-of-ckpt-and-safetensors-models-from-a-directory" title="Permanent link">#</a></h4>
-<p>You may also point <code>!import_model</code> to a directory containing a set of
-<code>.ckpt</code> or <code>.safetensors</code> files. They will be imported <em>en masse</em>.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">invoke&gt; !import_model C:/Users/fred/Downloads/civitai_models/</span>
-</code></pre></div>
-</div>
-<p>You will be given the option to import all models found in the
-directory, or select which ones to import. If there are subfolders
-within the directory, they will be searched for models to import.</p>
-<h4 id="installing-diffusers-models">Installing <code>diffusers</code> models<a class="headerlink" href="#installing-diffusers-models" title="Permanent link">#</a></h4>
-<p>You can install a <code>diffusers</code> model from the HuggingFace site using
-<code>!import_model</code> and the HuggingFace repo_id for the model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>invoke&gt;<span class="w"> </span>!import_model<span class="w"> </span>andite/anything-v4.0
-</code></pre></div>
-<p>Alternatively, you can download the model to disk and import it from
-there. The model may be distributed as a ZIP file, or as a Git
-repository:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>invoke&gt;<span class="w"> </span>!import_model<span class="w"> </span>C:/Users/fred/Downloads/andite--anything-v4.0
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">The CLI supports file path autocompletion<p>Type a bit of the path name and hit <span class="keys"><kbd class="key-tab">Tab</kbd></span> in order to get a choice of
- possible completions.</p>
-</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">On Windows, you can drag model files onto the command-line<p>Once you have typed in <code>!import_model</code>, you can drag the
- model  file or directory onto the command-line to insert the model path. This way, you don't need to
- type it or copy/paste. However, you will need to reverse or
- double backslashes as noted above.</p>
-</p>
-</div>
-<p>Before installing, the CLI will ask you for a short name and
-description for the model, whether to make this the default model that
-is loaded at InvokeAI startup time, and whether to replace its
-VAE. Generally the answer to the latter question is "no".</p>
-<h3 id="converting-legacy-models-into-diffusers">Converting legacy models into <code>diffusers</code><a class="headerlink" href="#converting-legacy-models-into-diffusers" title="Permanent link">#</a></h3>
-<p>The CLI <code>!convert_model</code> will convert a <code>.safetensors</code> or <code>.ckpt</code>
-models file into <code>diffusers</code> and install it.This will enable the model
-to load and run faster without loss of image quality.</p>
-<p>The usage is identical to <code>!import_model</code>. You may point the command
-to either a downloaded model file on disk, or to a (non-password
-protected) URL:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>invoke&gt;<span class="w"> </span>!convert_model<span class="w"> </span>C:/Users/fred/Downloads/martians.safetensors
-</code></pre></div>
-<p>After a successful conversion, the CLI will offer you the option of
-deleting the original <code>.ckpt</code> or <code>.safetensors</code> file.</p>
-<h3 id="optimizing-a-previously-installed-model">Optimizing a previously-installed model<a class="headerlink" href="#optimizing-a-previously-installed-model" title="Permanent link">#</a></h3>
-<p>Lastly, if you have previously installed a <code>.ckpt</code> or <code>.safetensors</code>
-file and wish to convert it into a <code>diffusers</code> model, you can do this
-without re-downloading and converting the original file using the
-<code>!optimize_model</code> command. Simply pass the short name of an existing
-installed model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>invoke&gt;<span class="w"> </span>!optimize_model<span class="w"> </span>martians-v1.0
-</code></pre></div>
-<p>The model will be converted into <code>diffusers</code> format and replace the
-previously installed version. You will again be offered the
-opportunity to delete the original <code>.ckpt</code> or <code>.safetensors</code> file.</p>
-<h3 id="related-cli-commands">Related CLI Commands<a class="headerlink" href="#related-cli-commands" title="Permanent link">#</a></h3>
-<p>There are a whole series of additional model management commands in
-the CLI that you can read about in <a href="../features/CLI.md">Command-Line
-Interface</a>. These include:</p>
-<ul>
-<li><code>!models</code> - List all installed models</li>
-<li><code>!switch &lt;model name&gt;</code> - Switch to the indicated model</li>
-<li><code>!edit_model &lt;model name&gt;</code> - Edit the indicated model to change its name, description or other properties</li>
-<li><code>!del_model &lt;model name&gt;</code> - Delete the indicated model</li>
-</ul>
-<h3 id="manually-editing-configsmodelsyaml">Manually editing <code>configs/models.yaml</code><a class="headerlink" href="#manually-editing-configsmodelsyaml" title="Permanent link">#</a></h3>
-<p>If you are comfortable with a text editor then you may simply edit <code>models.yaml</code>
-directly.</p>
-<p>You will need to download the desired <code>.ckpt/.safetensors</code> file and
-place it somewhere on your machine's filesystem. Alternatively, for a
-<code>diffusers</code> model, record the repo_id or download the whole model
-directory. Then using a <strong>text</strong> editor (e.g. the Windows Notepad
-application), open the file <code>configs/models.yaml</code>, and add a new
-stanza that follows this model:</p>
-<h4 id="a-legacy-model">A legacy model<a class="headerlink" href="#a-legacy-model" title="Permanent link">#</a></h4>
-<p>A legacy <code>.ckpt</code> or <code>.safetensors</code> entry will look like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">arabian-nights-1.0</span><span class="p">:</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A great fine-tune in Arabian Nights style</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">weights</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./path/to/arabian-nights-1.0.ckpt</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./configs/stable-diffusion/v1-inference.yaml</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ckpt</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nt">height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-</code></pre></div>
-<p>Note that <code>format</code> is <code>ckpt</code> for both <code>.ckpt</code> and <code>.safetensors</code> files.</p>
-<h4 id="a-diffusers-model">A diffusers model<a class="headerlink" href="#a-diffusers-model" title="Permanent link">#</a></h4>
-<p>A stanza for a <code>diffusers</code> model will look like this for a HuggingFace
-model with a repository ID:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">arabian-nights-1.1</span><span class="p">:</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An even better fine-tune of the Arabian Nights</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">repo_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">captahab/arabian-nights-1.1</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diffusers</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<p>And for a downloaded directory:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">arabian-nights-1.1</span><span class="p">:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An even better fine-tune of the Arabian Nights</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/captahab-arabian-nights-1.1</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diffusers</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<p>There is additional syntax for indicating an external VAE to use with
-this model. See <code>INITIAL_MODELS.yaml</code> and <code>models.yaml</code> for examples.</p>
-<p>After you save the modified <code>models.yaml</code> file relaunch
-<code>invokeai</code>. The new model will now be available for your use.</p>
-<h3 id="installation-via-the-webui">Installation via the WebUI<a class="headerlink" href="#installation-via-the-webui" title="Permanent link">#</a></h3>
-<p>To access the WebUI Model Manager, click on the button that looks like
-a cube in the upper right side of the browser screen. This will bring
-up a dialogue that lists the models you have already installed, and
-allows you to load, delete or edit them:</p>
-<figure>
-<p><img alt="model-manager" src="../../assets/installing-models/webui-models-1.png" /></p>
-</figure>
-<p>To add a new model, click on <strong>+ Add New</strong> and select to either a
-checkpoint/safetensors model, or a diffusers model:</p>
-<figure>
-<p><img alt="model-manager-add-new" src="../../assets/installing-models/webui-models-2.png" /></p>
-</figure>
-<p>In this example, we chose <strong>Add Diffusers</strong>. As shown in the figure
-below, a new dialogue prompts you to enter the name to use for the
-model, its description, and either the location of the <code>diffusers</code>
-model on disk, or its Repo ID on the HuggingFace web site. If you
-choose to enter a path to disk, the system will autocomplete for you
-as you type:</p>
-<figure>
-<p><img alt="model-manager-add-diffusers" src="../../assets/installing-models/webui-models-3.png" /></p>
-</figure>
-<p>Press <strong>Add Model</strong> at the bottom of the dialogue (scrolled out of
-site in the figure), and the model will be downloaded, imported, and
-registered in <code>models.yaml</code>.</p>
-<p>The <strong>Add Checkpoint/Safetensor Model</strong> option is similar, except that
-in this case you can choose to scan an entire folder for
-checkpoint/safetensors files to import. Simply type in the path of the
-directory and press the "Search" icon. This will display the
-<code>.ckpt</code> and <code>.safetensors</code> found inside the directory and its
-subfolders, and allow you to choose which ones to import:</p>
-<figure>
-<p><img alt="model-manager-add-checkpoint" src="../../assets/installing-models/webui-models-4.png" /></p>
-</figure>
-<h2 id="model-management-startup-options">Model Management Startup Options<a class="headerlink" href="#model-management-startup-options" title="Permanent link">#</a></h2>
-<p>The <code>invoke</code> launcher and the <code>invokeai</code> script accept a series of
-command-line arguments that modify InvokeAI's behavior when loading
-models. These can be provided on the command line, or added to the
-InvokeAI root directory's <code>invokeai.init</code> initialization file.</p>
-<p>The arguments are:</p>
-<ul>
-<li><code>--model &lt;model name&gt;</code> -- Start up with the indicated model loaded</li>
-<li><code>--ckpt_convert</code> -- When a checkpoint/safetensors model is loaded, convert it into a <code>diffusers</code> model in memory. This does not permanently save the converted model to disk.</li>
-<li><code>--autoconvert &lt;path/to/directory&gt;</code> -- Scan the indicated directory path for new checkpoint/safetensors files, convert them into <code>diffusers</code> models, and import them into InvokeAI.</li>
-</ul>
-<p>Here is an example of providing an argument on the command line using
-the <code>invoke.sh</code> launch script:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>invoke.sh<span class="w"> </span>--autoconvert<span class="w"> </span>/home/fred/stable-diffusion-checkpoints
-</code></pre></div>
-<p>And here is what the same argument looks like in <code>invokeai.init</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>--outdir<span class="o">=</span><span class="s2">&quot;/home/fred/invokeai/outputs</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="s2">--no-nsfw_checker</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="s2">--autoconvert /home/fred/stable-diffusion-checkpoints</span>
-</code></pre></div>
+<h3 id="installation-via-the-web-gui">Installation via the Web GUI<a class="headerlink" href="#installation-via-the-web-gui" title="Permanent link">#</a></h3>
+<p>To install a new model using the Web GUI, do the following:</p>
+<ol>
+<li>
+<p>Open the InvokeAI Model Manager (cube at the bottom of the
+left-hand panel) and navigate to <em>Import Models</em></p>
+</li>
+<li>
+<p>In the field labeled <em>Location</em> type in the path to the model you
+wish to install. You may use a URL, HuggingFace repo id, or a path on
+your local disk.</p>
+</li>
+<li>
+<p>Alternatively, the <em>Scan for Models</em> button allows you to paste in
+the path to a folder somewhere on your machine. It will be scanned for
+importable models and prompt you to add the ones of your choice.</p>
+</li>
+<li>
+<p>Press <em>Add Model</em> and wait for confirmation that the model
+was added.</p>
+</li>
+</ol>
+<p>To delete a model, Select <em>Model Manager</em> to list all the currently
+installed models. Press the trash can icons to delete any models you
+wish to get rid of. Models whose weights are located inside the
+InvokeAI <code>models</code> directory will be purged from disk, while those
+located outside will be unregistered from InvokeAI, but not deleted.</p>
+<p>You can see where model weights are located by clicking on the model name.
+This will bring up an editable info panel showing the model's characteristics,
+including the <code>Model Location</code> of its files.</p>
+<h3 id="installation-via-the-autoimport-function">Installation via the <code>autoimport</code> function<a class="headerlink" href="#installation-via-the-autoimport-function" title="Permanent link">#</a></h3>
+<p>In the InvokeAI root directory you will find a series of folders under
+<code>autoimport</code>, one each for main models, controlnets, embeddings and
+Loras.  Any models that you add to these directories will be scanned
+at startup time and registered automatically.</p>
+<p>You may create symbolic links from these folders to models located
+elsewhere on disk and they will be autoimported. You can also create
+subfolders and organize them as you wish.</p>
+<p>The location of the autoimport directories are controlled by settings
+in <code>invokeai.yaml</code>. See <a href="../../features/CONFIGURATION/">Configuration</a>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 8, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 18, 2023</span>
       
         <br>
         Created:
