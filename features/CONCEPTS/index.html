@@ -17,7 +17,7 @@
     
     
       
-        <title>Concepts - InvokeAI Stable Diffusion Toolkit Docs</title>
+        <title>Textual Inversion Embeddings and LoRAs - InvokeAI Stable Diffusion Toolkit Docs</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-hugging-face-concepts-library-and-importing-textual-inversion-files" class="md-skip">
+        <a href="#textual-inversions-and-loras" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Concepts
+              Textual Inversion Embeddings and LoRAs
             
           </span>
         </div>
@@ -636,12 +636,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Concepts
+          Textual Inversion Embeddings and LoRAs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Concepts
+        Textual Inversion Embeddings and LoRAs
       </a>
       
         
@@ -1433,7 +1433,7 @@
   </a>
 
 
-<h1 id="the-hugging-face-concepts-library-and-importing-textual-inversion-files"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 9V1.5h-3V9h-3V1.5h-3V9h-3V1.5H4.65V9H3v1.5h18V9h-1.5m0 4.5h-3V21h-3v-7.5h-3V21h-3v-7.5H4.65V21H3v1.5h18V21h-1.5v-7.5Z"/></svg></span> The Hugging Face Concepts Library and Importing Textual Inversion files<a class="headerlink" href="#the-hugging-face-concepts-library-and-importing-textual-inversion-files" title="Permanent link">#</a></h1>
+<h1 id="textual-inversions-and-loras"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 9V1.5h-3V9h-3V1.5h-3V9h-3V1.5H4.65V9H3v1.5h18V9h-1.5m0 4.5h-3V21h-3v-7.5h-3V21h-3v-7.5H4.65V21H3v1.5h18V21h-1.5v-7.5Z"/></svg></span> Textual Inversions and LoRAs<a class="headerlink" href="#textual-inversions-and-loras" title="Permanent link">#</a></h1>
 <p>With the advances in research, many new capabilities are available to customize the knowledge and understanding of novel concepts not originally contained in the base model. </p>
 <h2 id="using-textual-inversion-files">Using Textual Inversion Files<a class="headerlink" href="#using-textual-inversion-files" title="Permanent link">#</a></h2>
 <p>Textual inversion (TI) files are small models that customize the output of
@@ -1500,27 +1500,31 @@ files it finds there for compatible models. At startup you will see a message si
 To use these when generating, simply type the <code>&lt;</code> key in your prompt to open the Textual Inversion WebUI and 
 select the embedding you'd like to use. This UI has type-ahead support, so you can easily find supported embeddings.</p>
 <h2 id="using-loras">Using LoRAs<a class="headerlink" href="#using-loras" title="Permanent link">#</a></h2>
-<p>LoRA files are models that customize the output of Stable Diffusion image generation.
-Larger than embeddings, but much smaller than full models, they augment SD with improved
-understanding of subjects and artistic styles.</p>
-<p>Unlike TI files, LoRAs do not introduce novel vocabulary into the model's known tokens. Instead,
-LoRAs augment the model's weights that are applied to generate imagery. LoRAs may be supplied
-with a "trigger" word that they have been explicitly trained on, or may simply apply their 
-effect without being triggered.</p>
-<p>LoRAs are typically stored in .safetensors files, which are the most secure way to store and transmit
-these types of weights. You may install any number of <code>.safetensors</code> LoRA files simply by copying them into
-the <code>lora</code> directory of the corresponding InvokeAI models directory (usually <code>invokeai</code>
-in your home directory). For example, you can simply move a Stable Diffusion 1.5 LoRA file to
-the <code>sd-1/lora</code> folder.</p>
-<p>To use these when generating, open the LoRA menu item in the options panel, select the LoRAs you want to apply
-and ensure that they have the appropriate weight recommended by the model provider. Typically, most LoRAs perform best at a weight of .75-1. </p>
+<p>LoRA files are models that customize the output of Stable Diffusion
+image generation.  Larger than embeddings, but much smaller than full
+models, they augment SD with improved understanding of subjects and
+artistic styles.</p>
+<p>Unlike TI files, LoRAs do not introduce novel vocabulary into the
+model's known tokens. Instead, LoRAs augment the model's weights that
+are applied to generate imagery. LoRAs may be supplied with a
+"trigger" word that they have been explicitly trained on, or may
+simply apply their effect without being triggered.</p>
+<p>LoRAs are typically stored in .safetensors files, which are the most
+secure way to store and transmit these types of weights. You may
+install any number of <code>.safetensors</code> LoRA files simply by copying them
+into the <code>autoimport/lora</code> directory of the corresponding InvokeAI models
+directory (usually <code>invokeai</code> in your home directory).</p>
+<p>To use these when generating, open the LoRA menu item in the options
+panel, select the LoRAs you want to apply and ensure that they have
+the appropriate weight recommended by the model provider. Typically,
+most LoRAs perform best at a weight of .75-1.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 6, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2023</span>
       
         <br>
         Created:
