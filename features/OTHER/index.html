@@ -945,7 +945,7 @@
   
     <li class="md-nav__item">
       <a href="../MODEL_MERGING/" class="md-nav__link">
-        Model Mergeing
+        Model Merging
       </a>
     </li>
   
@@ -972,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../NSFW/" class="md-nav__link">
+      <a href="../NSFW.md" class="md-nav__link">
         NSFW Checker
       </a>
     </li>
@@ -1125,8 +1125,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#seamless-tiling" class="md-nav__link">
-    Seamless Tiling
+  <a href="#invisible-watermark" class="md-nav__link">
+    Invisible Watermark
   </a>
   
 </li>
@@ -1134,13 +1134,6 @@
         <li class="md-nav__item">
   <a href="#weighted-prompts" class="md-nav__link">
     Weighted Prompts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thresholding-and-perlin-noise-initialization-options" class="md-nav__link">
-    Thresholding and Perlin Noise Initialization Options
   </a>
   
 </li>
@@ -1623,51 +1616,35 @@
 <p>Output Example:</p>
 <p><img alt="Colab Notebook" src="../../assets/colab_notebook.png" /></p>
 <hr />
-<h2 id="seamless-tiling"><strong>Seamless Tiling</strong><a class="headerlink" href="#seamless-tiling" title="Permanent link">#</a></h2>
-<p>The seamless tiling mode causes generated images to seamlessly tile
-with itself creating repetitive wallpaper-like patterns. To use it,
-activate the Seamless Tiling option in the Web GUI and then select
-whether to tile on the X (horizontal) and/or Y (vertical) axes. Tiling
-will then be active for the next set of generations.</p>
-<p>A nice prompt to test seamless tiling with is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pond garden with lotus by claude monet&quot;
+<h2 id="invisible-watermark"><strong>Invisible Watermark</strong><a class="headerlink" href="#invisible-watermark" title="Permanent link">#</a></h2>
+<p>In keeping with the principles for responsible AI generation, and to
+help AI researchers avoid synthetic images contaminating their
+training sets, InvokeAI adds an invisible watermark to each of the
+final images it generates. The watermark consists of the text
+"InvokeAI" and can be viewed using the
+<a href="https://github.com/ShieldMnt/invisible-watermark">invisible-watermarks</a>
+tool.</p>
+<p>Watermarking is controlled using the <code>invisible-watermark</code> setting in
+<code>invokeai.yaml</code>. To turn it off, add the following line under the <code>Features</code>
+category.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>invisible_watermark: false
 </code></pre></div>
-<hr />
 <h2 id="weighted-prompts"><strong>Weighted Prompts</strong><a class="headerlink" href="#weighted-prompts" title="Permanent link">#</a></h2>
 <p>You may weight different sections of the prompt to tell the sampler to attach different levels of
 priority to them, by adding <code>:&lt;percent&gt;</code> to the end of the section you wish to up- or downweight. For
 example consider this prompt:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tabby<span class="w"> </span>cat:0.25<span class="w"> </span>white<span class="w"> </span>duck:0.75<span class="w"> </span>hybrid
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">(</span>tabby<span class="w"> </span>cat<span class="o">)</span>:0.25<span class="w"> </span><span class="o">(</span>white<span class="w"> </span>duck<span class="o">)</span>:0.75<span class="w"> </span>hybrid
 </code></pre></div>
 <p>This will tell the sampler to invest 25% of its effort on the tabby cat aspect of the image and 75%
 on the white duck aspect (surprisingly, this example actually works). The prompt weights can use any
 combination of integers and floating point numbers, and they do not need to add up to 1.</p>
-<h2 id="thresholding-and-perlin-noise-initialization-options"><strong>Thresholding and Perlin Noise Initialization Options</strong><a class="headerlink" href="#thresholding-and-perlin-noise-initialization-options" title="Permanent link">#</a></h2>
-<p>Under the Noise section of the Web UI, you will find two options named
-Perlin Noise and Noise Threshold. <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin
-noise</a> is a type of
-structured noise used to simulate terrain and other natural
-textures. The slider controls the percentage of perlin noise that will
-be mixed into the image at the beginning of generation. Adding a little
-perlin noise to a generation will alter the image substantially.</p>
-<p>The noise threshold limits the range of the latent values during
-sampling and helps combat the oversharpening seem with higher CFG
-scale values.</p>
-<p>For better intuition into what these options do in practice:</p>
-<p><img alt="here is a graphic demonstrating them both" src="../../assets/truncation_comparison.jpg" /></p>
-<p>In generating this graphic, perlin noise at initialization was
-programmatically varied going across on the diagram by values 0.0,
-0.1, 0.2, 0.4, 0.5, 0.6, 0.8, 0.9, 1.0; and the threshold was varied
-going down from 0, 1, 2, 3, 4, 5, 10, 20, 100. The other options are
-fixed using the prompt "a portrait of a beautiful young lady" a CFG of
-20, 100 steps, and a seed of 1950357039.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 1, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 24, 2023</span>
       
         <br>
         Created:

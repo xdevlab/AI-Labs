@@ -523,6 +523,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#oserrors-on-windows-while-installing-dependencies" class="md-nav__link">
+    OSErrors on Windows while installing dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stable-diffusion-xl-generation-fails-after-trying-to-load-unet" class="md-nav__link">
+    Stable Diffusion XL Generation Fails after Trying to Load unet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#package-dependency-conflicts" class="md-nav__link">
     Package dependency conflicts
   </a>
@@ -1048,7 +1062,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/MODEL_MERGING/" class="md-nav__link">
-        Model Mergeing
+        Model Merging
       </a>
     </li>
   
@@ -1075,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/NSFW/" class="md-nav__link">
+      <a href="../../features/NSFW.md" class="md-nav__link">
         NSFW Checker
       </a>
     </li>
@@ -1692,10 +1706,8 @@ dependencies.</p>
     this, open up a command-line window ("Terminal" on Linux and
     Macintosh, "Command" or "Powershell" on Windows) and type <code>python
     --version</code>. If Python is installed, it will print out the version
-    number. If it is version <code>3.9.*</code> or <code>3.10.*</code>, you meet
-    requirements. We do not recommend using Python 3.11 or higher,
-    as not all the libraries that InvokeAI depends on work properly
-    with this version.</p>
+    number. If it is version <code>3.9.*</code>, <code>3.10.*</code> or <code>3.11.*</code> you meet
+    requirements.</p>
 <div class="admonition warning">
 <p class="admonition-title">What to do if you have an unsupported version</p>
 <p>Go to <a href="https://www.python.org/downloads/">Python Downloads</a>
@@ -1860,19 +1872,6 @@ may restart it and it will pick up where it left off.</p>
 any time to tweak your system. Here are the options you can adjust:</p>
 <ul>
 <li>
-<p><strong><em>Output directory for images</em></strong>
-  This is the path to a directory in which InvokeAI will store all its
-  generated images.</p>
-</li>
-<li>
-<p><strong><em>NSFW checker</em></strong>
-  If checked, InvokeAI will test images for potential sexual content
-  and blur them out if found. Note that the NSFW checker consumes
-  an additional 0.6 GB of VRAM on top of the 2-3 GB of VRAM used
-  by most image models. If you have a low VRAM GPU (4-6 GB), you
-  can reduce out of memory errors by disabling the checker.</p>
-</li>
-<li>
 <p><strong><em>HuggingFace Access Token</em></strong>
   InvokeAI has the ability to download embedded styles and subjects
   from the HuggingFace Concept Library on-demand. However, some of
@@ -1909,22 +1908,34 @@ and graphics cards. The "autocast" option is deprecated and
 shouldn't be used unless you are asked to by a member of the team.</p>
 </li>
 <li>
-<p><strong><em>Number of models to cache in CPU memory</em></strong>
+<p><strong>Size of the RAM cache used for fast model switching*</strong>
     This allows you to keep models in memory and switch rapidly among
 them rather than having them load from disk each time. This slider
-controls how many models to keep loaded at once. Each
-model will use 2-4 GB of RAM, so use this cautiously</p>
+controls how many models to keep loaded at once. A typical SD-1 or SD-2 model
+uses 2-3 GB of memory. A typical SDXL model uses 6-7 GB. Providing more
+RAM will allow more models to be co-resident.</p>
 </li>
 <li>
-<p><strong><em>Directory containing embedding/textual inversion files</em></strong>
-    This is the directory in which you can place custom embedding
-files (.pt or .bin). During startup, this directory will be
-scanned and InvokeAI will print out the text terms that
-are available to trigger the embeddings.</p>
+<p><strong><em>Output directory for images</em></strong>
+  This is the path to a directory in which InvokeAI will store all its
+  generated images.</p>
+</li>
+<li>
+<p><strong><em>Autoimport Folder</em></strong>
+  This is the directory in which you can place models you have
+  downloaded and wish to load into InvokeAI. You can place a variety
+  of models in this directory, including diffusers folders, .ckpt files,
+  .safetensors files, as well as LoRAs, ControlNet and Textual Inversion
+  files (both folder and file versions). To help organize this folder,
+  you can create several levels of subfolders and drop your models into
+  whichever ones you want.</p>
+</li>
+<li>
+<p><strong><em>Autoimport FolderLICENSE</em></strong>     </p>
 </li>
 </ul>
 <p>At the bottom of the screen you will see a checkbox for accepting
-the CreativeML Responsible AI License. You need to accept the license
+the CreativeML Responsible AI Licenses. You need to accept the license
 in order to download Stable Diffusion models from the next screen.</p>
 <p><em>You can come back to the startup options form</em> as many times as you like.
 From the <code>invoke.sh</code> or <code>invoke.bat</code> launcher, select option (6) to relaunch
@@ -2038,7 +2049,51 @@ Once InvokeAI is installed, do not move or remove this directory."</p>
 </div>
 </li>
 </ol>
+<p><a name="troubleshooting"></a></p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<h3 id="oserrors-on-windows-while-installing-dependencies"><em>OSErrors on Windows while installing dependencies</em><a class="headerlink" href="#oserrors-on-windows-while-installing-dependencies" title="Permanent link">#</a></h3>
+<p>During a zip file installation or an online update, installation stops
+with an error like this:</p>
+<p><img alt="broken-dependency-screenshot" src="../../assets/troubleshooting/broken-dependency.png" width="800px" /></p>
+<p>This seems to happen particularly often with the <code>pydantic</code> and
+<code>numpy</code> packages. The most reliable solution requires several manual
+steps to complete installation.</p>
+<p>Open up a Powershell window and navigate to the <code>invokeai</code> directory
+created by the installer. Then give the following series of commands:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rm .\.venv -r -force
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>python -mvenv .venv
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>.\.venv\Scripts\activate
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>pip install invokeai
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>invokeai-configure --root .
+</code></pre></div>
+<p>If you see anything marked as an error during this process please stop
+and seek help on the Discord <a href="https://discord.com/channels/1020123559063990373/1041391462190956654">installation support
+channel</a>. A
+few warning messages are OK.</p>
+<p>If you are updating from a previous version, this should restore your
+system to a working state. If you are installing from scratch, there
+is one additional command to give:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>wget -O invoke.bat https://raw.githubusercontent.com/invoke-ai/InvokeAI/main/installer/templates/invoke.bat.in
+</code></pre></div>
+<p>This will create the <code>invoke.bat</code> script needed to launch InvokeAI and
+its related programs.</p>
+<h3 id="stable-diffusion-xl-generation-fails-after-trying-to-load-unet"><em>Stable Diffusion XL Generation Fails after Trying to Load unet</em><a class="headerlink" href="#stable-diffusion-xl-generation-fails-after-trying-to-load-unet" title="Permanent link">#</a></h3>
+<p>InvokeAI is working in other respects, but when trying to generate
+images with Stable Diffusion XL you get a "Server Error". The text log
+in the launch window contains this log line above several more lines of
+error messages:</p>
+<p><code>INFO --&gt; Loading model:D:\LONG\PATH\TO\MODEL, type sdxl:main:unet</code></p>
+<p>This failure mode occurs when there is a network glitch during
+downloading the very large SDXL model.</p>
+<p>To address this, first go to the Web Model Manager and delete the
+Stable-Diffusion-XL-base-1.X model. Then navigate to HuggingFace and
+manually download the .safetensors version of the model. The 1.0
+version is located at
+<a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/main">https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/main</a>
+and the file is named <code>sd_xl_base_1.0.safetensors</code>.</p>
+<p>Save this file to disk and then reenter the Model Manager. Navigate to
+Import Models-&gt;Add Model, then type (or drag-and-drop) the path to the
+.safetensors file. Press "Add Model".</p>
 <h3 id="package-dependency-conflicts"><em>Package dependency conflicts</em><a class="headerlink" href="#package-dependency-conflicts" title="Permanent link">#</a></h3>
 <p>If you have previously installed InvokeAI or another Stable Diffusion
 package, the installer may occasionally pick up outdated libraries and
@@ -2065,12 +2120,12 @@ will take you to a command-line prompt.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">NVIDIA System</label><label for="__tabbed_2_2">AMD System</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--force-reinstall<span class="w"> </span>--extra-index-url<span class="w"> </span>https://download.pytorch.org/whl/cu117
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pip<span class="w"> </span>install<span class="w"> </span>xformers
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--force-reinstall<span class="w"> </span>--extra-index-url<span class="w"> </span>https://download.pytorch.org/whl/cu117
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>pip<span class="w"> </span>install<span class="w"> </span>xformers
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--force-reinstall<span class="w"> </span>--extra-index-url<span class="w"> </span>https://download.pytorch.org/whl/rocm5.4.2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--force-reinstall<span class="w"> </span>--extra-index-url<span class="w"> </span>https://download.pytorch.org/whl/rocm5.4.2
 </code></pre></div>
 </div>
 </div>
@@ -2084,7 +2139,7 @@ download models, etc), but this doesn't fix the problem.</p>
 easiest way to fix the problem is to move the file out of the way and re-run
 <code>invokeai-configure</code>. Enter the developer's console (option 3 of the launcher
 script) and run this command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>invokeai-configure --root=.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>invokeai-configure --root=.
 </code></pre></div>
 <p>Note the dot (.) after <code>--root</code>. It is part of the command.</p>
 <p><em>If none of these maneuvers fixes the problem</em> then please report the problem to
@@ -2172,7 +2227,7 @@ version (recommended), follow these steps:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 28, 2023</span>
       
         <br>
         Created:
