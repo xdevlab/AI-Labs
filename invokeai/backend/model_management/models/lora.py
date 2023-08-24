@@ -1,5 +1,6 @@
 import bisect
 import os
+import time
 from enum import Enum
 from pathlib import Path
 from typing import Dict, Optional, Union
@@ -550,6 +551,7 @@ class LoRAModelRaw:  # (torch.nn.Module):
         dtype: Optional[torch.dtype] = None,
         base_model: Optional[BaseModelType] = None,
     ):
+        start = time.time()
         device = device or torch.device("cpu")
         dtype = dtype or torch.float32
 
@@ -604,6 +606,7 @@ class LoRAModelRaw:  # (torch.nn.Module):
             layer.to(device=device, dtype=dtype)
             model.layers[layer_key] = layer
 
+        print(f"Loaded LoRA from disk ({file_path}) in {time.time() - start}")
         return model
 
     @staticmethod

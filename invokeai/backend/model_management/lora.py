@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import copy
+import time
+from collections import defaultdict
 from contextlib import contextmanager
-from typing import Optional, Dict, Tuple, Any, Union, List
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import numpy as np
 import torch
@@ -13,7 +15,6 @@ from safetensors.torch import load_file
 from transformers import CLIPTextModel, CLIPTokenizer
 
 from .models.lora import LoRAModel
-
 
 """
 loras = [
@@ -121,31 +122,66 @@ class ModelPatcher:
         loras: List[Tuple[LoRAModel, float]],
         prefix: str,
     ):
+        start = time.time()
         original_weights = dict()
+        timing = defaultdict(list)
+        total_lora_layers = 0
         try:
             with torch.no_grad():
                 for lora, lora_weight in loras:
+                    print(f"Processing lora (weight: {lora_weight})")
                     # assert lora.device.type == "cpu"
+                    start_lora = time.time()
                     for layer_key, layer in lora.layers.items():
+                        start_layer = time.time()
                         if not layer_key.startswith(prefix):
                             continue
 
+                        total_lora_layers += 1
+                        start_resolve = time.time()
                         module_key, module = cls._resolve_lora_key(model, layer_key, prefix)
+                        timing["resolve_lora_key"].append(time.time() - start_resolve)
                         if module_key not in original_weights:
+                            start_copy_original = time.time()
                             original_weights[module_key] = module.weight.detach().to(device="cpu", copy=True)
+                            timing["copy_original"].append(time.time() - start_copy_original)
 
                         # enable autocast to calc fp16 loras on cpu
                         # with torch.autocast(device_type="cpu"):
+                        start_convert_dtype = time.time()
                         layer.to(dtype=torch.float32)
+                        timing["convert_dtype"].append(time.time() - start_convert_dtype)
+
+                        start_get_weight = time.time()
                         layer_scale = layer.alpha / layer.rank if (layer.alpha and layer.rank) else 1.0
                         layer_weight = layer.get_weight(original_weights[module_key]) * lora_weight * layer_scale
+                        timing["get_weight"].append(time.time() - start_get_weight)
 
                         if module.weight.shape != layer_weight.shape:
+                            start_reshape = time.time()
                             # TODO: debug on lycoris
                             layer_weight = layer_weight.reshape(module.weight.shape)
+                            timing["reshape"].append(time.time() - start_reshape)
 
+                        start_add_weight = time.time()
                         module.weight += layer_weight.to(device=module.weight.device, dtype=module.weight.dtype)
+                        timing["add_weight"].append(time.time() - start_add_weight)
 
+                        timing["lora_layer_processing"].append(time.time() - start_layer)
+                    timing["lora_module_processing"].append(time.time() - start_lora)
+
+            print(f"Time to apply_lora ({prefix}): {time.time() - start}")
+            print(f"Total LoRA layers processed: {total_lora_layers}")
+
+            print(f"Mean times:")
+            for k, v in timing.items():
+                print(f"  {k:>30}: {np.array(v).mean()}")
+
+            print(f"Total times:")
+            for k, v in timing.items():
+                print(f"  {k:>30}: {np.array(v).sum()}")
+
+            print("done")
             yield  # wait for context manager exit
 
         finally:
@@ -197,7 +233,9 @@ class ModelPatcher:
 
                     if model_embeddings.weight.data[token_id].shape != embedding.shape:
                         raise ValueError(
-                            f"Cannot load embedding for {trigger}. It was trained on a model with token dimension {embedding.shape[0]}, but the current model has token dimension {model_embeddings.weight.data[token_id].shape[0]}."
+                            f"Cannot load embedding for {trigger}. It was trained on a model with token dimension"
+                            f" {embedding.shape[0]}, but the current model has token dimension"
+                            f" {model_embeddings.weight.data[token_id].shape[0]}."
                         )
 
                     model_embeddings.weight.data[token_id] = embedding.to(
@@ -258,7 +296,8 @@ class TextualInversionModel:
         if "string_to_param" in state_dict:
             if len(state_dict["string_to_param"]) > 1:
                 print(
-                    f'Warn: Embedding "{file_path.name}" contains multiple tokens, which is not supported. The first token will be used.'
+                    f'Warn: Embedding "{file_path.name}" contains multiple tokens, which is not supported. The first'
+                    " token will be used."
                 )
 
             result.embedding = next(iter(state_dict["string_to_param"].values()))
@@ -307,8 +346,9 @@ class TextualInversionManager(BaseTextualInversionManager):
 
 
 class ONNXModelPatcher:
-    from .models.base import IAIOnnxRuntimeModel
     from diffusers import OnnxRuntimeModel
+
+    from .models.base import IAIOnnxRuntimeModel
 
     @classmethod
     @contextmanager
@@ -470,7 +510,9 @@ class ONNXModelPatcher:
 
                     if embeddings[token_id].shape != embedding.shape:
                         raise ValueError(
-                            f"Cannot load embedding for {trigger}. It was trained on a model with token dimension {embedding.shape[0]}, but the current model has token dimension {embeddings[token_id].shape[0]}."
+                            f"Cannot load embedding for {trigger}. It was trained on a model with token dimension"
+                            f" {embedding.shape[0]}, but the current model has token dimension"
+                            f" {embeddings[token_id].shape[0]}."
                         )
 
                     embeddings[token_id] = embedding
