@@ -144,17 +144,20 @@ class ModelPatcher:
                         if module_key not in original_weights:
                             start_copy_original = time.time()
                             original_weights[module_key] = module.weight.detach().to(device="cpu", copy=True)
+                            # torch.cuda.synchronize()
                             timing["copy_original"].append(time.time() - start_copy_original)
 
                         # enable autocast to calc fp16 loras on cpu
                         # with torch.autocast(device_type="cpu"):
                         start_convert_dtype = time.time()
-                        layer.to(dtype=torch.float32)
+                        layer.to(device=module.weight.device, dtype=torch.float32)
+                        # torch.cuda.synchronize()
                         timing["convert_dtype"].append(time.time() - start_convert_dtype)
 
                         start_get_weight = time.time()
                         layer_scale = layer.alpha / layer.rank if (layer.alpha and layer.rank) else 1.0
                         layer_weight = layer.get_weight(original_weights[module_key]) * lora_weight * layer_scale
+                        # torch.cuda.synchronize()
                         timing["get_weight"].append(time.time() - start_get_weight)
 
                         if module.weight.shape != layer_weight.shape:
@@ -165,6 +168,7 @@ class ModelPatcher:
 
                         start_add_weight = time.time()
                         module.weight += layer_weight.to(device=module.weight.device, dtype=module.weight.dtype)
+                        # torch.cuda.synchronize()
                         timing["add_weight"].append(time.time() - start_add_weight)
 
                         timing["lora_layer_processing"].append(time.time() - start_layer)
