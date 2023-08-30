@@ -44,6 +44,18 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2X4JR4S4FB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2X4JR4S4FB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2X4JR4S4FB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -232,7 +244,7 @@
   
     <li class="md-tabs__item">
       <a href="../../nodes/communityNodes/" class="md-tabs__link">
-        Community Nodes
+        Nodes
       </a>
     </li>
   
@@ -748,17 +760,27 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3">
-          Community Nodes
+          Nodes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Community Nodes" data-md-level="1">
+      <nav class="md-nav" aria-label="Nodes" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Community Nodes
+          Nodes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -782,8 +804,78 @@
   
   
     <li class="md-nav__item">
+      <a href="../../nodes/exampleWorkflows/" class="md-nav__link">
+        Example Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../nodes/overview/" class="md-nav__link">
-        Overview
+        Nodes Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/defaultNodes/" class="md-nav__link">
+        List of Default Nodes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/NODES/" class="md-nav__link">
+        Node Editor Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/comfyToInvoke/" class="md-nav__link">
+        ComfyUI to InvokeAI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/contributingNodes/" class="md-nav__link">
+        Contributing Nodes
       </a>
     </li>
   
@@ -816,8 +908,6 @@
         
           
             
-          
-        
           
         
           
@@ -978,8 +1068,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../NODES/" class="md-nav__link">
-        Nodes Editor (Experimental)
+      <a href="../../nodes/overview" class="md-nav__link">
+        Using Nodes
       </a>
     </li>
   
@@ -992,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../NSFW.md" class="md-nav__link">
+      <a href="../WATERMARK%2BNSFW/" class="md-nav__link">
         NSFW Checker
       </a>
     </li>
@@ -1054,13 +1144,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#negative-and-unconditioned-prompts" class="md-nav__link">
-    Negative and Unconditioned Prompts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#prompt-syntax-features" class="md-nav__link">
     Prompt Syntax Features
   </a>
@@ -1076,8 +1159,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#blending-between-prompts" class="md-nav__link">
-    Blending between prompts
+  <a href="#prompt-blending" class="md-nav__link">
+    Prompt Blending
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-conjunction" class="md-nav__link">
+    Prompt Conjunction
   </a>
   
 </li>
@@ -1090,8 +1180,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#escaping-parantheses-and-speech-marks" class="md-nav__link">
-    Escaping parantheses () and speech marks ""
+  <a href="#escaping-parentheses-and-speech-marks" class="md-nav__link">
+    Escaping parentheses () and speech marks ""
   </a>
   
 </li>
@@ -1102,50 +1192,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prompt-blending" class="md-nav__link">
+  <a href="#prompt-blending_1" class="md-nav__link">
     Prompt Blending
   </a>
-  
-    <nav class="md-nav" aria-label="Prompt Blending">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blue-sphere-red-cube-hybrid" class="md-nav__link">
-    "blue sphere, red cube, hybrid"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#blue-sphere025-red-cube075-hybrid" class="md-nav__link">
-    "blue sphere:0.25 red cube:0.75 hybrid"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#blue-sphere075-red-cube025-hybrid" class="md-nav__link">
-    "blue sphere:0.75 red cube:0.25 hybrid"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#blue-sphere05-red-cube05-hybrid" class="md-nav__link">
-    "blue sphere:0.5 red cube:0.5 hybrid"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#blue-sphere05-red-cube05" class="md-nav__link">
-    "blue sphere:0.5 red cube:0.5"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1233,20 +1282,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../VARIATIONS/" class="md-nav__link">
-        Variations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../WEB/" class="md-nav__link">
         InvokeAI Web Server
       </a>
@@ -1304,6 +1339,8 @@
       
       
       
+        
+          
         
           
         
@@ -1450,6 +1487,20 @@
     <li class="md-nav__item">
       <a href="../../contributing/contribution_guides/documentation/" class="md-nav__link">
         Documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/INVOCATIONS/" class="md-nav__link">
+        Nodes
       </a>
     </li>
   
@@ -1625,6 +1676,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8">
@@ -1647,6 +1700,20 @@
     <li class="md-nav__item">
       <a href="../../help/gettingStartedWithAI/" class="md-nav__link">
         Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/diffusion/" class="md-nav__link">
+        Diffusion Overview
       </a>
     </li>
   
@@ -1762,54 +1829,6 @@
 
 
 <h1 id="prompting-features"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.045 18.894 9.94 12 3.045 5.106a.75.75 0 0 1 1.06-1.061l7.425 7.425a.75.75 0 0 1 0 1.06l-7.424 7.425a.75.75 0 0 1-1.061-1.06zm8.205.606a.75.75 0 0 0 0 1.5h9.5a.75.75 0 0 0 0-1.5h-9.5z"/></svg></span> Prompting-Features<a class="headerlink" href="#prompting-features" title="Permanent link">#</a></h1>
-<h2 id="negative-and-unconditioned-prompts"><strong>Negative and Unconditioned Prompts</strong><a class="headerlink" href="#negative-and-unconditioned-prompts" title="Permanent link">#</a></h2>
-<p>Any words between a pair of square brackets will instruct Stable
-Diffusion to attempt to ban the concept from the generated image. The
-same effect is achieved by placing words in the "Negative Prompts"
-textbox in the Web UI.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>this is a test prompt [not really] to make you understand [cool] how this works.
-</code></pre></div>
-<p>In the above statement, the words 'not really cool` will be ignored by Stable
-Diffusion.</p>
-<p>Here's a prompt that depicts what it does.</p>
-<p>original prompt:</p>
-<p><code class="highlight"><span class="s2">&quot;A fantastical translucent pony made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve&quot;</span></code></p>
-<p><code class="highlight">parameters:<span class="w"> </span><span class="nv">steps</span><span class="o">=</span><span class="m">20</span>,<span class="w"> </span><span class="nv">dimensions</span><span class="o">=</span>512x768,<span class="w"> </span><span class="nv">CFG</span><span class="o">=</span><span class="m">7</span>.5,<span class="w"> </span><span class="nv">Scheduler</span><span class="o">=</span>k_euler_a,<span class="w"> </span><span class="nv">seed</span><span class="o">=</span><span class="m">1654590180</span></code></p>
-<figure>
-<p><img alt="step1" src="../../assets/negative_prompt_walkthru/step1.png" /></p>
-</figure>
-<p>That image has a woman, so if we want the horse without a rider, we can
-influence the image not to have a woman by putting [woman] in the prompt, like
-this:</p>
-<p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman]&quot;</span></code>
-(same parameters as above)</p>
-<figure>
-<p><img alt="step2" src="../../assets/negative_prompt_walkthru/step2.png" /></p>
-</figure>
-<p>That's nice - but say we also don't want the image to be quite so blue. We can
-add "blue" to the list of negative prompts, so it's now [woman blue]:</p>
-<p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue]&quot;</span></code>
-(same parameters as above)</p>
-<figure>
-<p><img alt="step3" src="../../assets/negative_prompt_walkthru/step3.png" /></p>
-</figure>
-<p>Getting close - but there's no sense in having a saddle when our horse doesn't
-have a rider, so we'll add one more negative prompt: [woman blue saddle].</p>
-<p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue saddle]&quot;</span></code>
-(same parameters as above)</p>
-<figure>
-<p><img alt="step4" src="../../assets/negative_prompt_walkthru/step4.png" /></p>
-</figure>
-<div class="admonition notes">
-<p class="admonition-title">Notes about this feature:</p>
-<ul>
-<li>The only requirement for words to be ignored is that they are in between a pair of square brackets.</li>
-<li>You can provide multiple words within the same bracket.</li>
-<li>You can provide multiple brackets with multiple words in different places of your prompt. That works just fine.</li>
-<li>To improve typical anatomy problems, you can add negative prompts like <code>[bad anatomy, extra legs, extra arms, extra fingers, poorly drawn hands, poorly drawn feet, disfigured, out of frame, tiling, bad art, deformed, mutated]</code>.</li>
-</ul>
-</div>
-<hr />
 <h2 id="prompt-syntax-features"><strong>Prompt Syntax Features</strong><a class="headerlink" href="#prompt-syntax-features" title="Permanent link">#</a></h2>
 <p>The InvokeAI prompting language has the following features:</p>
 <h3 id="attention-weighting">Attention weighting<a class="headerlink" href="#attention-weighting" title="Permanent link">#</a></h3>
@@ -1830,9 +1849,6 @@ term).</p>
   <code>a tall thin man (picking (apricots)1.3)1.1</code>. (<code>+</code> is equivalent to 1.1, <code>++</code>
   is pow(1.1,2), <code>+++</code> is pow(1.1,3), etc; <code>-</code> means 0.9, <code>--</code> means pow(0.9,2),
   etc.)</li>
-<li>attention also applies to <code>[unconditioning]</code> so
-  <code>a tall thin man picking apricots [(ladder)0.01]</code> will <em>very gently</em> nudge SD
-  away from trying to draw the man on a ladder</li>
 </ul>
 <p>You can use this to increase or decrease the amount of something. Starting from
 this prompt of <code>a man picking apricots from a tree</code>, let's see what happens if
@@ -1920,7 +1936,7 @@ example, below is a <code>mountain man</code>:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="blending-between-prompts">Blending between prompts<a class="headerlink" href="#blending-between-prompts" title="Permanent link">#</a></h3>
+<h3 id="prompt-blending">Prompt Blending<a class="headerlink" href="#prompt-blending" title="Permanent link">#</a></h3>
 <ul>
 <li><code>("a tall thin man picking apricots", "a tall thin man picking pears").blend(1,1)</code></li>
 <li>The existing prompt blending using <code>:&lt;weight&gt;</code> will continue to be supported -
@@ -1937,6 +1953,15 @@ example, below is a <code>mountain man</code>:</p>
 </ul>
 <p>See the section below on "Prompt Blending" for more information about how this
 works.</p>
+<h3 id="prompt-conjunction">Prompt Conjunction<a class="headerlink" href="#prompt-conjunction" title="Permanent link">#</a></h3>
+<p>Join multiple clauses together to create a conjoined prompt. Each clause will be passed to CLIP separately. </p>
+<p>For example, the prompt: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="s2">&quot;A mystical valley surround by towering granite cliffs, watercolor, warm&quot;</span>
+</code></pre></div>
+<p>Can be used with .and():
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">(</span><span class="s2">&quot;A mystical valley&quot;</span>,<span class="w"> </span><span class="s2">&quot;surround by towering granite cliffs&quot;</span>,<span class="w"> </span><span class="s2">&quot;watercolor&quot;</span>,<span class="w"> </span><span class="s2">&quot;warm&quot;</span><span class="o">)</span>.and<span class="o">()</span>
+</code></pre></div></p>
+<p>Each will give you different results - try them out and see what you prefer!</p>
 <h3 id="cross-attention-control-prompt2prompt">Cross-Attention Control ('prompt2prompt')<a class="headerlink" href="#cross-attention-control-prompt2prompt" title="Permanent link">#</a></h3>
 <p>Sometimes an image you generate is almost right, and you just want to change one
 detail without affecting the rest. You could use a photo editor and inpainting
@@ -1966,7 +1991,7 @@ words in a new prompt. This works for <code>img2img</code> as well.</p>
   - To swap a comma, use quotes: `a (&quot;fluffy, grey cat&quot;).swap(&quot;big, barking dog&quot;) playing with a ball in the forest`.
 </code></pre></div>
 <ul>
-<li>Supports options <code>t_start</code> and <code>t_end</code> (each 0-1) loosely corresponding to bloc97's <code>prompt_edit_tokens_start/_end</code> but with the math swapped to make it easier to
+<li>Supports options <code>t_start</code> and <code>t_end</code> (each 0-1) loosely corresponding to (bloc97's)[(<a href="https://github.com/bloc97/CrossAttentionControl">https://github.com/bloc97/CrossAttentionControl</a>)] <code>prompt_edit_tokens_start/_end</code> but with the math swapped to make it easier to
   intuitively understand. <code>t_start</code> and <code>t_end</code> are used to control on which steps cross-attention control should run. With the default values <code>t_start=0</code> and <code>t_end=1</code>, cross-attention control is active on every step of image generation. Other values can be used to turn cross-attention control off for part of the image generation process.<ul>
 <li>For example, if doing a diffusion with 10 steps for the prompt is <code>a cat.swap(dog, t_start=0.3, t_end=1.0) playing with a ball in the forest</code>, the first 3 steps will be run as <code>a cat playing with a ball in the forest</code>, while the last 7 steps will run as <code>a dog playing with a ball in the forest</code>, but the pixels that represent <code>dog</code> will be locked to the pixels that would have represented <code>cat</code> if the <code>cat</code> prompt had been used instead.</li>
 <li>Conversely, for <code>a cat.swap(dog, t_start=0, t_end=0.7) playing with a ball in the forest</code>, the first 7 steps will run as <code>a dog playing with a ball in the forest</code> with the pixels that represent <code>dog</code> locked to the same pixels that would have represented <code>cat</code> if the <code>cat</code> prompt was being used instead. The final 3 steps will just run <code>a cat playing with a ball in the forest</code>.<blockquote>
@@ -1979,67 +2004,54 @@ words in a new prompt. This works for <code>img2img</code> as well.</p>
 <p>Prompt2prompt <code>.swap()</code> is not compatible with xformers, which will be temporarily disabled when doing a <code>.swap()</code> - so you should expect to use more VRAM and run slower that with xformers enabled.</p>
 <p>The <code>prompt2prompt</code> code is based off
 <a href="https://github.com/bloc97/CrossAttentionControl">bloc97's colab</a>.</p>
-<h3 id="escaping-parantheses-and-speech-marks">Escaping parantheses () and speech marks ""<a class="headerlink" href="#escaping-parantheses-and-speech-marks" title="Permanent link">#</a></h3>
+<h3 id="escaping-parentheses-and-speech-marks">Escaping parentheses () and speech marks ""<a class="headerlink" href="#escaping-parentheses-and-speech-marks" title="Permanent link">#</a></h3>
 <p>If the model you are using has parentheses () or speech marks "" as part of its
 syntax, you will need to "escape" these using a backslash, so that<code>(my_keyword)</code>
 becomes <code>\(my_keyword\)</code>. Otherwise, the prompt parser will attempt to interpret
 the parentheses as part of the prompt syntax and it will get confused.</p>
 <hr />
-<h2 id="prompt-blending"><strong>Prompt Blending</strong><a class="headerlink" href="#prompt-blending" title="Permanent link">#</a></h2>
-<p>You may blend together different sections of the prompt to explore the AI's
+<h2 id="prompt-blending_1"><strong>Prompt Blending</strong><a class="headerlink" href="#prompt-blending_1" title="Permanent link">#</a></h2>
+<p>You may blend together prompts to explore the AI's
 latent semantic space and generate interesting (and often surprising!)
 variations. The syntax is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>blue<span class="w"> </span>sphere:0.25<span class="w"> </span>red<span class="w"> </span>cube:0.75<span class="w"> </span>hybrid
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">(</span><span class="s2">&quot;prompt #1&quot;</span>,<span class="w"> </span><span class="s2">&quot;prompt #2&quot;</span><span class="o">)</span>.blend<span class="o">(</span><span class="m">0</span>.25,<span class="w"> </span><span class="m">0</span>.75<span class="o">)</span>
 </code></pre></div>
-<p>This will tell the sampler to blend 25% of the concept of a blue sphere with 75%
-of the concept of a red cube. The blend weights can use any combination of
-integers and floating point numbers, and they do not need to add up to 1.
-Everything to the left of the <code>:XX</code> up to the previous <code>:XX</code> is used for
-merging, so the overall effect is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="m">0</span>.25<span class="w"> </span>*<span class="w"> </span><span class="s2">&quot;blue sphere&quot;</span><span class="w"> </span>+<span class="w"> </span><span class="m">0</span>.75<span class="w"> </span>*<span class="w"> </span><span class="s2">&quot;white duck&quot;</span><span class="w"> </span>+<span class="w"> </span>hybrid
-</code></pre></div>
+<p>This will tell the sampler to blend 25% of the concept of prompt <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/invoke-ai/InvokeAI/issues/1" title="GitHub Issue: invoke-ai/InvokeAI #1">#1</a> with 75%
+of the concept of prompt <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/invoke-ai/InvokeAI/issues/2" title="GitHub Issue: invoke-ai/InvokeAI #2">#2</a>. It is recommended to keep the sum of the weights to around 1.0, but interesting things might happen if you go outside of this range.</p>
 <p>Because you are exploring the "mind" of the AI, the AI's way of mixing two
 concepts may not match yours, leading to surprising effects. To illustrate, here
 are three images generated using various combinations of blend weights. As
 usual, unless you fix the seed, the prompts will give you different results each
 time you run them.</p>
-<figure>
-<h3 id="blue-sphere-red-cube-hybrid">"blue sphere, red cube, hybrid"<a class="headerlink" href="#blue-sphere-red-cube-hybrid" title="Permanent link">#</a></h3>
-</figure>
-<p>This example doesn't use melding at all and represents the default way of mixing
+<p>Let's examine how this affects image generation results:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="s2">&quot;blue sphere, red cube, hybrid&quot;</span>
+</code></pre></div>
+<p>This example doesn't use blending at all and represents the default way of mixing
 concepts.</p>
 <figure>
 <p><img alt="blue-sphere-red-cube-hyprid" src="../../assets/prompt-blending/blue-sphere-red-cube-hybrid.png" /></p>
 </figure>
-<p>It's interesting to see how the AI expressed the concept of "cube" as the four
-quadrants of the enclosing frame. If you look closely, there is depth there, so
-the enclosing frame is actually a cube.</p>
+<p>It's interesting to see how the AI expressed the concept of "cube" within the sphere. If you look closely, there is depth there, so the enclosing frame is actually a cube.</p>
 <figure>
-<h3 id="blue-sphere025-red-cube075-hybrid">"blue sphere:0.25 red cube:0.75 hybrid"<a class="headerlink" href="#blue-sphere025-red-cube075-hybrid" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">(</span><span class="s2">&quot;blue sphere&quot;</span>,<span class="w"> </span><span class="s2">&quot;red cube&quot;</span><span class="o">)</span>.blend<span class="o">(</span><span class="m">0</span>.25,<span class="w"> </span><span class="m">0</span>.75<span class="o">)</span>
+</code></pre></div>
 <p><img alt="blue-sphere-25-red-cube-75" src="../../assets/prompt-blending/blue-sphere-0.25-red-cube-0.75-hybrid.png" /></p>
 </figure>
-<p>Now that's interesting. We get neither a blue sphere nor a red cube, but a red
-sphere embedded in a brick wall, which represents a melding of concepts within
-the AI's "latent space" of semantic representations. Where is Ludwig
-Wittgenstein when you need him?</p>
+<p>Now that's interesting. We get an image with a resemblance of a red cube, with a hint of blue shadows which represents a melding of concepts within the AI's "latent space" of semantic representations. </p>
 <figure>
-<h3 id="blue-sphere075-red-cube025-hybrid">"blue sphere:0.75 red cube:0.25 hybrid"<a class="headerlink" href="#blue-sphere075-red-cube025-hybrid" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">(</span><span class="s2">&quot;blue sphere&quot;</span>,<span class="w"> </span><span class="s2">&quot;red cube&quot;</span><span class="o">)</span>.blend<span class="o">(</span><span class="m">0</span>.75,<span class="w"> </span><span class="m">0</span>.25<span class="o">)</span>
+</code></pre></div>
 <p><img alt="blue-sphere-75-red-cube-25" src="../../assets/prompt-blending/blue-sphere-0.75-red-cube-0.25-hybrid.png" /></p>
 </figure>
-<p>Definitely more blue-spherey. The cube is gone entirely, but it's really cool
-abstract art.</p>
+<p>Definitely more blue-spherey. </p>
 <figure>
-<h3 id="blue-sphere05-red-cube05-hybrid">"blue sphere:0.5 red cube:0.5 hybrid"<a class="headerlink" href="#blue-sphere05-red-cube05-hybrid" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">(</span><span class="s2">&quot;blue sphere&quot;</span>,<span class="w"> </span><span class="s2">&quot;red cube&quot;</span><span class="o">)</span>.blend<span class="o">(</span><span class="m">0</span>.5,<span class="w"> </span><span class="m">0</span>.5<span class="o">)</span>
+</code></pre></div>
+</figure>
+<figure>
 <p><img alt="blue-sphere-5-red-cube-5-hybrid" src="../../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5-hybrid.png" /></p>
 </figure>
-<p>Whoa...! I see blue and red, but no spheres or cubes. Is the word "hybrid"
-summoning up the concept of some sort of scifi creature? Let's find out.</p>
-<figure>
-<h3 id="blue-sphere05-red-cube05">"blue sphere:0.5 red cube:0.5"<a class="headerlink" href="#blue-sphere05-red-cube05" title="Permanent link">#</a></h3>
-<p><img alt="blue-sphere-5-red-cube-5" src="../../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5.png" /></p>
-</figure>
-<p>Indeed, removing the word "hybrid" produces an image that is more like what we'd
-expect.</p>
+<p>Whoa...! I see blue and red, and if I squint, spheres and cubes.</p>
 <h2 id="dynamic-prompts">Dynamic Prompts<a class="headerlink" href="#dynamic-prompts" title="Permanent link">#</a></h2>
 <p>Dynamic Prompts are a powerful feature designed to produce a variety of prompts based on user-defined options. Using a special syntax, you can construct a prompt with multiple possibilities, and the system will automatically generate a series of permutations based on your settings. This is extremely beneficial for ideation, exploring various scenarios, or testing different concepts swiftly and efficiently.</p>
 <h3 id="structure-of-a-dynamic-prompt">Structure of a Dynamic Prompt<a class="headerlink" href="#structure-of-a-dynamic-prompt" title="Permanent link">#</a></h3>
@@ -2078,7 +2090,7 @@ Always review and fine-tune the generated prompts as needed. While Dynamic Promp
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 6, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
       
         <br>
         Created:
@@ -2088,6 +2100,8 @@ Always review and fine-tune the generated prompts as needed. While Dynamic Promp
   </small>
 </div>
 
+
+  
 
 
 
@@ -2168,6 +2182,10 @@ Always review and fine-tune the generated prompts as needed. While Dynamic Promp
     
     
       <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../javascripts/tablesort.js"></script>
       
     
     

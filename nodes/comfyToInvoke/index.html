@@ -10,14 +10,14 @@
         <meta name="author" content="mauwii">
       
       
-        <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/features/NODES/">
+        <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/nodes/comfyToInvoke/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Nodes Editor (Experimental) - InvokeAI Stable Diffusion Toolkit Docs</title>
+        <title>ComfyUI to InvokeAI - InvokeAI Stable Diffusion Toolkit Docs</title>
       
     
     
@@ -44,6 +44,18 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2X4JR4S4FB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2X4JR4S4FB",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2X4JR4S4FB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -70,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nodes-editor-experimental" class="md-skip">
+        <a href="#comfyui-to-invokeai" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Nodes Editor (Experimental)
+              ComfyUI to InvokeAI
             
           </span>
         </div>
@@ -225,22 +237,6 @@
         
   
   
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../nodes/communityNodes/" class="md-tabs__link">
-        Community Nodes
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
     
   
 
@@ -249,7 +245,23 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../communityNodes/" class="md-tabs__link md-tabs__link--active">
+        Nodes
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../features/" class="md-tabs__link">
         Features
       </a>
     </li>
@@ -734,15 +746,27 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
           
         
@@ -751,14 +775,14 @@
       
       
         <label class="md-nav__link" for="__nav_3">
-          Community Nodes
+          Nodes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Community Nodes" data-md-level="1">
+      <nav class="md-nav" aria-label="Nodes" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Community Nodes
+          Nodes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -768,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/communityNodes/" class="md-nav__link">
+      <a href="../communityNodes/" class="md-nav__link">
         Community Nodes
       </a>
     </li>
@@ -782,8 +806,119 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/overview/" class="md-nav__link">
-        Overview
+      <a href="../exampleWorkflows/" class="md-nav__link">
+        Example Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Nodes Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defaultNodes/" class="md-nav__link">
+        List of Default Nodes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NODES/" class="md-nav__link">
+        Node Editor Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ComfyUI to InvokeAI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ComfyUI to InvokeAI
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node-equivalents" class="md-nav__link">
+    Node Equivalents:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributingNodes/" class="md-nav__link">
+        Contributing Nodes
       </a>
     </li>
   
@@ -802,22 +937,18 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
         
           
             
-          
-        
           
         
           
@@ -857,7 +988,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Features</a>
+          <a href="../../features/">Features</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -894,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CONCEPTS/" class="md-nav__link">
+      <a href="../../features/CONCEPTS/" class="md-nav__link">
         Concepts
       </a>
     </li>
@@ -908,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CONFIGURATION/" class="md-nav__link">
+      <a href="../../features/CONFIGURATION/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -922,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CONTROLNET/" class="md-nav__link">
+      <a href="../../features/CONTROLNET/" class="md-nav__link">
         ControlNet
       </a>
     </li>
@@ -936,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IMG2IMG/" class="md-nav__link">
+      <a href="../../features/IMG2IMG/" class="md-nav__link">
         Image-to-Image
       </a>
     </li>
@@ -950,7 +1081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../LOGGING/" class="md-nav__link">
+      <a href="../../features/LOGGING/" class="md-nav__link">
         Controlling Logging
       </a>
     </li>
@@ -964,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MODEL_MERGING/" class="md-nav__link">
+      <a href="../../features/MODEL_MERGING/" class="md-nav__link">
         Model Merging
       </a>
     </li>
@@ -976,176 +1107,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Nodes Editor (Experimental)
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Nodes Editor (Experimental)
+    <li class="md-nav__item">
+      <a href="../overview" class="md-nav__link">
+        Using Nodes
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#anatomy-of-a-node" class="md-nav__link">
-    Anatomy of a Node
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#diffusion-overview" class="md-nav__link">
-    Diffusion Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#node-types-base-nodes" class="md-nav__link">
-    Node Types (Base Nodes)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#node-grouping-concepts" class="md-nav__link">
-    Node Grouping Concepts
-  </a>
-  
-    <nav class="md-nav" aria-label="Node Grouping Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#noise" class="md-nav__link">
-    Noise
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conditioning" class="md-nav__link">
-    Conditioning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-space-vae" class="md-nav__link">
-    Image Space &amp; VAE
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defined-random-seeds" class="md-nav__link">
-    Defined &amp; Random Seeds
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#control" class="md-nav__link">
-    Control
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lora" class="md-nav__link">
-    LoRA
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scaling" class="md-nav__link">
-    Scaling
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iteration-multiple-images-as-input" class="md-nav__link">
-    Iteration + Multiple Images as Input
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-image-generation-random-seeds" class="md-nav__link">
-    Multiple Image Generation + Random Seeds
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-text-to-image-node-graph" class="md-nav__link">
-    Basic text-to-image Node Graph
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#basic-image-to-image-node-graph" class="md-nav__link">
-    Basic image-to-image Node Graph
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#basic-controlnet-node-graph" class="md-nav__link">
-    Basic ControlNet Node Graph
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1157,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../NSFW.md" class="md-nav__link">
+      <a href="../../features/WATERMARK%2BNSFW/" class="md-nav__link">
         NSFW Checker
       </a>
     </li>
@@ -1171,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../POSTPROCESS/" class="md-nav__link">
+      <a href="../../features/POSTPROCESS/" class="md-nav__link">
         Postprocessing
       </a>
     </li>
@@ -1185,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PROMPTS/" class="md-nav__link">
+      <a href="../../features/PROMPTS/" class="md-nav__link">
         Prompting Features
       </a>
     </li>
@@ -1199,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TRAINING/" class="md-nav__link">
+      <a href="../../features/TRAINING/" class="md-nav__link">
         Training
       </a>
     </li>
@@ -1213,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../UNIFIED_CANVAS/" class="md-nav__link">
+      <a href="../../features/UNIFIED_CANVAS/" class="md-nav__link">
         Unified Canvas
       </a>
     </li>
@@ -1227,21 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VARIATIONS/" class="md-nav__link">
-        Variations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../WEB/" class="md-nav__link">
+      <a href="../../features/WEB/" class="md-nav__link">
         InvokeAI Web Server
       </a>
     </li>
@@ -1255,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../WEBUIHOTKEYS/" class="md-nav__link">
+      <a href="../../features/WEBUIHOTKEYS/" class="md-nav__link">
         WebUI Hotkeys
       </a>
     </li>
@@ -1269,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OTHER/" class="md-nav__link">
+      <a href="../../features/OTHER/" class="md-nav__link">
         Other
       </a>
     </li>
@@ -1298,6 +1250,8 @@
       
       
       
+        
+          
         
           
         
@@ -1444,6 +1398,20 @@
     <li class="md-nav__item">
       <a href="../../contributing/contribution_guides/documentation/" class="md-nav__link">
         Documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/INVOCATIONS/" class="md-nav__link">
+        Nodes
       </a>
     </li>
   
@@ -1619,6 +1587,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8">
@@ -1641,6 +1611,20 @@
     <li class="md-nav__item">
       <a href="../../help/gettingStartedWithAI/" class="md-nav__link">
         Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/diffusion/" class="md-nav__link">
+        Diffusion Overview
       </a>
     </li>
   
@@ -1749,399 +1733,374 @@
                 
                   
 
-  <a href="https://github.com/invoke-ai/InvokeAI/edit/main/docs/features/NODES.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/invoke-ai/InvokeAI/edit/main/docs/nodes/comfyToInvoke.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 12h8v2H8v-2m2 8H6V4h7v5h5v3.1l2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4v-2m-2-2h4.1l.9-.9V16H8v2m12.2-5c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
 
-<h1 id="nodes-editor-experimental">Nodes Editor (Experimental)<a class="headerlink" href="#nodes-editor-experimental" title="Permanent link">#</a></h1>
-<p>🚨
-<em>The node editor is experimental. We've made it accessible because we use it to develop the application, but we have not addressed the many known rough edges. It's very easy to shoot yourself in the foot, and we cannot offer support for it until it sees full release (ETA v3.1). Everything is subject to change without warning.</em> 
-🚨</p>
-<p>The nodes editor is a blank canvas allowing for the use of individual functions and image transformations to control the image generation workflow. The node processing flow is usually done from left (inputs) to right (outputs), though linearity can become abstracted the more complex the node graph becomes. Nodes inputs and outputs are connected by dragging connectors from node to node.</p>
-<p>To better understand how nodes are used, think of how an electric power bar works. It takes in one input (electricity from a wall outlet) and passes it to multiple devices through multiple outputs. Similarly, a node could have multiple inputs and outputs functioning at the same (or different) time, but all node outputs pass information onward like a power bar passes electricity. Not all outputs are compatible with all inputs, however - Each node has different constraints on how it is expecting to input/output information. In general, node outputs are colour-coded to match compatible inputs of other nodes.</p>
-<h2 id="anatomy-of-a-node">Anatomy of a Node<a class="headerlink" href="#anatomy-of-a-node" title="Permanent link">#</a></h2>
-<p>Individual nodes are made up of the following:</p>
+<h1 id="comfyui-to-invokeai">ComfyUI to InvokeAI<a class="headerlink" href="#comfyui-to-invokeai" title="Permanent link">#</a></h1>
+<p>If you're coming to InvokeAI from ComfyUI, welcome! You'll find things are similar but different - the good news is that you already know how things should work, and it's just a matter of wiring them up! </p>
+<p>Some things to note: </p>
 <ul>
-<li>Inputs: Edge points on the left side of the node window where you connect outputs from other nodes.</li>
-<li>Outputs: Edge points on the right side of the node window where you connect to inputs on other nodes.</li>
-<li>Options: Various options which are either manually configured, or overridden by connecting an output from another node to the input.</li>
+<li>InvokeAI's nodes tend to be more granular than default nodes in Comfy. This means each node in Invoke will do a specific task and you might need to use multiple nodes to achieve the same result. The added granularity improves the control you have have over your workflows. </li>
+<li>InvokeAI's backend and ComfyUI's backend are very different which means Comfy workflows are not able to be imported into InvokeAI. However, we have created a <a href="../exampleWorkflows/">list of popular workflows</a> for you to get started with Nodes in InvokeAI!</li>
 </ul>
-<h2 id="diffusion-overview">Diffusion Overview<a class="headerlink" href="#diffusion-overview" title="Permanent link">#</a></h2>
-<p>Taking the time to understand the diffusion process will help you to understand how to set up your nodes in the nodes editor. </p>
-<p>There are two main spaces Stable Diffusion works in: image space and latent space.</p>
-<p>Image space represents images in pixel form that you look at. Latent space represents compressed inputs. It’s in latent space that Stable Diffusion processes images. A VAE (Variational Auto Encoder) is responsible for compressing and encoding inputs into latent space, as well as decoding outputs back into image space.</p>
-<p>When you generate an image using text-to-image, multiple steps occur in latent space:
-1. Random noise is generated at the chosen height and width. The noise’s characteristics are dictated by the chosen (or not chosen) seed. This noise tensor is passed into latent space. We’ll call this noise A.
-1. Using a model’s U-Net, a noise predictor examines noise A, and the words tokenized by CLIP from your prompt (conditioning). It generates its own noise tensor to predict what the final image might look like in latent space. We’ll call this noise B.
-1. Noise B is subtracted from noise A in an attempt to create a final latent image indicative of the inputs. This step is repeated for the number of sampler steps chosen.
-1. The VAE decodes the final latent image from latent space into image space.</p>
-<p>image-to-image is a similar process, with only step 1 being different:
-1. The input image is decoded from image space into latent space by the VAE. Noise is then added to the input latent image. Denoising Strength dictates how much noise is added, 0 being none, and 1 being all-encompassing. We’ll call this noise A. The process is then the same as steps 2-4 in the text-to-image explanation above. </p>
-<p>Furthermore, a model provides the CLIP prompt tokenizer, the VAE, and a U-Net (where noise prediction occurs given a prompt and initial noise tensor).</p>
-<p>A noise scheduler (eg. DPM++ 2M Karras) schedules the subtraction of noise from the latent image across the sampler steps chosen (step 3 above). Less noise is usually subtracted at higher sampler steps. </p>
-<h2 id="node-types-base-nodes">Node Types (Base Nodes)<a class="headerlink" href="#node-types-base-nodes" title="Permanent link">#</a></h2>
+<h2 id="node-equivalents">Node Equivalents:<a class="headerlink" href="#node-equivalents" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
-<th>Node <img width=160 align="right"></th>
-<th>Function</th>
+<th align="left">Comfy UI Category</th>
+<th align="left">ComfyUI Node</th>
+<th align="left">Invoke Equivalent</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Add</td>
-<td>Adds two numbers</td>
+<td align="left">Sampling</td>
+<td align="left">KSampler</td>
+<td align="left">Denoise Latents</td>
 </tr>
 <tr>
-<td>CannyImageProcessor</td>
-<td>Canny edge detection for ControlNet</td>
+<td align="left">Sampling</td>
+<td align="left">Ksampler Advanced</td>
+<td align="left">Denoise Latents</td>
 </tr>
 <tr>
-<td>ClipSkip</td>
-<td>Skip layers in clip text_encoder model</td>
+<td align="left">Loaders</td>
+<td align="left">Load Checkpoint</td>
+<td align="left">Main Model Loader <em>or</em> SDXL Main Model Loader</td>
 </tr>
 <tr>
-<td>Collect</td>
-<td>Collects values into a collection</td>
+<td align="left">Loaders</td>
+<td align="left">Load VAE</td>
+<td align="left">VAE Loader</td>
 </tr>
 <tr>
-<td>Prompt (Compel)</td>
-<td>Parse prompt using compel package to conditioning</td>
+<td align="left">Loaders</td>
+<td align="left">Load Lora</td>
+<td align="left">LoRA Loader <em>or</em> SDXL Lora Loader</td>
 </tr>
 <tr>
-<td>ContentShuffleImageProcessor</td>
-<td>Applies content shuffle processing to image</td>
+<td align="left">Loaders</td>
+<td align="left">Load ControlNet Model</td>
+<td align="left">ControlNet</td>
 </tr>
 <tr>
-<td>ControlNet</td>
-<td>Collects ControlNet info to pass to other nodes</td>
+<td align="left">Loaders</td>
+<td align="left">Load ControlNet Model (diff)</td>
+<td align="left">ControlNet</td>
 </tr>
 <tr>
-<td>CvInpaint</td>
-<td>Simple inpaint using opencv</td>
+<td align="left">Loaders</td>
+<td align="left">Load Style Model</td>
+<td align="left">Reference Only ControlNet will be coming in a future version of InvokeAI</td>
 </tr>
 <tr>
-<td>Divide</td>
-<td>Divides two numbers</td>
+<td align="left">Loaders</td>
+<td align="left">unCLIPCheckpointLoader</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>DynamicPrompt</td>
-<td>Parses a prompt using adieyal/dynamic prompt's random or combinatorial generator</td>
+<td align="left">Loaders</td>
+<td align="left">GLIGENLoader</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>FloatLinearRange</td>
-<td>Creates a range</td>
+<td align="left">Loaders</td>
+<td align="left">Hypernetwork Loader</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>HedImageProcessor</td>
-<td>Applies HED edge detection to image</td>
+<td align="left">Loaders</td>
+<td align="left">Load Upscale Model</td>
+<td align="left">Occurs within "Upscale (RealESRGAN)"</td>
 </tr>
 <tr>
-<td>ImageBlur</td>
-<td>Blurs an image</td>
+<td align="left">Conditioning</td>
+<td align="left">CLIP Text Encode (Prompt)</td>
+<td align="left">Compel (Prompt) or SDXL Compel (Prompt)</td>
 </tr>
 <tr>
-<td>ImageChannel</td>
-<td>Gets a channel from an image</td>
+<td align="left">Conditioning</td>
+<td align="left">CLIP Set Last Layer</td>
+<td align="left">CLIP Skip</td>
 </tr>
 <tr>
-<td>ImageCollection</td>
-<td>Load a collection of images and provide it as output</td>
+<td align="left">Conditioning</td>
+<td align="left">Conditioning (Average)</td>
+<td align="left">Use the .blend() feature of prompts</td>
 </tr>
 <tr>
-<td>ImageConvert</td>
-<td>Converts an image to a different mode</td>
+<td align="left">Conditioning</td>
+<td align="left">Conditioning (Combine)</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>ImageCrop</td>
-<td>Crops an image to a specified box. The box can be outside of the image.</td>
+<td align="left">Conditioning</td>
+<td align="left">Conditioning (Concat)</td>
+<td align="left">See the Prompt Tools Community Node</td>
 </tr>
 <tr>
-<td>ImageInverseLerp</td>
-<td>Inverse linear interpolation of all pixels of an image</td>
+<td align="left">Conditioning</td>
+<td align="left">Conditioning (Set Area)</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>ImageLerp</td>
-<td>Linear interpolation of all pixels of an image</td>
+<td align="left">Conditioning</td>
+<td align="left">Conditioning (Set Mask)</td>
+<td align="left">Mask Edge</td>
 </tr>
 <tr>
-<td>ImageMultiply</td>
-<td>Multiplies two images together using <code>PIL.ImageChops.Multiply()</code></td>
+<td align="left">Conditioning</td>
+<td align="left">CLIP Vision Encode</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>ImageNSFWBlurInvocation</td>
-<td>Detects and blurs images that may contain sexually explicit content</td>
+<td align="left">Conditioning</td>
+<td align="left">unCLIPConditioning</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>ImagePaste</td>
-<td>Pastes an image into another image</td>
+<td align="left">Conditioning</td>
+<td align="left">Apply ControlNet</td>
+<td align="left">ControlNet</td>
 </tr>
 <tr>
-<td>ImageProcessor</td>
-<td>Base class for invocations that reprocess images for ControlNet</td>
+<td align="left">Conditioning</td>
+<td align="left">Apply ControlNet (Advanced)</td>
+<td align="left">ControlNet</td>
 </tr>
 <tr>
-<td>ImageResize</td>
-<td>Resizes an image to specific dimensions</td>
+<td align="left">Latent</td>
+<td align="left">VAE Decode</td>
+<td align="left">Latents to Image</td>
 </tr>
 <tr>
-<td>ImageScale</td>
-<td>Scales an image by a factor</td>
+<td align="left">Latent</td>
+<td align="left">VAE Encode</td>
+<td align="left">Image to Latents</td>
 </tr>
 <tr>
-<td>ImageToLatents</td>
-<td>Scales latents by a given factor</td>
+<td align="left">Latent</td>
+<td align="left">Empty Latent Image</td>
+<td align="left">Noise</td>
 </tr>
 <tr>
-<td>ImageWatermarkInvocation</td>
-<td>Adds an invisible watermark to images</td>
+<td align="left">Latent</td>
+<td align="left">Upscale Latent</td>
+<td align="left">Resize Latents</td>
 </tr>
 <tr>
-<td>InfillColor</td>
-<td>Infills transparent areas of an image with a solid color</td>
+<td align="left">Latent</td>
+<td align="left">Upscale Latent By</td>
+<td align="left">Scale Latents</td>
 </tr>
 <tr>
-<td>InfillPatchMatch</td>
-<td>Infills transparent areas of an image using the PatchMatch algorithm</td>
+<td align="left">Latent</td>
+<td align="left">Latent Composite</td>
+<td align="left">Blend Latents</td>
 </tr>
 <tr>
-<td>InfillTile</td>
-<td>Infills transparent areas of an image with tiles of the image</td>
+<td align="left">Latent</td>
+<td align="left">LatentCompositeMasked</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>Inpaint</td>
-<td>Generates an image using inpaint</td>
+<td align="left">Image</td>
+<td align="left">Save Image</td>
+<td align="left">Image</td>
 </tr>
 <tr>
-<td>Iterate</td>
-<td>Iterates over a list of items</td>
+<td align="left">Image</td>
+<td align="left">Preview Image</td>
+<td align="left">Current</td>
 </tr>
 <tr>
-<td>LatentsToImage</td>
-<td>Generates an image from latents</td>
+<td align="left">Image</td>
+<td align="left">Load Image</td>
+<td align="left">Image</td>
 </tr>
 <tr>
-<td>LatentsToLatents</td>
-<td>Generates latents using latents as base image</td>
+<td align="left">Image</td>
+<td align="left">Empty Image</td>
+<td align="left">Blank Image</td>
 </tr>
 <tr>
-<td>LeresImageProcessor</td>
-<td>Applies leres processing to image</td>
+<td align="left">Image</td>
+<td align="left">Invert Image</td>
+<td align="left">Invert Lerp Image</td>
 </tr>
 <tr>
-<td>LineartAnimeImageProcessor</td>
-<td>Applies line art anime processing to image</td>
+<td align="left">Image</td>
+<td align="left">Batch Images</td>
+<td align="left">Link "Image" nodes into an "Image Collection" node</td>
 </tr>
 <tr>
-<td>LineartImageProcessor</td>
-<td>Applies line art processing to image</td>
+<td align="left">Image</td>
+<td align="left">Pad Image for Outpainting</td>
+<td align="left">Outpainting is easily accomplished in the Unified Canvas</td>
 </tr>
 <tr>
-<td>LoadImage</td>
-<td>Load an image and provide it as output</td>
+<td align="left">Image</td>
+<td align="left">ImageCompositeMasked</td>
+<td align="left">Paste Image</td>
 </tr>
 <tr>
-<td>Lora Loader</td>
-<td>Apply selected lora to unet and text_encoder</td>
+<td align="left">Image</td>
+<td align="left">Upscale Image</td>
+<td align="left">Resize Image</td>
 </tr>
 <tr>
-<td>Model Loader</td>
-<td>Loads a main model, outputting its submodels</td>
+<td align="left">Image</td>
+<td align="left">Upscale Image By</td>
+<td align="left">Upscale Image</td>
 </tr>
 <tr>
-<td>MaskFromAlpha</td>
-<td>Extracts the alpha channel of an image as a mask</td>
+<td align="left">Image</td>
+<td align="left">Upscale Image (using Model)</td>
+<td align="left">Upscale Image</td>
 </tr>
 <tr>
-<td>MediapipeFaceProcessor</td>
-<td>Applies mediapipe face processing to image</td>
+<td align="left">Image</td>
+<td align="left">ImageBlur</td>
+<td align="left">Blur Image</td>
 </tr>
 <tr>
-<td>MidasDepthImageProcessor</td>
-<td>Applies Midas depth processing to image</td>
+<td align="left">Image</td>
+<td align="left">ImageQuantize</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>MlsdImageProcessor</td>
-<td>Applied MLSD processing to image</td>
+<td align="left">Image</td>
+<td align="left">ImageSharpen</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>Multiply</td>
-<td>Multiplies two numbers</td>
+<td align="left">Image</td>
+<td align="left">Canny</td>
+<td align="left">Canny Processor</td>
 </tr>
 <tr>
-<td>Noise</td>
-<td>Generates latent noise</td>
+<td align="left">Mask</td>
+<td align="left">Load Image (as Mask)</td>
+<td align="left">Image</td>
 </tr>
 <tr>
-<td>NormalbaeImageProcessor</td>
-<td>Applies NormalBAE processing to image</td>
+<td align="left">Mask</td>
+<td align="left">Convert Mask to Image</td>
+<td align="left">Image</td>
 </tr>
 <tr>
-<td>OpenposeImageProcessor</td>
-<td>Applies Openpose processing to image</td>
+<td align="left">Mask</td>
+<td align="left">Convert Image to Mask</td>
+<td align="left">Image</td>
 </tr>
 <tr>
-<td>ParamFloat</td>
-<td>A float parameter</td>
+<td align="left">Mask</td>
+<td align="left">SolidMask</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>ParamInt</td>
-<td>An integer parameter</td>
+<td align="left">Mask</td>
+<td align="left">InvertMask</td>
+<td align="left">Invert Lerp Image</td>
 </tr>
 <tr>
-<td>PidiImageProcessor</td>
-<td>Applies PIDI processing to an image</td>
+<td align="left">Mask</td>
+<td align="left">CropMask</td>
+<td align="left">Crop Image</td>
 </tr>
 <tr>
-<td>Progress Image</td>
-<td>Displays the progress image in the Node Editor</td>
+<td align="left">Mask</td>
+<td align="left">MaskComposite</td>
+<td align="left">Combine Mask</td>
 </tr>
 <tr>
-<td>RandomInit</td>
-<td>Outputs a single random integer</td>
+<td align="left">Mask</td>
+<td align="left">FeatherMask</td>
+<td align="left">Blur Image</td>
 </tr>
 <tr>
-<td>RandomRange</td>
-<td>Creates a collection of random numbers</td>
+<td align="left">Advanced</td>
+<td align="left">Load CLIP</td>
+<td align="left">Main Model Loader <em>or</em> SDXL Main Model Loader</td>
 </tr>
 <tr>
-<td>Range</td>
-<td>Creates a range of numbers from start to stop with step</td>
+<td align="left">Advanced</td>
+<td align="left">UNETLoader</td>
+<td align="left">Main Model Loader <em>or</em> SDXL Main Model Loader</td>
 </tr>
 <tr>
-<td>RangeOfSize</td>
-<td>Creates a range from start to start + size with step</td>
+<td align="left">Advanced</td>
+<td align="left">DualCLIPLoader</td>
+<td align="left">Main Model Loader <em>or</em> SDXL Main Model Loader</td>
 </tr>
 <tr>
-<td>ResizeLatents</td>
-<td>Resizes latents to explicit width/height (in pixels). Provided dimensions are floor-divided by 8.</td>
+<td align="left">Advanced</td>
+<td align="left">Load Checkpoint</td>
+<td align="left">Main Model Loader <em>or</em> SDXL Main Model Loader</td>
 </tr>
 <tr>
-<td>RestoreFace</td>
-<td>Restores faces in the image</td>
+<td align="left">Advanced</td>
+<td align="left">ConditioningZeroOut</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>ScaleLatents</td>
-<td>Scales latents by a given factor</td>
+<td align="left">Advanced</td>
+<td align="left">ConditioningSetTimestepRange</td>
+<td align="left">N/A</td>
 </tr>
 <tr>
-<td>SegmentAnythingProcessor</td>
-<td>Applies segment anything processing to image</td>
+<td align="left">Advanced</td>
+<td align="left">CLIPTextEncodeSDXLRefiner</td>
+<td align="left">Compel (Prompt) or SDXL Compel (Prompt)</td>
 </tr>
 <tr>
-<td>ShowImage</td>
-<td>Displays a provided image, and passes it forward in the pipeline</td>
+<td align="left">Advanced</td>
+<td align="left">CLIPTextEncodeSDXL</td>
+<td align="left">Compel (Prompt) or SDXL Compel (Prompt)</td>
 </tr>
 <tr>
-<td>StepParamEasing</td>
-<td>Experimental per-step parameter for easing for denoising steps</td>
+<td align="left">Advanced</td>
+<td align="left">ModelMergeSimple</td>
+<td align="left">Model Merging is available in the Model Manager</td>
 </tr>
 <tr>
-<td>Subtract</td>
-<td>Subtracts two numbers</td>
+<td align="left">Advanced</td>
+<td align="left">ModelMergeBlocks</td>
+<td align="left">Model Merging is available in the Model Manager</td>
 </tr>
 <tr>
-<td>TextToLatents</td>
-<td>Generates latents from conditionings</td>
+<td align="left">Advanced</td>
+<td align="left">CheckpointSave</td>
+<td align="left">Model saving is available in the Model Manager</td>
 </tr>
 <tr>
-<td>TileResampleProcessor</td>
-<td>Bass class for invocations that preprocess images for ControlNet</td>
-</tr>
-<tr>
-<td>Upscale</td>
-<td>Upscales an image</td>
-</tr>
-<tr>
-<td>VAE Loader</td>
-<td>Loads a VAE model, outputting a VaeLoaderOutput</td>
-</tr>
-<tr>
-<td>ZoeDepthImageProcessor</td>
-<td>Applies Zoe depth processing to image</td>
+<td align="left">Advanced</td>
+<td align="left">CLIPMergeSimple</td>
+<td align="left">N/A</td>
 </tr>
 </tbody>
 </table>
-<h2 id="node-grouping-concepts">Node Grouping Concepts<a class="headerlink" href="#node-grouping-concepts" title="Permanent link">#</a></h2>
-<p>There are several node grouping concepts that can be examined with a narrow focus. These (and other) groupings can be pieced together to make up functional graph setups, and are important to understanding how groups of nodes work together as part of a whole. Note that the screenshots below aren't examples of complete functioning node graphs (see Examples).</p>
-<h3 id="noise">Noise<a class="headerlink" href="#noise" title="Permanent link">#</a></h3>
-<p>As described, an initial noise tensor is necessary for the latent diffusion process. As a result, all non-image *ToLatents nodes require a noise node input.  </p>
-<p><img alt="groupsnoise" src="../../assets/nodes/groupsnoise.png" /></p>
-<h3 id="conditioning">Conditioning<a class="headerlink" href="#conditioning" title="Permanent link">#</a></h3>
-<p>As described, conditioning is necessary for the latent diffusion process, whether empty or not. As a result, all non-image *ToLatents nodes require positive and negative conditioning inputs. Conditioning is reliant on a CLIP tokenizer provided by the Model Loader node.</p>
-<p><img alt="groupsconditioning" src="../../assets/nodes/groupsconditioning.png" /></p>
-<h3 id="image-space-vae">Image Space &amp; VAE<a class="headerlink" href="#image-space-vae" title="Permanent link">#</a></h3>
-<p>The ImageToLatents node doesn't require a noise node input, but requires a VAE input to convert the image from image space into latent space. In reverse, the LatentsToImage node requires a VAE input to convert from latent space back into image space.</p>
-<p><img alt="groupsimgvae" src="../../assets/nodes/groupsimgvae.png" /></p>
-<h3 id="defined-random-seeds">Defined &amp; Random Seeds<a class="headerlink" href="#defined-random-seeds" title="Permanent link">#</a></h3>
-<p>It is common to want to use both the same seed (for continuity) and random seeds (for variance). To define a seed, simply enter it into the 'Seed' field on a noise node. Conversely, the RandomInt node generates a random integer between 'Low' and 'High', and can be used as input to the 'Seed' edge point on a noise node to randomize your seed.</p>
-<p><img alt="groupsrandseed" src="../../assets/nodes/groupsrandseed.png" /></p>
-<h3 id="control">Control<a class="headerlink" href="#control" title="Permanent link">#</a></h3>
-<p>Control means to guide the diffusion process to adhere to a defined input or structure. Control can be provided as input to non-image *ToLatents nodes from ControlNet nodes. ControlNet nodes usually require an image processor which converts an input image for use with ControlNet.</p>
-<p><img alt="groupscontrol" src="../../assets/nodes/groupscontrol.png" /></p>
-<h3 id="lora">LoRA<a class="headerlink" href="#lora" title="Permanent link">#</a></h3>
-<p>The Lora Loader node lets you load a LoRA (say that ten times fast) and pass it as output to both the Prompt (Compel) and non-image *ToLatents nodes. A model's CLIP tokenizer is passed through the LoRA into Prompt (Compel), where it affects conditioning. A model's U-Net is also passed through the LoRA into a non-image *ToLatents node, where it affects noise prediction.</p>
-<p><img alt="groupslora" src="../../assets/nodes/groupslora.png" /></p>
-<h3 id="scaling">Scaling<a class="headerlink" href="#scaling" title="Permanent link">#</a></h3>
-<p>Use the ImageScale, ScaleLatents, and Upscale nodes to upscale images and/or latent images. The chosen method differs across contexts. However, be aware that latents are already noisy and compressed at their original resolution; scaling an image could produce more detailed results.</p>
-<p><img alt="groupsallscale" src="../../assets/nodes/groupsallscale.png" /></p>
-<h3 id="iteration-multiple-images-as-input">Iteration + Multiple Images as Input<a class="headerlink" href="#iteration-multiple-images-as-input" title="Permanent link">#</a></h3>
-<p>Iteration is a common concept in any processing, and means to repeat a process with given input. In nodes, you're able to use the Iterate node to iterate through collections usually gathered by the Collect node. The Iterate node has many potential uses, from processing a collection of images one after another, to varying seeds across multiple image generations and more. This screenshot demonstrates how to collect several images and pass them out one at a time.</p>
-<p><img alt="groupsiterate" src="../../assets/nodes/groupsiterate.png" /></p>
-<h3 id="multiple-image-generation-random-seeds">Multiple Image Generation + Random Seeds<a class="headerlink" href="#multiple-image-generation-random-seeds" title="Permanent link">#</a></h3>
-<p>Multiple image generation in the node editor is done using the RandomRange node. In this case, the 'Size' field represents the number of images to generate. As RandomRange produces a collection of integers, we need to add the Iterate node to iterate through the collection. </p>
-<p>To control seeds across generations takes some care. The first row in the screenshot will generate multiple images with different seeds, but using the same RandomRange parameters across invocations will result in the same group of random seeds being used across the images, producing repeatable results. In the second row, adding the RandomInt node as input to RandomRange's 'Seed' edge point will ensure that seeds are varied across all images across invocations, producing varied results.</p>
-<p><img alt="groupsmultigenseeding" src="../../assets/nodes/groupsmultigenseeding.png" /></p>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
-<p>With our knowledge of node grouping and the diffusion process, let’s break down some basic graphs in the nodes editor. Note that a node's options can be overridden by inputs from other nodes. These examples aren't strict rules to follow and only demonstrate some basic configurations.</p>
-<h3 id="basic-text-to-image-node-graph">Basic text-to-image Node Graph<a class="headerlink" href="#basic-text-to-image-node-graph" title="Permanent link">#</a></h3>
-<p><img alt="nodest2i" src="../../assets/nodes/nodest2i.png" /></p>
-<ul>
-<li>Model Loader: A necessity to generating images (as we’ve read above). We choose our model from the dropdown. It outputs a U-Net, CLIP tokenizer, and VAE.</li>
-<li>Prompt (Compel): Another necessity. Two prompt nodes are created. One will output positive conditioning (what you want, ‘dog’), one will output negative (what you don’t want, ‘cat’). They both input the CLIP tokenizer that the Model Loader node outputs.</li>
-<li>Noise: Consider this noise A from step one of the text-to-image explanation above. Choose a seed number, width, and height.</li>
-<li>TextToLatents: This node takes many inputs for converting and processing text &amp; noise from image space into latent space, hence the name TextTo**Latents**. In this setup, it inputs positive and negative conditioning from the prompt nodes for processing (step 2 above). It inputs noise from the noise node for processing (steps 2 &amp; 3 above). Lastly, it inputs a U-Net from the Model Loader node for processing (step 2 above). It outputs latents for use in the next LatentsToImage node. Choose number of sampler steps, CFG scale, and scheduler.</li>
-<li>LatentsToImage: This node takes in processed latents from the TextToLatents node, and the model’s VAE from the Model Loader node which is responsible for decoding latents back into the image space, hence the name LatentsTo**Image**. This node is the last stop, and once the image is decoded, it is saved to the gallery.</li>
-</ul>
-<h3 id="basic-image-to-image-node-graph">Basic image-to-image Node Graph<a class="headerlink" href="#basic-image-to-image-node-graph" title="Permanent link">#</a></h3>
-<p><img alt="nodesi2i" src="../../assets/nodes/nodesi2i.png" /></p>
-<ul>
-<li>Model Loader: Choose a model from the dropdown.</li>
-<li>Prompt (Compel): Two prompt nodes. One positive (dog), one negative (dog). Same CLIP inputs from the Model Loader node as before.</li>
-<li>ImageToLatents: Upload a source image directly in the node window, via drag'n'drop from the gallery, or passed in as input. The ImageToLatents node inputs the VAE from the Model Loader node to decode the chosen image from image space into latent space, hence the name ImageTo**Latents**. It outputs latents for use in the next LatentsToLatents node. It also outputs the source image's width and height for use in the next Noise node if the final image is to be the same dimensions as the source image.</li>
-<li>Noise: A noise tensor is created with the width and height of the source image, and connected to the next LatentsToLatents node. Notice the width and height fields are overridden by the input from the ImageToLatents width and height outputs.</li>
-<li>LatentsToLatents: The inputs and options are nearly identical to TextToLatents, except that LatentsToLatents also takes latents as an input. Considering our source image is already converted to latents in the last ImageToLatents node, and text + noise are no longer the only inputs to process, we use the LatentsToLatents node. </li>
-<li>LatentsToImage: Like previously, the LatentsToImage node will use the VAE from the Model Loader as input to decode the latents from LatentsToLatents into image space, and save it to the gallery.</li>
-</ul>
-<h3 id="basic-controlnet-node-graph">Basic ControlNet Node Graph<a class="headerlink" href="#basic-controlnet-node-graph" title="Permanent link">#</a></h3>
-<p><img alt="nodescontrol" src="../../assets/nodes/nodescontrol.png" /></p>
-<ul>
-<li>Model Loader</li>
-<li>Prompt (Compel)</li>
-<li>Noise: Width and height of the CannyImageProcessor ControlNet image is passed in to set the dimensions of the noise passed to TextToLatents.</li>
-<li>CannyImageProcessor: The CannyImageProcessor node is used to process the source image being used as a ControlNet. Each ControlNet processor node applies control in different ways, and has some different options to configure. Width and height are passed to noise, as mentioned. The processed ControlNet image is output to the ControlNet node.</li>
-<li>ControlNet: Select the type of control model. In this case, canny is chosen as the CannyImageProcessor was used to generate the ControlNet image. Configure the control node options, and pass the control output to TextToLatents.</li>
-<li>TextToLatents: Similar to the basic text-to-image example, except ControlNet is passed to the control input edge point.</li>
-<li>LatentsToImage</li>
-</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 11, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
       
     
   </small>
 </div>
 
+
+  
 
 
 
@@ -2161,7 +2120,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../MODEL_MERGING/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model Merging" rel="prev">
+        <a href="../NODES/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Node Editor Usage" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2170,20 +2129,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Model Merging
+              Node Editor Usage
             </div>
           </div>
         </a>
       
       
         
-        <a href="../POSTPROCESS/" class="md-footer__link md-footer__link--next" aria-label="Next: Postprocessing" rel="next">
+        <a href="../contributingNodes/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing Nodes" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Postprocessing
+              Contributing Nodes
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2222,6 +2181,10 @@
     
     
       <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../javascripts/tablesort.js"></script>
       
     
     
