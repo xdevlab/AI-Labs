@@ -23,7 +23,7 @@
     
     
       
-        <title>Community Nodes - InvokeAI Stable Diffusion Toolkit Docs</title>
+        <title>Community Nodes - InvokeAI Documentation</title>
       
     
     
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-header__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-header__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -116,7 +116,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            InvokeAI Stable Diffusion Toolkit Docs
+            InvokeAI Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -380,13 +380,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-nav__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-nav__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    InvokeAI Stable Diffusion Toolkit Docs
+    InvokeAI Documentation
   </label>
   
     <div class="md-nav__source">
@@ -1232,7 +1232,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/TRAINING/" class="md-nav__link">
-        Training
+        Textual Inversion Training
       </a>
     </li>
   
@@ -1381,6 +1381,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1415,6 +1417,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/contribution_guides/newContributorChecklist/" class="md-nav__link">
+        New Contributors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/ARCHITECTURE/" class="md-nav__link">
         InvokeAI Architecture
       </a>
@@ -1429,7 +1445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/contribution_guides/development_guides/contributingToFrontend/" class="md-nav__link">
+      <a href="../../contributing/contribution_guides/contributingToFrontend/" class="md-nav__link">
         Frontend Documentation
       </a>
     </li>
@@ -1811,8 +1827,8 @@
 <h1 id="community-nodes">Community Nodes<a class="headerlink" href="#community-nodes" title="Permanent link">#</a></h1>
 <p>These are nodes that have been developed by the community, for the community. If you're not sure what a node is, you can learn more about nodes <a href="../overview/">here</a>.</p>
 <p>If you'd like to submit a node for the community, please refer to the <a href="../contributingNodes/">node creation overview</a>.</p>
-<p>To download a node, simply download the <code>.py</code> node file from the link and add it to the <code>invokeai/app/invocations</code> folder in your Invoke AI install location. Along with the node, an example node graph should be provided to help you get started with the node. </p>
-<p>To use a community node graph, download the the <code>.json</code> node graph file and load it into Invoke AI via the <strong>Load Nodes</strong> button on the Node Editor. </p>
+<p>To download a node, simply download the <code>.py</code> node file from the link and add it to the <code>invokeai/app/invocations</code> folder in your Invoke AI install location. If you used the automated installation, this can be found inside the <code>.venv</code> folder. Along with the node, an example node graph should be provided to help you get started with the node. </p>
+<p>To use a community workflow, download the the <code>.json</code> node graph file and load it into Invoke AI via the <strong>Load Workflow</strong> button in the Workflow Editor. </p>
 <h2 id="community-nodes_1">Community Nodes<a class="headerlink" href="#community-nodes_1" title="Permanent link">#</a></h2>
 <h3 id="facetools">FaceTools<a class="headerlink" href="#facetools" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> FaceTools is a collection of nodes created to manipulate faces as you would in Unified Canvas. It includes FaceMask, FaceOff, and FacePlace. FaceMask autodetects a face in the image using MediaPipe and creates a mask from it. FaceOff similarly detects a face, then takes the face off of the image by adding a square bounding box around it and cropping/scaling it. FacePlace puts the bounded face image from FaceOff back onto the original image. Using these nodes with other inpainting node(s), you can put new faces on existing things, put new things around existing faces, and work closer with a face as a bounded image. Additionally, you can supply X and Y offset values to scale/change the shape of the mask for finer control on FaceMask and FaceOff. See GitHub repository below for usage examples.</p>
@@ -1937,7 +1953,7 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
       
         <br>
         Created:

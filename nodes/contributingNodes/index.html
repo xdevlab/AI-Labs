@@ -23,7 +23,7 @@
     
     
       
-        <title>Contributing Nodes - InvokeAI Stable Diffusion Toolkit Docs</title>
+        <title>Contributing Nodes - InvokeAI Documentation</title>
       
     
     
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-header__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-header__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -116,7 +116,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            InvokeAI Stable Diffusion Toolkit Docs
+            InvokeAI Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -380,13 +380,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-nav__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-nav__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    InvokeAI Stable Diffusion Toolkit Docs
+    InvokeAI Documentation
   </label>
   
     <div class="md-nav__source">
@@ -1177,7 +1177,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/TRAINING/" class="md-nav__link">
-        Training
+        Textual Inversion Training
       </a>
     </li>
   
@@ -1326,6 +1326,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1360,6 +1362,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/contribution_guides/newContributorChecklist/" class="md-nav__link">
+        New Contributors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/ARCHITECTURE/" class="md-nav__link">
         InvokeAI Architecture
       </a>
@@ -1374,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/contribution_guides/development_guides/contributingToFrontend/" class="md-nav__link">
+      <a href="../../contributing/contribution_guides/contributingToFrontend/" class="md-nav__link">
         Frontend Documentation
       </a>
     </li>
@@ -1757,12 +1773,12 @@
 <p>To learn about the specifics of creating a new node, please visit our <a href="../../contributing/INVOCATIONS/">Node creation documentation</a>. </p>
 <p>Once you’ve created a node and confirmed that it behaves as expected locally, follow these steps: </p>
 <ul>
-<li>Make sure the node is contained in a new Python (.py) file </li>
-<li>Submit a pull request with a link to your node in GitHub against the <code>nodes</code> branch to add the node to the <a href="Community Nodes">Community Nodes</a> list<ul>
-<li>Make sure you are following the template below and have provided all relevant details about the node and what it does.</li>
+<li>Make sure the node is contained in a new Python (.py) file. Preferrably, the node is in a repo with a README detaling the nodes usage &amp; examples to help others more easily use your node.</li>
+<li>Submit a pull request with a link to your node(s) repo in GitHub against the <code>main</code> branch to add the node to the <a href="../communityNodes/">Community Nodes</a> list<ul>
+<li>Make sure you are following the template below and have provided all relevant details about the node and what it does. Example output images and workflows are very helpful for other users looking to use your node.</li>
 </ul>
 </li>
-<li>A maintainer will review the pull request and node. If the node is aligned with the direction of the project, you might be asked for permission to include it in the core project.</li>
+<li>A maintainer will review the pull request and node. If the node is aligned with the direction of the project, you may be asked for permission to include it in the core project.</li>
 </ul>
 <h3 id="community-node-template">Community Node Template<a class="headerlink" href="#community-node-template" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>--------------------------------
@@ -1784,7 +1800,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 11, 2023</span>
       
         <br>
         Created:

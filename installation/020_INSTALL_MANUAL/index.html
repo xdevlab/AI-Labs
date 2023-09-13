@@ -23,7 +23,7 @@
     
     
       
-        <title>Installing Manually - InvokeAI Stable Diffusion Toolkit Docs</title>
+        <title>Installing Manually - InvokeAI Documentation</title>
       
     
     
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-header__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-header__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -116,7 +116,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            InvokeAI Stable Diffusion Toolkit Docs
+            InvokeAI Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -380,13 +380,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-nav__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-nav__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    InvokeAI Stable Diffusion Toolkit Docs
+    InvokeAI Documentation
   </label>
   
     <div class="md-nav__source">
@@ -560,12 +560,18 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#developer-install" class="md-nav__link">
     Developer Install
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Developer Install">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#unsupported-conda-install" class="md-nav__link">
@@ -1211,7 +1217,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/TRAINING/" class="md-nav__link">
-        Training
+        Textual Inversion Training
       </a>
     </li>
   
@@ -1360,6 +1366,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1394,6 +1402,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/contribution_guides/newContributorChecklist/" class="md-nav__link">
+        New Contributors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/ARCHITECTURE/" class="md-nav__link">
         InvokeAI Architecture
       </a>
@@ -1408,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/contribution_guides/development_guides/contributingToFrontend/" class="md-nav__link">
+      <a href="../../contributing/contribution_guides/contributingToFrontend/" class="md-nav__link">
         Frontend Documentation
       </a>
     </li>
@@ -2049,7 +2071,7 @@ things you can do with InvokeAI.</p>
 to get usage instructions.</p>
 </li>
 </ol>
-<h3 id="developer-install">Developer Install<a class="headerlink" href="#developer-install" title="Permanent link">#</a></h3>
+<h2 id="developer-install">Developer Install<a class="headerlink" href="#developer-install" title="Permanent link">#</a></h2>
 <p>If you have an interest in how InvokeAI works, or you would like to
 add features or bugfixes, you are encouraged to install the source
 code for InvokeAI. For this to work, you will need to install the
@@ -2057,12 +2079,13 @@ code for InvokeAI. For this to work, you will need to install the
 on your system, please see the <a href="https://github.com/git-guides/install-git">Git Installation
 Guide</a></p>
 <ol>
+<li>Create a fork of the InvokeAI repository through the GitHub UI or <a href="https://github.com/invoke-ai/InvokeAI/fork">this link</a> </li>
 <li>
 <p>From the command line, run this command:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/invoke-ai/InvokeAI.git
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your_github_username&gt;/InvokeAI.git
 </code></pre></div></p>
 <p>This will create a directory named <code>InvokeAI</code> and populate it with the
-full source code from the InvokeAI repository.</p>
+full source code from your fork of the InvokeAI repository.</p>
 </li>
 <li>
 <p>Activate the InvokeAI virtual environment as per step (4) of the manual
@@ -2131,7 +2154,7 @@ staff will <strong>not</strong> be able to help you out. Caveat Emptor!</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
       
         <br>
         Created:

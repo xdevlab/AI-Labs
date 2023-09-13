@@ -23,7 +23,7 @@
     
     
       
-        <title>Node Editor Usage - InvokeAI Stable Diffusion Toolkit Docs</title>
+        <title>Node Editor Usage - InvokeAI Documentation</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-the-node-editor" class="md-skip">
+        <a href="#using-the-workflow-editor" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-header__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-header__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -116,7 +116,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            InvokeAI Stable Diffusion Toolkit Docs
+            InvokeAI Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -380,13 +380,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-nav__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-nav__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    InvokeAI Stable Diffusion Toolkit Docs
+    InvokeAI Documentation
   </label>
   
     <div class="md-nav__source">
@@ -892,6 +892,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ui-features" class="md-nav__link">
+    UI Features
+  </a>
+  
+    <nav class="md-nav" aria-label="UI Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-view" class="md-nav__link">
+    Linear View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renaming-fields-and-nodes" class="md-nav__link">
+    Renaming Fields and Nodes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-nodes" class="md-nav__link">
+    Managing Nodes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#important-concepts" class="md-nav__link">
     Important Concepts
   </a>
@@ -956,8 +990,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-image-generation-random-seeds" class="md-nav__link">
-    Multiple Image Generation + Random Seeds
+  <a href="#batch-multiple-image-generation-random-seeds" class="md-nav__link">
+    Batch / Multiple Image Generation + Random Seeds
   </a>
   
 </li>
@@ -1246,7 +1280,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/TRAINING/" class="md-nav__link">
-        Training
+        Textual Inversion Training
       </a>
     </li>
   
@@ -1395,6 +1429,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1429,6 +1465,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/contribution_guides/newContributorChecklist/" class="md-nav__link">
+        New Contributors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/ARCHITECTURE/" class="md-nav__link">
         InvokeAI Architecture
       </a>
@@ -1443,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/contribution_guides/development_guides/contributingToFrontend/" class="md-nav__link">
+      <a href="../../contributing/contribution_guides/contributingToFrontend/" class="md-nav__link">
         Frontend Documentation
       </a>
     </li>
@@ -1822,10 +1872,24 @@
   
 
 
-<h1 id="using-the-node-editor">Using the Node Editor<a class="headerlink" href="#using-the-node-editor" title="Permanent link">#</a></h1>
-<p>The nodes editor is a blank canvas allowing for the use of individual functions and image transformations to control the image generation workflow. Nodes take in inputs on the left side of the node, and return an output on the right side of the node. A node graph is composed of multiple nodes that are connected together to create a workflow. Nodes' inputs and outputs are connected by dragging connectors from node to node. Inputs and outputs are color coded for ease of use.</p>
-<p>To better understand how nodes are used, think of how an electric power bar works. It takes in one input (electricity from a wall outlet) and passes it to multiple devices through multiple outputs. Similarly, a node could have multiple inputs and outputs functioning at the same (or different) time, but all node outputs pass information onward like a power bar passes electricity. Not all outputs are compatible with all inputs, however - Each node has different constraints on how it is expecting to input/output information. In general, node outputs are colour-coded to match compatible inputs of other nodes.</p>
-<p>If you're not familiar with Diffusion, take a look at our <a href="../../help/diffusion/">Diffusion Overview.</a> Understanding how diffusion works will enable you to more easily use the Nodes Editor and build workflows to suit your needs.</p>
+<h1 id="using-the-workflow-editor">Using the Workflow Editor<a class="headerlink" href="#using-the-workflow-editor" title="Permanent link">#</a></h1>
+<p>The workflow editor is a blank canvas allowing for the use of individual functions and image transformations to control the image generation workflow. Nodes take in inputs on the left side of the node, and return an output on the right side of the node. A node graph is composed of multiple nodes that are connected together to create a workflow. Nodes' inputs and outputs are connected by dragging connectors from node to node. Inputs and outputs are color coded for ease of use.</p>
+<p>If you're not familiar with Diffusion, take a look at our <a href="../../help/diffusion/">Diffusion Overview.</a> Understanding how diffusion works will enable you to more easily use the Workflow Editor and build workflows to suit your needs.</p>
+<h2 id="ui-features">UI Features<a class="headerlink" href="#ui-features" title="Permanent link">#</a></h2>
+<h3 id="linear-view">Linear View<a class="headerlink" href="#linear-view" title="Permanent link">#</a></h3>
+<p>The Workflow Editor allows you to create a UI for your workflow, to make it easier to iterate on your generations. </p>
+<p>To add an input to the Linear UI, right click on the input and select "Add to Linear View".</p>
+<p>The Linear UI View will also be part of the saved workflow, allowing you share workflows and enable other to use them, regardless of complexity. </p>
+<p><img alt="linearview" src="../../assets/nodes/linearview.png" /></p>
+<h3 id="renaming-fields-and-nodes">Renaming Fields and Nodes<a class="headerlink" href="#renaming-fields-and-nodes" title="Permanent link">#</a></h3>
+<p>Any node or input field can be renamed in the workflow editor. If the input field you have renamed has been added to the Linear View, the changed name will be reflected in the Linear View and the node. </p>
+<h3 id="managing-nodes">Managing Nodes<a class="headerlink" href="#managing-nodes" title="Permanent link">#</a></h3>
+<ul>
+<li>Ctrl+C to copy a node</li>
+<li>Ctrl+V to paste a node</li>
+<li>Backspace/Delete to delete a node</li>
+<li>Shift+Click to drag and select multiple nodes </li>
+</ul>
 <h2 id="important-concepts">Important Concepts<a class="headerlink" href="#important-concepts" title="Permanent link">#</a></h2>
 <p>There are several node grouping concepts that can be examined with a narrow focus. These (and other) groupings can be pieced together to make up functional graph setups, and are important to understanding how groups of nodes work together as part of a whole. Note that the screenshots below aren't examples of complete functioning node graphs (see Examples).</p>
 <h3 id="noise">Noise<a class="headerlink" href="#noise" title="Permanent link">#</a></h3>
@@ -1841,7 +1905,7 @@
 <p>It is common to want to use both the same seed (for continuity) and random seeds (for variety). To define a seed, simply enter it into the 'Seed' field on a noise node. Conversely, the RandomInt node generates a random integer between 'Low' and 'High', and can be used as input to the 'Seed' edge point on a noise node to randomize your seed.</p>
 <p><img alt="groupsrandseed" src="../../assets/nodes/groupsrandseed.png" /></p>
 <h3 id="controlnet">ControlNet<a class="headerlink" href="#controlnet" title="Permanent link">#</a></h3>
-<p>The ControlNet node outputs a Control, which can be provided as input to non-image *ToLatents nodes. Depending on the type of ControlNet desired, ControlNet nodes usually require an image processor node, such as a Canny Processor or Depth Processor, which prepares an input image for use with ControlNet.</p>
+<p>The ControlNet node outputs a Control, which can be provided as input to a Denoise Latents node. Depending on the type of ControlNet desired, ControlNet nodes usually require an image processor node, such as a Canny Processor or Depth Processor, which prepares an input image for use with ControlNet.</p>
 <p><img alt="groupscontrol" src="../../assets/nodes/groupscontrol.png" /></p>
 <h3 id="lora">LoRA<a class="headerlink" href="#lora" title="Permanent link">#</a></h3>
 <p>The Lora Loader node lets you load a LoRA and pass it as output.A LoRA provides fine-tunes to the UNet and text encoder weights that augment the base model’s image and text vocabularies.</p>
@@ -1852,9 +1916,8 @@
 <h3 id="iteration-multiple-images-as-input">Iteration + Multiple Images as Input<a class="headerlink" href="#iteration-multiple-images-as-input" title="Permanent link">#</a></h3>
 <p>Iteration is a common concept in any processing, and means to repeat a process with given input. In nodes, you're able to use the Iterate node to iterate through collections usually gathered by the Collect node. The Iterate node has many potential uses, from processing a collection of images one after another, to varying seeds across multiple image generations and more. This screenshot demonstrates how to collect several images and use them in an image generation workflow.</p>
 <p><img alt="groupsiterate" src="../../assets/nodes/groupsiterate.png" /></p>
-<h3 id="multiple-image-generation-random-seeds">Multiple Image Generation + Random Seeds<a class="headerlink" href="#multiple-image-generation-random-seeds" title="Permanent link">#</a></h3>
-<p>Multiple image generation in the node editor is done using the RandomRange node. In this case, the 'Size' field represents the number of images to generate. As RandomRange produces a collection of integers, we need to add the Iterate node to iterate through the collection. </p>
-<p>To control seeds across generations takes some care. The first row in the screenshot will generate multiple images with different seeds, but using the same RandomRange parameters across invocations will result in the same group of random seeds being used across the images, producing repeatable results. In the second row, adding the RandomInt node as input to RandomRange's 'Seed' edge point will ensure that seeds are varied across all images across invocations, producing varied results.</p>
+<h3 id="batch-multiple-image-generation-random-seeds">Batch / Multiple Image Generation + Random Seeds<a class="headerlink" href="#batch-multiple-image-generation-random-seeds" title="Permanent link">#</a></h3>
+<p>Batch or multiple image generation in the workflow editor is done using the RandomRange node. In this case, the 'Size' field represents the number of images to generate, meaning this example will generate 4 images. As RandomRange produces a collection of integers, we need to add the Iterate node to iterate through the collection. This noise can then be fed to the Denoise Latents node for it to iterate through the denoising process with the different seeds provided.</p>
 <p><img alt="groupsmultigenseeding" src="../../assets/nodes/groupsmultigenseeding.png" /></p>
 
   <hr>
@@ -1862,7 +1925,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
       
         <br>
         Created:

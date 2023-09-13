@@ -23,7 +23,7 @@
     
     
       
-        <title>Prompting-Features - InvokeAI Stable Diffusion Toolkit Docs</title>
+        <title>Prompting-Features - InvokeAI Documentation</title>
       
     
     
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-header__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-header__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -116,7 +116,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            InvokeAI Stable Diffusion Toolkit Docs
+            InvokeAI Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -380,13 +380,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="InvokeAI Stable Diffusion Toolkit Docs" class="md-nav__button md-logo" aria-label="InvokeAI Stable Diffusion Toolkit Docs" data-md-component="logo">
+    <a href="../.." title="InvokeAI Documentation" class="md-nav__button md-logo" aria-label="InvokeAI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    InvokeAI Stable Diffusion Toolkit Docs
+    InvokeAI Documentation
   </label>
   
     <div class="md-nav__source">
@@ -1192,7 +1192,7 @@
         
           <li class="md-nav__item">
   <a href="#escaping-parentheses-and-speech-marks" class="md-nav__link">
-    Escaping parentheses () and speech marks ""
+    Escaping parentheses and speech marks
   </a>
   
 </li>
@@ -1250,6 +1250,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sdxl-prompting" class="md-nav__link">
+    SDXL Prompting
+  </a>
+  
+    <nav class="md-nav" aria-label="SDXL Prompting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompting" class="md-nav__link">
+    Prompting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concatenated-prompts" class="md-nav__link">
+    Concatenated Prompts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1266,7 +1293,7 @@
   
     <li class="md-nav__item">
       <a href="../TRAINING/" class="md-nav__link">
-        Training
+        Textual Inversion Training
       </a>
     </li>
   
@@ -1415,6 +1442,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1449,6 +1478,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/contribution_guides/newContributorChecklist/" class="md-nav__link">
+        New Contributors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/ARCHITECTURE/" class="md-nav__link">
         InvokeAI Architecture
       </a>
@@ -1463,7 +1506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/contribution_guides/development_guides/contributingToFrontend/" class="md-nav__link">
+      <a href="../../contributing/contribution_guides/contributingToFrontend/" class="md-nav__link">
         Frontend Documentation
       </a>
     </li>
@@ -2018,7 +2061,7 @@ words in a new prompt. This works for <code>img2img</code> as well.</p>
 <p>Prompt2prompt <code>.swap()</code> is not compatible with xformers, which will be temporarily disabled when doing a <code>.swap()</code> - so you should expect to use more VRAM and run slower that with xformers enabled.</p>
 <p>The <code>prompt2prompt</code> code is based off
 <a href="https://github.com/bloc97/CrossAttentionControl">bloc97's colab</a>.</p>
-<h3 id="escaping-parentheses-and-speech-marks">Escaping parentheses () and speech marks ""<a class="headerlink" href="#escaping-parentheses-and-speech-marks" title="Permanent link">#</a></h3>
+<h3 id="escaping-parentheses-and-speech-marks">Escaping parentheses and speech marks<a class="headerlink" href="#escaping-parentheses-and-speech-marks" title="Permanent link">#</a></h3>
 <p>If the model you are using has parentheses () or speech marks "" as part of its
 syntax, you will need to "escape" these using a backslash, so that<code>(my_keyword)</code>
 becomes <code>\(my_keyword\)</code>. Otherwise, the prompt parser will attempt to interpret
@@ -2078,7 +2121,7 @@ Encapsulate the different options within curly braces {}.
 Within the braces, separate each option using a vertical bar |.
 If you want to include multiple options from a single group, prefix with the desired number and $$.
 </code></pre></div>
-<p>For instance: A {house|apartment|lodge|cottage} in {summer|winter|autumn|spring} designed in {2$$style1|style2|style3}.</p>
+<p>For instance: A {house|apartment|lodge|cottage} in {summer|winter|autumn|spring} designed in {style1|style2|style3}.</p>
 <h3 id="how-dynamic-prompts-work">How Dynamic Prompts Work<a class="headerlink" href="#how-dynamic-prompts-work" title="Permanent link">#</a></h3>
 <p>Once a Dynamic Prompt is configured, the system generates an array of combinations using the options provided. Each group of options in curly braces is treated independently, with the system selecting one option from each group. For a prefixed set (e.g., 2$$), the system will select two distinct options.</p>
 <p>For example, the following prompts could be generated from the above Dynamic Prompt:</p>
@@ -2098,13 +2141,25 @@ Experiment with different quantities for the prefix. For example, 3$$ will selec
 Be aware of coherence in your prompts. Although the system can generate all possible combinations, not all may semantically make sense. Therefore, carefully choose the options for each group.
 Always review and fine-tune the generated prompts as needed. While Dynamic Prompts can help you generate a multitude of combinations, the final polishing and refining remain in your hands.
 </code></pre></div>
+<h2 id="sdxl-prompting">SDXL Prompting<a class="headerlink" href="#sdxl-prompting" title="Permanent link">#</a></h2>
+<p>Prompting with SDXL is slightly different than prompting with SD1.5 or SD2.1 models - SDXL expects a prompt <em>and</em> a style. </p>
+<h3 id="prompting">Prompting<a class="headerlink" href="#prompting" title="Permanent link">#</a></h3>
+<figure>
+<p><img alt="SDXL prompt boxes in InvokeAI" src="../../assets/prompt_syntax/sdxl-prompt.png" /></p>
+</figure>
+<p>In the prompt box, enter a positive or negative prompt as you normally would. </p>
+<p>For the style box you can enter a style that you want the image to be generated in. You can use styles from this example list, or any other style you wish: anime, photographic, digital art, comic book, fantasy art, analog film, neon punk, isometric, low poly, origami, line art, cinematic, 3d model, pixel art, etc.</p>
+<h3 id="concatenated-prompts">Concatenated Prompts<a class="headerlink" href="#concatenated-prompts" title="Permanent link">#</a></h3>
+<p>InvokeAI also has the option to concatenate the prompt and style inputs, by pressing the "link" button in the Positive Prompt box. </p>
+<p>This concatenates the prompt &amp; style inputs, and passes the joined prompt and style to the SDXL model. 
+<img alt="SDXL concatenated prompt boxes in InvokeAI" src="../../assets/prompt_syntax/sdxl-prompt-concatenated.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2023</span>
       
         <br>
         Created:
