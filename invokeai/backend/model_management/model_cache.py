@@ -25,6 +25,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Optional, Type, Union, types
 
+import psutil
 import torch
 
 import invokeai.backend.util.logging as logger
@@ -174,6 +175,31 @@ class ModelCache(object):
 
         return self.model_infos[model_info_key]
 
+    def log_cache_state(self, prefix=None):
+        msg = ""
+        msg += f"----- Cache State ({prefix}) -----\n"
+        total = 0
+        for k, m in self._cached_models.items():
+            msg += f"  > {k}: {(m.size/GIG):.2f} GB\n"
+            total += m.size
+        msg += f"  > CACHE: {(total/GIG):.2f} GB\n"
+        msg += f"  > PROCESS: {(psutil.Process().memory_info().rss/GIG):.2f} GB\n"
+        vm = psutil.virtual_memory()
+        msg += f"  > SYSTEM: {((vm.total-vm.available)/GIG):.2f} GB\n"
+        msg += f"-----------------------"
+
+        # self.logger.info(f"MEM_LEAK: ----- Cache State ({prefix}) -----")
+        # total = 0
+        # for k, m in self._cached_models.items():
+        #     self.logger.info(f"MEM_LEAK:  > {k}: {(m.size/GIG):.2f} GB")
+        #     total += m.size
+        # self.logger.info(f"MEM_LEAK:  > TOTAL: {(total/GIG):.2f} GB")
+        # vm = psutil.virtual_memory()
+
+        # self.logger.info(f"MEM_LEAK:  > SYSTEM: {((vm.total-vm.available)/GIG):.2f} GB")
+        # self.logger.info(f"MEM_LEAK: -----------------------")
+        self.logger.info(f"CACHE_STATE:\n{msg}")
+
     # TODO: args
     def get_model(
         self,
@@ -202,11 +228,15 @@ class ModelCache(object):
             model_type=model_type,
             submodel_type=submodel,
         )
+
+        self.logger.info(f"MEM_LEAK: Started get_model(): '{key}'.")
+        self.log_cache_state("at start of get_model(...)")
+
         # TODO: lock for no copies on simultaneous calls?
         cache_entry = self._cached_models.get(key, None)
         if cache_entry is None:
             self.logger.info(
-                f"Loading model {model_path}, type"
+                f"MEM_LEAK: Loading model {model_path}, type"
                 f" {base_model.value}:{model_type.value}{':'+submodel.value if submodel else ''}"
             )
             if self.stats:
@@ -217,6 +247,8 @@ class ModelCache(object):
             # Make room in the cache to load this model.
             self._make_cache_room(predicted_model_size)
 
+            self.log_cache_state("after _make_cache_room(...)")
+
             # clean memory to make MemoryUsage() more accurate
             gc.collect()
             model = model_info.get_model(child_type=submodel, torch_dtype=self.precision)
@@ -226,8 +258,8 @@ class ModelCache(object):
             if actual_model_size > 0:
                 self.logger.debug(f"CPU RAM used for load: {(actual_model_size/GIG):.2f} GB")
             if abs(actual_model_size - predicted_model_size) > 10 * MB:
-                self.logger.info(
-                    f"Predicted model size before load was off by > 10 MB for '{key}'. Predicted:"
+                self.logger.warning(
+                    f"MEM_LEAK: Predicted model size before load was off by > 10 MB for '{key}'. Predicted:"
                     f" {(predicted_model_size/GIG):.2f} GB, Actual: {(actual_model_size/GIG):.2f} GB."
                 )
 
@@ -261,6 +293,9 @@ class ModelCache(object):
             self._cache_stack.remove(key)
         self._cache_stack.append(key)
 
+        self.logger.info(f"MEM_LEAK: Finished get_model(): '{key}'.")
+        self.log_cache_state("at end of get_model(...)")
+
         return self.ModelLocker(self, key, cache_entry.model, gpu_load, cache_entry.size)
 
     class ModelLocker(object):
@@ -280,6 +315,7 @@ class ModelCache(object):
             self.cache_entry = self.cache._cached_models[self.key]
 
         def __enter__(self) -> Any:
+            self.cache.logger.info(f"MEM_LEAK: ModelLocker.__enter__ start: '{self.key}'.")
             if not hasattr(self.model, "to"):
                 return self.model
 
@@ -311,9 +347,11 @@ class ModelCache(object):
             elif self.cache_entry.loaded and not self.cache_entry.locked:
                 self.model.to(self.cache.storage_device)
 
+            self.cache.logger.info(f"MEM_LEAK: ModelLocker.__enter__ end: '{self.key}'.")
             return self.model
 
         def __exit__(self, type, value, traceback):
+            self.cache.logger.info(f"MEM_LEAK: ModelLocker.__exit__ start: '{self.key}'.")
             if not hasattr(self.model, "to"):
                 return
 
@@ -321,6 +359,7 @@ class ModelCache(object):
             if not self.cache.lazy_offloading:
                 self.cache._offload_unlocked_models()
                 self.cache._print_cuda_stats()
+            self.cache.logger.info(f"MEM_LEAK: ModelLocker.__exit__ end: '{self.key}'.")
 
     # TODO: should it be called untrack_model?
     def uncache_model(self, cache_id: str):
