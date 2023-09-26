@@ -180,7 +180,9 @@ class ModelCache(object):
         msg += f"----- Cache State ({prefix}) -----\n"
         total = 0
         for k, m in self._cached_models.items():
-            msg += f"  > {k}: {(m.size/GIG):.2f} GB\n"
+            dtype = m.model.dtype if hasattr(m.model, "dtype") else None
+            device = m.model.device if hasattr(m.model, "device") else None
+            msg += f"  > {k} (locked={m.locked}, dtype={dtype}, device={device}): {(m.size/GIG):.2f} GB\n"
             total += m.size
         msg += f"  > CACHE: {(total/GIG):.2f} GB\n"
         msg += f"  > PROCESS: {(psutil.Process().memory_info().rss/GIG):.2f} GB\n"
@@ -366,6 +368,7 @@ class ModelCache(object):
         with suppress(ValueError):
             self._cache_stack.remove(cache_id)
         self._cached_models.pop(cache_id, None)
+        self.logger.info(f"MEM_LEAK: Removed from cache: '{cache_id}'.")
 
     def model_hash(
         self,
@@ -460,6 +463,10 @@ class ModelCache(object):
             # 1 from getrefcount function
             # 1 from onnx runtime object
             if not cache_entry.locked and refs <= 3 if "onnx" in model_key else 2:
+                self.logger.info(
+                    f"MEM_LEAK: Unloading model {model_key} to free {(model_size/GIG):.2f} GB"
+                    f" (-{(cache_entry.size/GIG):.2f} GB)"
+                )
                 self.logger.debug(
                     f"Unloading model {model_key} to free {(model_size/GIG):.2f} GB (-{(cache_entry.size/GIG):.2f} GB)"
                 )
@@ -488,11 +495,18 @@ class ModelCache(object):
             if vram_in_use <= reserved:
                 break
             if not cache_entry.locked and cache_entry.loaded:
+                self.logger.info(
+                    f"MEM_LEAK: Offloading {model_key} from {self.execution_device} into {self.storage_device}"
+                )
                 self.logger.debug(f"Offloading {model_key} from {self.execution_device} into {self.storage_device}")
                 with VRAMUsage() as mem:
                     cache_entry.model.to(self.storage_device)
+                self.logger.info(f"MEM_LEAK: GPU VRAM freed: {(mem.vram_used/GIG):.2f} GB")
                 self.logger.debug(f"GPU VRAM freed: {(mem.vram_used/GIG):.2f} GB")
                 vram_in_use += mem.vram_used  # note vram_used is negative
+                self.logger.info(
+                    f"MEM_LEAK: {(vram_in_use/GIG):.2f}GB VRAM used for models; max allowed={(reserved/GIG):.2f}GB"
+                )
                 self.logger.debug(f"{(vram_in_use/GIG):.2f}GB VRAM used for models; max allowed={(reserved/GIG):.2f}GB")
 
         gc.collect()
