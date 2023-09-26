@@ -497,6 +497,7 @@ class DenoiseLatentsInvocation(BaseInvocation):
 
     @torch.no_grad()
     def invoke(self, context: InvocationContext) -> LatentsOutput:
+        context.services.logger.info(f"MEM_LEAK: Starting DenoiseLatentsInvocation.invoke(...).")
         with SilenceWarnings():  # this quenches NSFW nag from diffusers
             seed = None
             noise = None
@@ -539,6 +540,7 @@ class DenoiseLatentsInvocation(BaseInvocation):
                     del lora_info
                 return
 
+            context.services.logger.info(f"MEM_LEAK: About to load UNet and LoRA(s).")
             unet_info = context.services.model_manager.get_model(
                 **self.unet.unet.dict(),
                 context=context,
@@ -549,6 +551,7 @@ class DenoiseLatentsInvocation(BaseInvocation):
                 set_seamless(unet_info.context.model, self.unet.seamless_axes),
                 unet_info as unet,
             ):
+                context.services.logger.info(f"MEM_LEAK: Loaded UNet and LoRA(s).")
                 latents = latents.to(device=unet.device, dtype=unet.dtype)
                 if noise is not None:
                     noise = noise.to(device=unet.device, dtype=unet.dtype)
@@ -557,6 +560,7 @@ class DenoiseLatentsInvocation(BaseInvocation):
                 if masked_latents is not None:
                     masked_latents = masked_latents.to(device=unet.device, dtype=unet.dtype)
 
+                context.services.logger.info(f"MEM_LEAK: Moved latents, noise to device.")
                 scheduler = get_scheduler(
                     context=context,
                     scheduler_info=self.unet.scheduler,
@@ -576,6 +580,8 @@ class DenoiseLatentsInvocation(BaseInvocation):
                     exit_stack=exit_stack,
                 )
 
+                context.services.logger.info(f"MEM_LEAK: Prepared ControlNet data.")
+
                 ip_adapter_data = self.prep_ip_adapter_data(
                     context=context,
                     ip_adapter=self.ip_adapter,
@@ -583,6 +589,8 @@ class DenoiseLatentsInvocation(BaseInvocation):
                     unet=unet,
                     exit_stack=exit_stack,
                 )
+
+                context.services.logger.info(f"MEM_LEAK: Prepared IP-Adapter data.")
 
                 num_inference_steps, timesteps, init_timestep = self.init_scheduler(
                     scheduler,
@@ -592,6 +600,7 @@ class DenoiseLatentsInvocation(BaseInvocation):
                     denoising_end=self.denoising_end,
                 )
 
+                context.services.logger.info(f"MEM_LEAK: Running pipeline.latents_from_embeddings(...).")
                 result_latents, result_attention_map_saver = pipeline.latents_from_embeddings(
                     latents=latents,
                     timesteps=timesteps,
@@ -607,6 +616,8 @@ class DenoiseLatentsInvocation(BaseInvocation):
                     callback=step_callback,
                 )
 
+            context.services.logger.info(f"MEM_LEAK: Moving latents to CPU. Clearing CUDA cache.")
+
             # https://discuss.huggingface.co/t/memory-usage-by-later-pipeline-stages/23699
             result_latents = result_latents.to("cpu")
             torch.cuda.empty_cache()
@@ -615,6 +626,8 @@ class DenoiseLatentsInvocation(BaseInvocation):
 
             name = f"{context.graph_execution_state_id}__{self.id}"
             context.services.latents.save(name, result_latents)
+
+            context.services.logger.info(f"MEM_LEAK: Finished DenoiseLatentsInvocation.")
         return build_latents_output(latents_name=name, latents=result_latents, seed=seed)
 
 
