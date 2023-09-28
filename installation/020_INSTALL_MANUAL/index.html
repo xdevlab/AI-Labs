@@ -253,7 +253,7 @@
   
     <li class="md-tabs__item">
       <a href="../../nodes/communityNodes/" class="md-tabs__link">
-        Nodes
+        Workflows & Nodes
       </a>
     </li>
   
@@ -866,14 +866,14 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Nodes
+          Workflows & Nodes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Nodes
+          Workflows & Nodes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -940,7 +940,7 @@
   
     <li class="md-nav__item">
       <a href="../../nodes/NODES/" class="md-nav__link">
-        Node Editor Usage
+        Workflow Editor Usage
       </a>
     </li>
   
@@ -1105,7 +1105,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/CONTROLNET/" class="md-nav__link">
-        ControlNet
+        Control Adapters
       </a>
     </li>
   
@@ -2078,6 +2078,13 @@ code for InvokeAI. For this to work, you will need to install the
 <code>git</code> source code management program. If it is not already installed
 on your system, please see the <a href="https://github.com/git-guides/install-git">Git Installation
 Guide</a></p>
+<p>You will also need to install the <a href="https://github.com/invoke-ai/InvokeAI/blob/main/docs/contributing/contribution_guides/contributingToFrontend.md">frontend development toolchain</a>.</p>
+<p>If you have a "normal" installation, you should create a totally separate virtual environment for the git-based installation, else the two may interfere.</p>
+<blockquote>
+<p><strong>Why do I need the frontend toolchain</strong>?</p>
+<p>The InvokeAI project uses trunk-based development. That means our <code>main</code> branch is the development branch, and releases are tags on that branch. Because development is very active, we don't keep an updated build of the UI in <code>main</code> - we only build it for production releases.</p>
+<p>That means that between releases, to have a functioning application when running directly from the repo, you will need to run the UI in dev mode or build it regularly (any time the UI code changes).</p>
+</blockquote>
 <ol>
 <li>Create a fork of the InvokeAI repository through the GitHub UI or <a href="https://github.com/invoke-ai/InvokeAI/fork">this link</a> </li>
 <li>
@@ -2116,9 +2123,15 @@ installation protocol (important!)</p>
 </div>
 <p>Be sure to pass <code>-e</code> (for an editable install) and don't forget the
 dot ("."). It is part of the command.</p>
+</li>
+<li>
+<p>Install the <a href="https://github.com/invoke-ai/InvokeAI/blob/main/docs/contributing/contribution_guides/contributingToFrontend.md">frontend toolchain</a> and do a production build of the UI as described.</p>
+</li>
+<li>
 <p>You can now run <code>invokeai</code> and its related commands. The code will be
-read from the repository, so that you can edit the .py source files
-and watch the code's behavior change.</p>
+    read from the repository, so that you can edit the .py source files
+    and watch the code's behavior change.</p>
+<p>When you pull in new changes to the repo, be sure to re-build the UI.</p>
 </li>
 <li>
 <p>If you wish to contribute to the InvokeAI project, you are
@@ -2154,7 +2167,7 @@ staff will <strong>not</strong> be able to help you out. Caveat Emptor!</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 25, 2023</span>
       
         <br>
         Created:

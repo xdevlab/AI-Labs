@@ -23,7 +23,7 @@
     
     
       
-        <title>Node Editor Usage - InvokeAI Documentation</title>
+        <title>Workflow Editor Usage - InvokeAI Documentation</title>
       
     
     
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Node Editor Usage
+              Workflow Editor Usage
             
           </span>
         </div>
@@ -253,7 +253,7 @@
   
     <li class="md-tabs__item">
       <a href="../communityNodes/" class="md-tabs__link md-tabs__link--active">
-        Nodes
+        Workflows & Nodes
       </a>
     </li>
   
@@ -785,14 +785,14 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Nodes
+          Workflows & Nodes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Nodes
+          Workflows & Nodes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -868,12 +868,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Node Editor Usage
+          Workflow Editor Usage
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Node Editor Usage
+        Workflow Editor Usage
       </a>
       
         
@@ -892,11 +892,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ui-features" class="md-nav__link">
-    UI Features
+  <a href="#features" class="md-nav__link">
+    Features
   </a>
   
-    <nav class="md-nav" aria-label="UI Features">
+    <nav class="md-nav" aria-label="Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -916,6 +916,13 @@
           <li class="md-nav__item">
   <a href="#managing-nodes" class="md-nav__link">
     Managing Nodes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-caching" class="md-nav__link">
+    Node Caching
   </a>
   
 </li>
@@ -1168,7 +1175,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/CONTROLNET/" class="md-nav__link">
-        ControlNet
+        Control Adapters
       </a>
     </li>
   
@@ -1875,10 +1882,10 @@
 <h1 id="using-the-workflow-editor">Using the Workflow Editor<a class="headerlink" href="#using-the-workflow-editor" title="Permanent link">#</a></h1>
 <p>The workflow editor is a blank canvas allowing for the use of individual functions and image transformations to control the image generation workflow. Nodes take in inputs on the left side of the node, and return an output on the right side of the node. A node graph is composed of multiple nodes that are connected together to create a workflow. Nodes' inputs and outputs are connected by dragging connectors from node to node. Inputs and outputs are color coded for ease of use.</p>
 <p>If you're not familiar with Diffusion, take a look at our <a href="../../help/diffusion/">Diffusion Overview.</a> Understanding how diffusion works will enable you to more easily use the Workflow Editor and build workflows to suit your needs.</p>
-<h2 id="ui-features">UI Features<a class="headerlink" href="#ui-features" title="Permanent link">#</a></h2>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
 <h3 id="linear-view">Linear View<a class="headerlink" href="#linear-view" title="Permanent link">#</a></h3>
 <p>The Workflow Editor allows you to create a UI for your workflow, to make it easier to iterate on your generations. </p>
-<p>To add an input to the Linear UI, right click on the input and select "Add to Linear View".</p>
+<p>To add an input to the Linear UI, right click on the input label and select "Add to Linear View".</p>
 <p>The Linear UI View will also be part of the saved workflow, allowing you share workflows and enable other to use them, regardless of complexity. </p>
 <p><img alt="linearview" src="../../assets/nodes/linearview.png" /></p>
 <h3 id="renaming-fields-and-nodes">Renaming Fields and Nodes<a class="headerlink" href="#renaming-fields-and-nodes" title="Permanent link">#</a></h3>
@@ -1890,6 +1897,8 @@
 <li>Backspace/Delete to delete a node</li>
 <li>Shift+Click to drag and select multiple nodes </li>
 </ul>
+<h3 id="node-caching">Node Caching<a class="headerlink" href="#node-caching" title="Permanent link">#</a></h3>
+<p>Nodes have a "Use Cache" option in their footer. This allows for performance improvements by using the previously cached values during the workflow processing. </p>
 <h2 id="important-concepts">Important Concepts<a class="headerlink" href="#important-concepts" title="Permanent link">#</a></h2>
 <p>There are several node grouping concepts that can be examined with a narrow focus. These (and other) groupings can be pieced together to make up functional graph setups, and are important to understanding how groups of nodes work together as part of a whole. Note that the screenshots below aren't examples of complete functioning node graphs (see Examples).</p>
 <h3 id="noise">Noise<a class="headerlink" href="#noise" title="Permanent link">#</a></h3>
@@ -1925,7 +1934,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 27, 2023</span>
       
         <br>
         Created:

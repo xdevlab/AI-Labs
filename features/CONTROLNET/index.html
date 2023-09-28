@@ -23,7 +23,7 @@
     
     
       
-        <title>ControlNet - InvokeAI Documentation</title>
+        <title>Control Adapters - InvokeAI Documentation</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#controlnet" class="md-skip">
+        <a href="#control-adapters" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ControlNet
+              Control Adapters
             
           </span>
         </div>
@@ -251,7 +251,7 @@
   
     <li class="md-tabs__item">
       <a href="../../nodes/communityNodes/" class="md-tabs__link">
-        Nodes
+        Workflows & Nodes
       </a>
     </li>
   
@@ -783,14 +783,14 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Nodes
+          Workflows & Nodes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Nodes
+          Workflows & Nodes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -857,7 +857,7 @@
   
     <li class="md-nav__item">
       <a href="../../nodes/NODES/" class="md-nav__link">
-        Node Editor Usage
+        Workflow Editor Usage
       </a>
     </li>
   
@@ -1033,12 +1033,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          ControlNet
+          Control Adapters
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        ControlNet
+        Control Adapters
       </a>
       
         
@@ -1057,7 +1057,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#controlnet_1" class="md-nav__link">
+  <a href="#controlnet" class="md-nav__link">
     ControlNet
   </a>
   
@@ -1078,15 +1078,42 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-controlnet" class="md-nav__link">
+    Using ControlNet
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-controlnet" class="md-nav__link">
-    Using ControlNet
+  <a href="#ip-adapter" class="md-nav__link">
+    IP-Adapter
   </a>
+  
+    <nav class="md-nav" aria-label="IP-Adapter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ip-adapter" class="md-nav__link">
+    Using IP-Adapter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1796,9 +1823,8 @@
   
 
 
-<h1 id="controlnet"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10h8a2 2 0 0 0 2-2v-8A10 10 0 0 0 12 2m1 5h-2v4H7v2h4v4h2v-4h4v-2h-4V7Z"/></svg></span> ControlNet<a class="headerlink" href="#controlnet" title="Permanent link">#</a></h1>
-<h2 id="controlnet_1">ControlNet<a class="headerlink" href="#controlnet_1" title="Permanent link">#</a></h2>
-<p>ControlNet</p>
+<h1 id="control-adapters"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10h8a2 2 0 0 0 2-2v-8A10 10 0 0 0 12 2m1 5h-2v4H7v2h4v4h2v-4h4v-2h-4V7Z"/></svg></span> Control Adapters<a class="headerlink" href="#control-adapters" title="Permanent link">#</a></h1>
+<h2 id="controlnet">ControlNet<a class="headerlink" href="#controlnet" title="Permanent link">#</a></h2>
 <p>ControlNet is a powerful set of features developed by the open-source
 community (notably, Stanford researcher
 <a href="https://github.com/lllyasviel"><strong>@ilyasviel</strong></a>) that allows you to
@@ -1808,14 +1834,14 @@ process in Invoke.</p>
 image generation, providing you with a way to direct the network
 towards generating images that better fit your desired style or
 outcome.</p>
-<h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h3>
+<h4 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h4>
 <p>ControlNet works by analyzing an input image, pre-processing that
 image to identify relevant information that can be interpreted by each
 specific ControlNet model, and then inserting that control information
 into the generation process. This can be used to adjust the style,
 composition, or other aspects of the image to better achieve a
 specific result.</p>
-<h3 id="models">Models<a class="headerlink" href="#models" title="Permanent link">#</a></h3>
+<h4 id="models">Models<a class="headerlink" href="#models" title="Permanent link">#</a></h4>
 <p>InvokeAI provides access to a series of ControlNet models that provide
 different effects or styles in your generated images.  Currently
 InvokeAI only supports "diffuser" style ControlNet models. These are
@@ -1860,6 +1886,8 @@ A model that generates depth maps of images, allowing you to create more realist
 A model that generates normal maps from input images, allowing for more realistic lighting effects in 3D rendering.</p>
 <p><strong>Image Segmentation</strong>: 
 A model that divides input images into segments or regions, each of which corresponds to a different object or part of the image. (More details coming soon)</p>
+<p><strong>QR Code Monster</strong>:
+A model that helps generate creative QR codes that still scan. Can also be used to create images with text, logos or shapes within them. </p>
 <p><strong>Openpose</strong>: 
 The OpenPose control model allows for the identification of the general pose of a character by pre-processing an existing image with a clear human structure. With advanced options, Openpose can also detect the face or hands in the image. </p>
 <p><strong>Mediapipe Face</strong>:</p>
@@ -1874,19 +1902,38 @@ The OpenPose control model allows for the identification of the general pose of 
 <p><strong>Pix2Pix (experimental)</strong></p>
 <p>With Pix2Pix, you can input an image into the controlnet, and then "instruct" the model to change it using your prompt. For example, you can say "Make it winter" to add more wintry elements to a scene.</p>
 <p>Each of these models can be adjusted and combined with other ControlNet models to achieve different results, giving you even more control over your image generation process.</p>
-<h2 id="using-controlnet">Using ControlNet<a class="headerlink" href="#using-controlnet" title="Permanent link">#</a></h2>
+<h3 id="using-controlnet">Using ControlNet<a class="headerlink" href="#using-controlnet" title="Permanent link">#</a></h3>
 <p>To use ControlNet, you can simply select the desired model and adjust both the ControlNet and Pre-processor settings to achieve the desired result. You can also use multiple ControlNet models at the same time, allowing you to achieve even more complex effects or styles in your generated images.</p>
 <p>Each ControlNet has two settings that are applied to the ControlNet.</p>
 <p>Weight - Strength of the Controlnet model applied to the generation for the section, defined by start/end.</p>
 <p>Start/End  - 0 represents the start of the generation, 1 represents the end. The Start/end setting controls what steps during the generation process have the ControlNet applied.</p>
 <p>Additionally, each ControlNet section can be expanded in order to manipulate settings for the image pre-processor that adjusts your uploaded image before using it in when you Invoke.</p>
+<h2 id="ip-adapter">IP-Adapter<a class="headerlink" href="#ip-adapter" title="Permanent link">#</a></h2>
+<p><a href="https://ip-adapter.github.io">IP-Adapter</a> is a tooling that allows for image prompt capabilities with text-to-image diffusion models. IP-Adapter works by analyzing the given image prompt to extract features, then passing those features to the UNet along with any other conditioning provided. </p>
+<p><img alt="IP-Adapter + T2I" src="https://github.com/tencent-ailab/IP-Adapter/raw/main/assets/demo/ip_adpter_plus_multi.jpg" /></p>
+<p><img alt="IP-Adapter + IMG2IMG" src="https://github.com/tencent-ailab/IP-Adapter/blob/main/assets/demo/image-to-image.jpg" /></p>
+<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h4>
+<p>There are several ways to install IP-Adapter models with an existing InvokeAI installation:</p>
+<ol>
+<li>Through the command line interface launched from the invoke.sh / invoke.bat scripts, option [5] to download models.</li>
+<li>Through the Model Manager UI with models from the <em>Tools</em> section of <a href="www.models.invoke.ai">www.models.invoke.ai</a>. To do this, copy the repo ID from the desired model page, and paste it in the Add Model field of the model manager. <strong>Note</strong> Both the IP-Adapter and the Image Encoder must be installed for IP-Adapter to work. For example, the <a href="https://models.invoke.ai/InvokeAI/ip_adapter_plus_sd15">SD 1.5 IP-Adapter</a> and <a href="https://models.invoke.ai/InvokeAI/ip_adapter_sd_image_encoder">SD1.5 Image Encoder</a> must be installed to use IP-Adapter with SD1.5 based models.  </li>
+<li>**Advanced -- Not recommended ** Manually downloading the IP-Adapter and Image Encoder files - Image Encoder folders shouid be placed in the <code>models\any\clip_vision</code> folders. IP Adapter Model folders should be placed in the relevant <code>ip-adapter</code> folder of relevant base model folder of Invoke root directory. For example, for the SDXL IP-Adapter, files should be added to the <code>model/sdxl/ip_adapter/</code> folder. </li>
+</ol>
+<h4 id="using-ip-adapter">Using IP-Adapter<a class="headerlink" href="#using-ip-adapter" title="Permanent link">#</a></h4>
+<p>IP-Adapter can be used by navigating to the <em>Control Adapters</em> options and enabling IP-Adapter. </p>
+<p>IP-Adapter requires an image to be used as the Image Prompt. It can also be used in conjunction with text prompts, Image-to-Image, Inpainting, Outpainting, ControlNets and LoRAs.</p>
+<p>Each IP-Adapter has two settings that are applied to the IP-Adapter:</p>
+<ul>
+<li>Weight - Strength of the IP-Adapter model applied to the generation for the section, defined by start/end</li>
+<li>Start/End  - 0 represents the start of the generation, 1 represents the end. The Start/end setting controls what steps during the generation process have the IP-Adapter applied.</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 28, 2023</span>
       
         <br>
         Created:

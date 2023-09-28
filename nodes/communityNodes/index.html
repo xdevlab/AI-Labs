@@ -253,7 +253,7 @@
   
     <li class="md-tabs__item">
       <a href="./" class="md-tabs__link md-tabs__link--active">
-        Nodes
+        Workflows & Nodes
       </a>
     </li>
   
@@ -785,14 +785,14 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Nodes
+          Workflows & Nodes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Nodes
+          Workflows & Nodes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -955,7 +955,7 @@
   
     <li class="md-nav__item">
       <a href="../NODES/" class="md-nav__link">
-        Node Editor Usage
+        Workflow Editor Usage
       </a>
     </li>
   
@@ -1120,7 +1120,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/CONTROLNET/" class="md-nav__link">
-        ControlNet
+        Control Adapters
       </a>
     </li>
   
@@ -1892,13 +1892,6 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
 <p><strong>Example Usage:</strong>
 <img alt="depth from obj usage graph" src="https://raw.githubusercontent.com/dwringer/depth-from-obj-node/main/depth_from_obj_usage.jpg" /></p>
 <hr />
-<h3 id="enhance-image-simple-adjustments">Enhance Image (simple adjustments)<a class="headerlink" href="#enhance-image-simple-adjustments" title="Permanent link">#</a></h3>
-<p><strong>Description:</strong> Boost or reduce color saturation, contrast, brightness, sharpness, or invert colors of any image at any stage with this simple wrapper for pillow [PIL]'s ImageEnhance module.</p>
-<p>Color inversion is toggled with a simple switch, while each of the four enhancer modes are activated by entering a value other than 1 in each corresponding input field. Values less than 1 will reduce the corresponding property, while values greater than 1 will enhance it.</p>
-<p><strong>Node Link:</strong> <a href="https://github.com/dwringer/image-enhance-node">https://github.com/dwringer/image-enhance-node</a></p>
-<p><strong>Example Usage:</strong>
-<img alt="enhance image usage graph" src="https://raw.githubusercontent.com/dwringer/image-enhance-node/main/image_enhance_usage.jpg" /></p>
-<hr />
 <h3 id="generative-grammar-based-prompt-nodes">Generative Grammar-Based Prompt Nodes<a class="headerlink" href="#generative-grammar-based-prompt-nodes" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This set of 3 nodes generates prompts from simple user-defined grammar rules (loaded from custom files - examples provided below). The prompts are made by recursively expanding a special template string, replacing nonterminal "parts-of-speech" until no more nonterminal terms remain in the string.</p>
 <p>This includes 3 Nodes:
@@ -1911,14 +1904,24 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
 <hr />
 <h3 id="image-and-mask-composition-pack">Image and Mask Composition Pack<a class="headerlink" href="#image-and-mask-composition-pack" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This is a pack of nodes for composing masks and images, including a simple text mask creator and both image and latent offset nodes. The offsets wrap around, so these can be used in conjunction with the Seamless node to progressively generate centered on different parts of the seamless tiling.</p>
-<p>This includes 4 Nodes:
-- <em>Text Mask (simple 2D)</em> - create and position a white on black (or black on white) line of text using any font locally available to Invoke.
+<p>This includes 14 Nodes:
+- <em>Adjust Image Hue Plus</em> - Rotate the hue of an image in one of several different color spaces.
+- <em>Blend Latents/Noise (Masked)</em> - Use a mask to blend part of one latents tensor [including Noise outputs] into another. Can be used to "renoise" sections during a multi-stage [masked] denoising process.
+- <em>Enhance Image</em> - Boost or reduce color saturation, contrast, brightness, sharpness, or invert colors of any image at any stage with this simple wrapper for pillow [PIL]'s ImageEnhance module.
+- <em>Equivalent Achromatic Lightness</em> - Calculates image lightness accounting for Helmholtz-Kohlrausch effect based on a method described by High, Green, and Nussbaum (2023).
+- <em>Text to Mask (Clipseg)</em> - Input a prompt and an image to generate a mask representing areas of the image matched by the prompt.
+- <em>Text to Mask Advanced (Clipseg)</em> - Output up to four prompt masks combined with logical "and", logical "or", or as separate channels of an RGBA image.
+- <em>Image Layer Blend</em> - Perform a layered blend of two images using alpha compositing. Opacity of top layer is selectable, with optional mask and several different blend modes/color spaces.
 - <em>Image Compositor</em> - Take a subject from an image with a flat backdrop and layer it on another image using a chroma key or flood select background removal.
+- <em>Image Dilate or Erode</em> - Dilate or expand a mask (or any image!). This is equivalent to an expand/contract operation.
+- <em>Image Value Thresholds</em> - Clip an image to pure black/white beyond specified thresholds.
 - <em>Offset Latents</em> - Offset a latents tensor in the vertical and/or horizontal dimensions, wrapping it around.
-- <em>Offset Image</em> - Offset an image in the vertical and/or horizontal dimensions, wrapping it around.</p>
+- <em>Offset Image</em> - Offset an image in the vertical and/or horizontal dimensions, wrapping it around.
+- <em>Shadows/Highlights/Midtones</em> - Extract three masks (with adjustable hard or soft thresholds) representing shadows, midtones, and highlights regions of an image.
+- <em>Text Mask (simple 2D)</em> - create and position a white on black (or black on white) line of text using any font locally available to Invoke.</p>
 <p><strong>Node Link:</strong> <a href="https://github.com/dwringer/composition-nodes">https://github.com/dwringer/composition-nodes</a></p>
-<p><strong>Example Usage:</strong>
-<img alt="composition nodes usage graph" src="https://raw.githubusercontent.com/dwringer/composition-nodes/main/composition_nodes_usage.jpg" /></p>
+<p><strong>Nodes and Output Examples:</strong>
+<img alt="composition nodes usage graph" src="https://raw.githubusercontent.com/dwringer/composition-nodes/main/composition_pack_overview.jpg" /></p>
 <hr />
 <h3 id="size-stepper-nodes">Size Stepper Nodes<a class="headerlink" href="#size-stepper-nodes" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This is a set of nodes for calculating the necessary size increments for doing upscaling workflows. Use the <em>Final Size &amp; Orientation</em> node to enter your full size dimensions and orientation (portrait/landscape/random), then plug that and your initial generation dimensions into the <em>Ideal Size Stepper</em> and get 1, 2, or 3 intermediate pairs of dimensions for upscaling. Note this does not output the initial size or full size dimensions: the 1, 2, or 3 outputs of this node are only the intermediate sizes.</p>
@@ -1937,6 +1940,31 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
 <img alt="4f9a3fa8-9be9-4236-8a3e-fcec66decd2a" src="https://github.com/mickr777/InvokeAI/assets/115216705/821ef89e-8a60-44f5-b94e-471a9d8690cc" />
 <img alt="babd69c4-9d60-4a55-a834-5e8397f62610" src="https://github.com/mickr777/InvokeAI/assets/115216705/2befcb6d-49f4-4bfd-b5fc-1fee19274f89" /></p>
 <hr />
+<h3 id="prompt-tools">Prompt Tools<a class="headerlink" href="#prompt-tools" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> A set of InvokeAI nodes that add general prompt manipulation tools.  These where written to accompany the PromptsFromFile node and other prompt generation nodes.</p>
+<ol>
+<li>PromptJoin - Joins to prompts into one.</li>
+<li>PromptReplace - performs a search and replace on a prompt. With the option of using regex.</li>
+<li>PromptSplitNeg - splits a prompt into positive and negative using the old V2 method of [] for negative.</li>
+<li>PromptToFile - saves a prompt or collection of prompts to a file. one per line. There is an append/overwrite option.</li>
+<li>PTFieldsCollect - Converts image generation fields into a Json format string that can be passed to Prompt to file. </li>
+<li>PTFieldsExpand - Takes Json string and converts it to individual generation parameters This can be fed from the Prompts to file node.</li>
+<li>PromptJoinThree -  Joins 3 prompt together.</li>
+<li>PromptStrength - This take a string and float and outputs another string in the format of (string)strength like the weighted format of compel. </li>
+<li>PromptStrengthCombine - This takes a collection of prompt strength strings and outputs a string in the .and() or .blend() format that can be fed into a proper prompt node.</li>
+</ol>
+<p>See full docs here: <a href="https://github.com/skunkworxdark/Prompt-tools-nodes/edit/main/README.md">https://github.com/skunkworxdark/Prompt-tools-nodes/edit/main/README.md</a></p>
+<p><strong>Node Link:</strong> <a href="https://github.com/skunkworxdark/Prompt-tools-nodes">https://github.com/skunkworxdark/Prompt-tools-nodes</a></p>
+<hr />
+<h3 id="xy-image-to-grid-and-images-to-grids-nodes">XY Image to Grid and Images to Grids nodes<a class="headerlink" href="#xy-image-to-grid-and-images-to-grids-nodes" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> Image to grid nodes and supporting tools.</p>
+<ol>
+<li>"Images To Grids" node - Takes a collection of images and creates a grid(s) of images. If there are more images than the size of a single grid then mutilple grids will be created until it runs out of images.</li>
+<li>"XYImage To Grid" node - Converts a collection of XYImages into a labeled Grid of images.  The XYImages collection has to be built using the supporoting nodes. See example node setups for more details.</li>
+</ol>
+<p>See full docs here: <a href="https://github.com/skunkworxdark/XYGrid_nodes/edit/main/README.md">https://github.com/skunkworxdark/XYGrid_nodes/edit/main/README.md</a></p>
+<p><strong>Node Link:</strong> <a href="https://github.com/skunkworxdark/XYGrid_nodes">https://github.com/skunkworxdark/XYGrid_nodes</a></p>
+<hr />
 <h3 id="example-node-template">Example Node Template<a class="headerlink" href="#example-node-template" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This node allows you to do super cool things with InvokeAI.</p>
 <p><strong>Node Link:</strong> <a href="https://github.com/invoke-ai/InvokeAI/fake_node.py">https://github.com/invoke-ai/InvokeAI/fake_node.py</a></p>
@@ -1953,7 +1981,7 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 25, 2023</span>
       
         <br>
         Created:
