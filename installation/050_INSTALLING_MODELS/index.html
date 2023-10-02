@@ -630,6 +630,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#installing-models-that-live-in-huggingface-subfolders" class="md-nav__link">
+    Installing models that live in HuggingFace subfolders
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1968,13 +1975,22 @@ elsewhere on disk and they will be autoimported. You can also create
 subfolders and organize them as you wish.</p>
 <p>The location of the autoimport directories are controlled by settings
 in <code>invokeai.yaml</code>. See <a href="../../features/CONFIGURATION/">Configuration</a>.</p>
+<h3 id="installing-models-that-live-in-huggingface-subfolders">Installing models that live in HuggingFace subfolders<a class="headerlink" href="#installing-models-that-live-in-huggingface-subfolders" title="Permanent link">#</a></h3>
+<p>On rare occasions you may need to install a diffusers-style model that
+lives in a subfolder of a HuggingFace repo id. In this event, simply
+add ":<em>subfolder-name</em>" to the end of the repo id. For example, if the
+repo id is "monster-labs/control_v1p_sd15_qrcode_monster" and the model
+you wish to fetch lives in a subfolder named "v2", then the repo id to
+pass to the various model installers should be </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>monster-labs/control_v1p_sd15_qrcode_monster:v2
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 28, 2023</span>
       
         <br>
         Created:

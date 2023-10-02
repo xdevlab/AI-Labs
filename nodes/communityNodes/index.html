@@ -836,64 +836,149 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#community-nodes_1" class="md-nav__link">
-    Community Nodes
-  </a>
-  
-    <nav class="md-nav" aria-label="Community Nodes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#facetools" class="md-nav__link">
-    FaceTools
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#ideal-size" class="md-nav__link">
     Ideal Size
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#film-grain" class="md-nav__link">
     Film Grain
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#image-picker" class="md-nav__link">
     Image Picker
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#thresholding" class="md-nav__link">
+    Thresholding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#halftone" class="md-nav__link">
+    Halftone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#retroize" class="md-nav__link">
     Retroize
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#gpt2randompromptmaker" class="md-nav__link">
     GPT2RandomPromptMaker
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#load-video-frame" class="md-nav__link">
     Load Video Frame
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#oobabooga" class="md-nav__link">
+    Oobabooga
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depth-map-from-wavefront-obj" class="md-nav__link">
+    Depth Map from Wavefront OBJ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generative-grammar-based-prompt-nodes" class="md-nav__link">
+    Generative Grammar-Based Prompt Nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-and-mask-composition-pack" class="md-nav__link">
+    Image and Mask Composition Pack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#size-stepper-nodes" class="md-nav__link">
+    Size Stepper Nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-font-to-image" class="md-nav__link">
+    Text font to Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-tools" class="md-nav__link">
+    Prompt Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xy-image-to-grid-and-images-to-grids-nodes" class="md-nav__link">
+    XY Image to Grid and Images to Grids nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-to-character-art-image-nodes" class="md-nav__link">
+    Image to Character Art Image Node's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grid-to-gif" class="md-nav__link">
+    Grid to Gif
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-node-template" class="md-nav__link">
+    Example Node Template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    Help
+  </a>
   
 </li>
       
@@ -1829,14 +1914,7 @@
 <p>If you'd like to submit a node for the community, please refer to the <a href="../contributingNodes/">node creation overview</a>.</p>
 <p>To download a node, simply download the <code>.py</code> node file from the link and add it to the <code>invokeai/app/invocations</code> folder in your Invoke AI install location. If you used the automated installation, this can be found inside the <code>.venv</code> folder. Along with the node, an example node graph should be provided to help you get started with the node. </p>
 <p>To use a community workflow, download the the <code>.json</code> node graph file and load it into Invoke AI via the <strong>Load Workflow</strong> button in the Workflow Editor. </p>
-<h2 id="community-nodes_1">Community Nodes<a class="headerlink" href="#community-nodes_1" title="Permanent link">#</a></h2>
-<h3 id="facetools">FaceTools<a class="headerlink" href="#facetools" title="Permanent link">#</a></h3>
-<p><strong>Description:</strong> FaceTools is a collection of nodes created to manipulate faces as you would in Unified Canvas. It includes FaceMask, FaceOff, and FacePlace. FaceMask autodetects a face in the image using MediaPipe and creates a mask from it. FaceOff similarly detects a face, then takes the face off of the image by adding a square bounding box around it and cropping/scaling it. FacePlace puts the bounded face image from FaceOff back onto the original image. Using these nodes with other inpainting node(s), you can put new faces on existing things, put new things around existing faces, and work closer with a face as a bounded image. Additionally, you can supply X and Y offset values to scale/change the shape of the mask for finer control on FaceMask and FaceOff. See GitHub repository below for usage examples.</p>
-<p><strong>Node Link:</strong> <a href="https://github.com/ymgenesis/FaceTools/">https://github.com/ymgenesis/FaceTools/</a></p>
-<p><strong>FaceMask Output Examples</strong> </p>
-<p><img alt="5cc8abce-53b0-487a-b891-3bf94dcc8960" src="https://github.com/invoke-ai/InvokeAI/assets/25252829/43f36d24-1429-4ab1-bd06-a4bedfe0955e" />
-<img alt="b920b710-1882-49a0-8d02-82dff2cca907" src="https://github.com/invoke-ai/InvokeAI/assets/25252829/7660c1ed-bf7d-4d0a-947f-1fc1679557ba" />
-<img alt="71a91805-fda5-481c-b380-264665703133" src="https://github.com/invoke-ai/InvokeAI/assets/25252829/f8f6a2ee-2b68-4482-87da-b90221d5c3e2" /></p>
+<hr />
 <hr />
 <h3 id="ideal-size">Ideal Size<a class="headerlink" href="#ideal-size" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This node calculates an ideal image size for a first pass of a multi-pass upscaling. The aim is to avoid duplication that results from choosing a size larger than the model is capable of.</p>
@@ -1849,6 +1927,32 @@
 <h3 id="image-picker">Image Picker<a class="headerlink" href="#image-picker" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This InvokeAI node takes in a collection of images and randomly chooses one. This can be useful when you have a number of poses to choose from for a ControlNet node, or a number of input images for another purpose.</p>
 <p><strong>Node Link:</strong> <a href="https://github.com/JPPhoto/image-picker-node">https://github.com/JPPhoto/image-picker-node</a></p>
+<hr />
+<h3 id="thresholding">Thresholding<a class="headerlink" href="#thresholding" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> This node generates masks for highlights, midtones, and shadows given an input image. You can optionally specify a blur for the lookup table used in making those masks from the source image.</p>
+<p><strong>Node Link:</strong> <a href="https://github.com/JPPhoto/thresholding-node">https://github.com/JPPhoto/thresholding-node</a></p>
+<p><strong>Examples</strong></p>
+<p>Input:</p>
+<p><img alt="image" src="https://github.com/invoke-ai/InvokeAI/assets/34005131/c88ada13-fb3d-484c-a4fe-947b44712632" style="height:512px;width:512px" /></p>
+<p>Highlights/Midtones/Shadows:</p>
+<p><img src="https://github.com/invoke-ai/InvokeAI/assets/34005131/727021c1-36ff-4ec8-90c8-105e00de986d" style="width: 30%" />
+<img src="https://github.com/invoke-ai/InvokeAI/assets/34005131/0b721bfc-f051-404e-b905-2f16b824ddfe" style="width: 30%" />
+<img src="https://github.com/invoke-ai/InvokeAI/assets/34005131/04c1297f-1c88-42b6-a7df-dd090b976286" style="width: 30%" /></p>
+<p>Highlights/Midtones/Shadows (with LUT blur enabled):</p>
+<p><img src="https://github.com/invoke-ai/InvokeAI/assets/34005131/19aa718a-70c1-4668-8169-d68f4bd13771" style="width: 30%" />
+<img src="https://github.com/invoke-ai/InvokeAI/assets/34005131/0a440e43-697f-4d17-82ee-f287467df0a5" style="width: 30%" />
+<img src="https://github.com/invoke-ai/InvokeAI/assets/34005131/0701fd0f-2ca7-4fe2-8613-2b52547bafce" style="width: 30%" /></p>
+<hr />
+<h3 id="halftone">Halftone<a class="headerlink" href="#halftone" title="Permanent link">#</a></h3>
+<p><strong>Description</strong>: Halftone converts the source image to grayscale and then performs halftoning. CMYK Halftone converts the image to CMYK and applies a per-channel halftoning to make the source image look like a magazine or newspaper. For both nodes, you can specify angles and halftone dot spacing.</p>
+<p><strong>Node Link:</strong> <a href="https://github.com/JPPhoto/halftone-node">https://github.com/JPPhoto/halftone-node</a></p>
+<p><strong>Example</strong></p>
+<p>Input:</p>
+<p><img alt="image" src="https://github.com/invoke-ai/InvokeAI/assets/34005131/fd5efb9f-4355-4409-a1c2-c1ca99e0cab4" style="height:512px;width:512px" /></p>
+<p>Halftone Output:</p>
+<p><img alt="image" src="https://github.com/invoke-ai/InvokeAI/assets/34005131/7e606f29-e68f-4d46-b3d5-97f799a4ec2f" style="height:512px;width:512px" /></p>
+<p>CMYK Halftone Output:</p>
+<p><img alt="image" src="https://github.com/invoke-ai/InvokeAI/assets/34005131/c59c578f-db8e-4d66-8c66-2851752d75ea" style="height:512px;width:512px" /></p>
 <hr />
 <h3 id="retroize">Retroize<a class="headerlink" href="#retroize" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> Retroize is a collection of nodes for InvokeAI to "Retroize" images. Any image can be given a fresh coat of retro paint with these nodes, either from your gallery or from within the graph itself. It includes nodes to pixelize, quantize, palettize, and ditherize images; as well as to retrieve palettes from existing images.</p>
@@ -1867,7 +1971,7 @@
 <p><strong>Description:</strong> This is a video frame image provider + indexer/video creation nodes for hooking up to iterators and ranges and ControlNets and such for invokeAI node experimentation. Think animation + ControlNet outputs.</p>
 <p><strong>Node Link:</strong> <a href="https://github.com/helix4u/load_video_frame">https://github.com/helix4u/load_video_frame</a></p>
 <p><strong>Example Node Graph:</strong>  <a href="https://github.com/helix4u/load_video_frame/blob/main/Example_Workflow.json">https://github.com/helix4u/load_video_frame/blob/main/Example_Workflow.json</a></p>
-<h1 id="output-example"><strong>Output Example:</strong><a class="headerlink" href="#output-example" title="Permanent link">#</a></h1>
+<p><strong>Output Example:</strong> </p>
 <p><img alt="Example animation" src="https://github.com/helix4u/load_video_frame/blob/main/testmp4_embed_converted.gif" />
 <a href="https://github.com/helix4u/load_video_frame/blob/main/test.mp4">Full mp4 of Example Output test.mp4</a></p>
 <hr />
@@ -1904,21 +2008,24 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
 <hr />
 <h3 id="image-and-mask-composition-pack">Image and Mask Composition Pack<a class="headerlink" href="#image-and-mask-composition-pack" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This is a pack of nodes for composing masks and images, including a simple text mask creator and both image and latent offset nodes. The offsets wrap around, so these can be used in conjunction with the Seamless node to progressively generate centered on different parts of the seamless tiling.</p>
-<p>This includes 14 Nodes:
-- <em>Adjust Image Hue Plus</em> - Rotate the hue of an image in one of several different color spaces.
-- <em>Blend Latents/Noise (Masked)</em> - Use a mask to blend part of one latents tensor [including Noise outputs] into another. Can be used to "renoise" sections during a multi-stage [masked] denoising process.
-- <em>Enhance Image</em> - Boost or reduce color saturation, contrast, brightness, sharpness, or invert colors of any image at any stage with this simple wrapper for pillow [PIL]'s ImageEnhance module.
-- <em>Equivalent Achromatic Lightness</em> - Calculates image lightness accounting for Helmholtz-Kohlrausch effect based on a method described by High, Green, and Nussbaum (2023).
-- <em>Text to Mask (Clipseg)</em> - Input a prompt and an image to generate a mask representing areas of the image matched by the prompt.
-- <em>Text to Mask Advanced (Clipseg)</em> - Output up to four prompt masks combined with logical "and", logical "or", or as separate channels of an RGBA image.
-- <em>Image Layer Blend</em> - Perform a layered blend of two images using alpha compositing. Opacity of top layer is selectable, with optional mask and several different blend modes/color spaces.
-- <em>Image Compositor</em> - Take a subject from an image with a flat backdrop and layer it on another image using a chroma key or flood select background removal.
-- <em>Image Dilate or Erode</em> - Dilate or expand a mask (or any image!). This is equivalent to an expand/contract operation.
-- <em>Image Value Thresholds</em> - Clip an image to pure black/white beyond specified thresholds.
-- <em>Offset Latents</em> - Offset a latents tensor in the vertical and/or horizontal dimensions, wrapping it around.
-- <em>Offset Image</em> - Offset an image in the vertical and/or horizontal dimensions, wrapping it around.
-- <em>Shadows/Highlights/Midtones</em> - Extract three masks (with adjustable hard or soft thresholds) representing shadows, midtones, and highlights regions of an image.
-- <em>Text Mask (simple 2D)</em> - create and position a white on black (or black on white) line of text using any font locally available to Invoke.</p>
+<p>This includes 15 Nodes:</p>
+<ul>
+<li><em>Adjust Image Hue Plus</em> - Rotate the hue of an image in one of several different color spaces.</li>
+<li><em>Blend Latents/Noise (Masked)</em> - Use a mask to blend part of one latents tensor [including Noise outputs] into another. Can be used to "renoise" sections during a multi-stage [masked] denoising process.</li>
+<li><em>Enhance Image</em> - Boost or reduce color saturation, contrast, brightness, sharpness, or invert colors of any image at any stage with this simple wrapper for pillow [PIL]'s ImageEnhance module.</li>
+<li><em>Equivalent Achromatic Lightness</em> - Calculates image lightness accounting for Helmholtz-Kohlrausch effect based on a method described by High, Green, and Nussbaum (2023).</li>
+<li><em>Text to Mask (Clipseg)</em> - Input a prompt and an image to generate a mask representing areas of the image matched by the prompt.</li>
+<li><em>Text to Mask Advanced (Clipseg)</em> - Output up to four prompt masks combined with logical "and", logical "or", or as separate channels of an RGBA image.</li>
+<li><em>Image Layer Blend</em> - Perform a layered blend of two images using alpha compositing. Opacity of top layer is selectable, with optional mask and several different blend modes/color spaces.</li>
+<li><em>Image Compositor</em> - Take a subject from an image with a flat backdrop and layer it on another image using a chroma key or flood select background removal.</li>
+<li><em>Image Dilate or Erode</em> - Dilate or expand a mask (or any image!). This is equivalent to an expand/contract operation.</li>
+<li><em>Image Value Thresholds</em> - Clip an image to pure black/white beyond specified thresholds.</li>
+<li><em>Offset Latents</em> - Offset a latents tensor in the vertical and/or horizontal dimensions, wrapping it around.</li>
+<li><em>Offset Image</em> - Offset an image in the vertical and/or horizontal dimensions, wrapping it around.</li>
+<li><em>Rotate/Flip Image</em> - Rotate an image in degrees clockwise/counterclockwise about its center, optionally resizing the image boundaries to fit, or flipping it about the vertical and/or horizontal axes.</li>
+<li><em>Shadows/Highlights/Midtones</em> - Extract three masks (with adjustable hard or soft thresholds) representing shadows, midtones, and highlights regions of an image.</li>
+<li><em>Text Mask (simple 2D)</em> - create and position a white on black (or black on white) line of text using any font locally available to Invoke.</li>
+</ul>
 <p><strong>Node Link:</strong> <a href="https://github.com/dwringer/composition-nodes">https://github.com/dwringer/composition-nodes</a></p>
 <p><strong>Nodes and Output Examples:</strong>
 <img alt="composition nodes usage graph" src="https://raw.githubusercontent.com/dwringer/composition-nodes/main/composition_pack_overview.jpg" /></p>
@@ -1965,6 +2072,23 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
 <p>See full docs here: <a href="https://github.com/skunkworxdark/XYGrid_nodes/edit/main/README.md">https://github.com/skunkworxdark/XYGrid_nodes/edit/main/README.md</a></p>
 <p><strong>Node Link:</strong> <a href="https://github.com/skunkworxdark/XYGrid_nodes">https://github.com/skunkworxdark/XYGrid_nodes</a></p>
 <hr />
+<h3 id="image-to-character-art-image-nodes">Image to Character Art Image Node's<a class="headerlink" href="#image-to-character-art-image-nodes" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> Group of nodes to convert an input image into ascii/unicode art Image</p>
+<p><strong>Node Link:</strong> <a href="https://github.com/mickr777/imagetoasciiimage">https://github.com/mickr777/imagetoasciiimage</a></p>
+<p><strong>Output Examples</strong></p>
+<p><img src="https://github.com/invoke-ai/InvokeAI/assets/115216705/8e061fcc-9a2c-4fa9-bcc7-c0f7b01e9056" width="300" />
+<img src="https://github.com/mickr777/imagetoasciiimage/assets/115216705/3c4990eb-2f42-46b9-90f9-0088b939dc6a" width="300" /></br>
+<img src="https://github.com/mickr777/imagetoasciiimage/assets/115216705/fee7f800-a4a8-41e2-a66b-c66e4343307e" width="300" />
+<img src="https://github.com/mickr777/imagetoasciiimage/assets/115216705/1d9c1003-a45f-45c2-aac7-46470bb89330" width="300" /></p>
+<hr />
+<h3 id="grid-to-gif">Grid to Gif<a class="headerlink" href="#grid-to-gif" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> One node that turns a grid image into an image colletion, one node that turns an image collection into a gif</p>
+<p><strong>Node Link:</strong> <a href="https://github.com/mildmisery/invokeai-GridToGifNode/blob/main/GridToGif.py">https://github.com/mildmisery/invokeai-GridToGifNode/blob/main/GridToGif.py</a></p>
+<p><strong>Example Node Graph:</strong>  <a href="https://github.com/mildmisery/invokeai-GridToGifNode/blob/main/Grid%20to%20Gif%20Example%20Workflow.json">https://github.com/mildmisery/invokeai-GridToGifNode/blob/main/Grid%20to%20Gif%20Example%20Workflow.json</a></p>
+<p><strong>Output Examples</strong> </p>
+<p><img src="https://raw.githubusercontent.com/mildmisery/invokeai-GridToGifNode/main/input.png" width="300" />
+<img src="https://raw.githubusercontent.com/mildmisery/invokeai-GridToGifNode/main/output.gif" width="300" /></p>
+<hr />
 <h3 id="example-node-template">Example Node Template<a class="headerlink" href="#example-node-template" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This node allows you to do super cool things with InvokeAI.</p>
 <p><strong>Node Link:</strong> <a href="https://github.com/invoke-ai/InvokeAI/fake_node.py">https://github.com/invoke-ai/InvokeAI/fake_node.py</a></p>
@@ -1981,7 +2105,7 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 1, 2023</span>
       
         <br>
         Created:

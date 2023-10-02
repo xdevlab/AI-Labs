@@ -1739,7 +1739,7 @@
 
 
 <h1 id="list-of-default-nodes">List of Default Nodes<a class="headerlink" href="#list-of-default-nodes" title="Permanent link">#</a></h1>
-<p>The table below contains a list of the default nodes shipped with InvokeAI and their descriptions. </p>
+<p>The table below contains a list of the default nodes shipped with InvokeAI and their descriptions.</p>
 <table>
 <thead>
 <tr>
@@ -1801,10 +1801,6 @@
 <td align="left">Collects ControlNet info to pass to other nodes</td>
 </tr>
 <tr>
-<td align="left">OpenCV Inpaint</td>
-<td align="left">Simple inpaint using opencv.</td>
-</tr>
-<tr>
 <td align="left">Denoise Latents</td>
 <td align="left">Denoises noisy latents to decodable images</td>
 </tr>
@@ -1817,8 +1813,16 @@
 <td align="left">Parses a prompt using adieyal/dynamicprompts' random or combinatorial generator</td>
 </tr>
 <tr>
-<td align="left">Upscale (RealESRGAN)</td>
-<td align="left">Upscales an image using RealESRGAN.</td>
+<td align="left"><a href="../detailedNodes/faceTools/#facemask">FaceMask</a></td>
+<td align="left">Generates masks for faces in an image to use with Inpainting</td>
+</tr>
+<tr>
+<td align="left"><a href="../detailedNodes/faceTools/#faceidentifier">FaceIdentifier</a></td>
+<td align="left">Identifies and labels faces in an image</td>
+</tr>
+<tr>
+<td align="left"><a href="../detailedNodes/faceTools/#faceoff">FaceOff</a></td>
+<td align="left">Creates a new image that is a scaled bounding box with a mask on the face for Inpainting</td>
 </tr>
 <tr>
 <td align="left">Float Math</td>
@@ -2037,6 +2041,10 @@
 <td align="left">Loads a main model, outputting its submodels.</td>
 </tr>
 <tr>
+<td align="left">OpenCV Inpaint</td>
+<td align="left">Simple inpaint using opencv.</td>
+</tr>
+<tr>
 <td align="left">Openpose Processor</td>
 <td align="left">Applies Openpose processing to image</td>
 </tr>
@@ -2121,6 +2129,10 @@
 <td align="left">Tile resampler processor</td>
 </tr>
 <tr>
+<td align="left">Upscale (RealESRGAN)</td>
+<td align="left">Upscales an image using RealESRGAN.</td>
+</tr>
+<tr>
 <td align="left">VAE Loader</td>
 <td align="left">Loads a VAE model, outputting a VaeLoaderOutput</td>
 </tr>
@@ -2136,7 +2148,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 10, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 29, 2023</span>
       
         <br>
         Created:
