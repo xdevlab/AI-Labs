@@ -540,7 +540,7 @@ class ModelCache(object):
 class MemorySnapshot:
     """A snapshot of RAM and VRAM usage. All values are in bytes."""
 
-    def __init__(self, process_ram: int, vram: Optional[int]):
+    def __init__(self, process_ram: int, uss: int, vram: Optional[int]):
         """Initialize a MemorySnapshot.
 
         Most of the time, `MemorySnapshot` will be constructed with `MemorySnapshot.capture()`.
@@ -551,6 +551,7 @@ class MemorySnapshot:
         """
         self.process_ram = process_ram
         self.vram = vram
+        self.uss = uss
 
     @classmethod
     def capture(cls, run_garbage_collector: bool = True):
@@ -570,7 +571,9 @@ class MemorySnapshot:
 
         # According to the psutil docs (https://psutil.readthedocs.io/en/latest/#psutil.Process.memory_info), rss is
         # supported on all platforms.
-        process_ram = psutil.Process().memory_info().rss
+        memory_info = psutil.Process().memory_full_info()
+        process_ram = memory_info.rss
+        uss = memory_info.uss
 
         if choose_torch_device() == torch.device("cuda"):
             vram = torch.cuda.memory_allocated()
@@ -579,13 +582,16 @@ class MemorySnapshot:
             # time to test it properly.
             vram = None
 
-        return cls(process_ram, vram)
+        return cls(process_ram, uss, vram)
 
 
 def get_pretty_snapshot_diff(snapshot_1: MemorySnapshot, snapshot_2: MemorySnapshot) -> str:
     """Get a pretty string describing the difference between two `MemorySnapshot`s."""
     ram_diff = snapshot_2.process_ram - snapshot_1.process_ram
     msg = f"RAM ({(ram_diff/GIG):+.2f}): {(snapshot_1.process_ram/GIG):.2f}GB -> {(snapshot_2.process_ram/GIG):.2f}GB"
+
+    uss_diff = snapshot_2.uss - snapshot_1.uss
+    msg += f", USS ({(uss_diff/GIG):+.2f}): {(snapshot_1.uss/GIG):.2f}GB -> {(snapshot_2.uss/GIG):.2f}GB"
 
     vram_diff = None
     if snapshot_1.vram is not None and snapshot_2.vram is not None:
