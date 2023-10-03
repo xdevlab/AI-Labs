@@ -289,7 +289,7 @@ class DiffusersModel(ModelBase):
                     torch_dtype=torch_dtype,
                     variant=variant,
                     local_files_only=True,
-                    low_cpu_mem_usage=False,
+                    # low_cpu_mem_usage=False,
                 )
                 break
             except Exception as e:

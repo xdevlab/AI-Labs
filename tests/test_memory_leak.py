@@ -14,8 +14,7 @@ class MALLINFO2(ctypes.Structure):
         size_t ordblks;   /* Number of free chunks */
         size_t smblks;    /* Number of free fastbin blocks */
         size_t hblks;     /* Number of mmapped regions */
-        size_t hblkhd;    /* Space allocated in mmapped regions
-                            (bytes) */
+        size_t hblkhd;    /* Space allocated in mmapped regions (bytes) */
         size_t usmblks;   /* See below */
         size_t fsmblks;   /* Space in freed fastbin blocks (bytes) */
         size_t uordblks;  /* Total allocated space (bytes) */

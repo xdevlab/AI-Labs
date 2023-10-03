@@ -16,6 +16,7 @@ context. Use like this:
 
 """
 
+import ctypes
 import gc
 import hashlib
 import math
@@ -223,6 +224,11 @@ class ModelCache(object):
             # Load the model from disk and capture a memory snapshot before/after.
             start_load_time = time.time()
             snapshot_before = MemorySnapshot.capture()
+            self.logger.debug(
+                f"About to move model '{key}' from disk to cpu.\nSelf-reported size"
+                f" before load: {(self_reported_model_size_before_load/GIG):.2f}GB.\n"
+                f"{get_pretty_snapshot_diff(snapshot_before, snapshot_before)}"
+            )
             model = model_info.get_model(child_type=submodel, torch_dtype=self.precision)
             snapshot_after = MemorySnapshot.capture()
             end_load_time = time.time()
@@ -230,10 +236,10 @@ class ModelCache(object):
             self_reported_model_size_after_load = model_info.get_size(submodel)
 
             self.logger.debug(
-                f"Moved model '{key}' from disk to cpu in {(end_load_time-start_load_time):.2f}s. Self-reported size"
+                f"Moved model '{key}' from disk to cpu in {(end_load_time-start_load_time):.2f}s.\nSelf-reported size"
                 f" before/after load: {(self_reported_model_size_before_load/GIG):.2f}GB /"
-                f" {(self_reported_model_size_after_load/GIG):.2f}GB."
-                f" {get_pretty_snapshot_diff(snapshot_before, snapshot_after)}."
+                f" {(self_reported_model_size_after_load/GIG):.2f}GB.\n"
+                f"{get_pretty_snapshot_diff(snapshot_before, snapshot_after)}"
             )
 
             # We only log a warning for over-reported (not under-reported) model sizes before load. There is a known
@@ -282,9 +288,9 @@ class ModelCache(object):
         end_model_to_time = time.time()
         self.logger.debug(
             f"Moved model '{key}' from {source_device} to"
-            f" {target_device} in {(end_model_to_time-start_model_to_time):.2f}s."
-            f" Estimated model size: {(cache_entry.size/GIG):.2f} GB."
-            f" {get_pretty_snapshot_diff(snapshot_before, snapshot_after)}."
+            f" {target_device} in {(end_model_to_time-start_model_to_time):.2f}s.\n"
+            f" Estimated model size: {(cache_entry.size/GIG):.2f} GB.\n"
+            f"{get_pretty_snapshot_diff(snapshot_before, snapshot_after)}"
         )
 
         if snapshot_before.vram is not None and snapshot_after.vram is not None:
@@ -301,8 +307,8 @@ class ModelCache(object):
                     f"Moving model '{key}' from {source_device} to"
                     f" {target_device} caused an unexpected change in VRAM usage. The model's"
                     " estimated size may be incorrect. Estimated model size:"
-                    f" {(cache_entry.size/GIG):.2f} GB."
-                    f" {get_pretty_snapshot_diff(snapshot_before, snapshot_after)}."
+                    f" {(cache_entry.size/GIG):.2f} GB.\n"
+                    f"{get_pretty_snapshot_diff(snapshot_before, snapshot_after)}."
                 )
 
                 # Now, we will update our size estimate for `cache_entry` based on the change in VRAM usage. We only use the
@@ -537,10 +543,72 @@ class ModelCache(object):
         return hash
 
 
+class MALLINFO2(ctypes.Structure):
+    """
+    https://man7.org/linux/man-pages/man3/mallinfo.3.html
+
+    struct mallinfo2 {
+        size_t arena;     /* Non-mmapped space allocated (bytes) */
+        size_t ordblks;   /* Number of free chunks */
+        size_t smblks;    /* Number of free fastbin blocks */
+        size_t hblks;     /* Number of mmapped regions */
+        size_t hblkhd;    /* Space allocated in mmapped regions
+                            (bytes) */
+        size_t usmblks;   /* See below */
+        size_t fsmblks;   /* Space in freed fastbin blocks (bytes) */
+        size_t uordblks;  /* Total allocated space (bytes) */
+        size_t fordblks;  /* Total free space (bytes) */
+        size_t keepcost;  /* Top-most, releasable space (bytes) */
+    };
+    """
+
+    _fields_ = [
+        ("arena", ctypes.c_size_t),
+        ("ordblks", ctypes.c_size_t),
+        ("smblks", ctypes.c_size_t),
+        ("hblks", ctypes.c_size_t),
+        ("hblkhd", ctypes.c_size_t),
+        ("usmblks", ctypes.c_size_t),
+        ("fsmblks", ctypes.c_size_t),
+        ("uordblks", ctypes.c_size_t),
+        ("fordblks", ctypes.c_size_t),
+        ("keepcost", ctypes.c_size_t),
+    ]
+
+
+class LibcUtils:
+    def __init__(self):
+        self._libc = ctypes.cdll.LoadLibrary("libc.so.6")
+
+    def mallinfo2(self):
+        mallinfo2 = self._libc.mallinfo2
+        mallinfo2.restype = MALLINFO2
+        return mallinfo2()
+
+    def print_mallinfo2(self):
+        info = self.mallinfo2()
+
+        msg = ""
+        msg += (
+            f"{'arena': <10}= {(info.arena/2**30):15.5f}   /* Non-mmapped space allocated (GB). (uordblks + fordblks)"
+            " */\n"
+        )
+        msg += f"{'ordblks': <10}= {(info.ordblks): >15}   /* Number of free chunks */\n"
+        msg += f"{'smblks': <10}= {(info.smblks): >15}   /* Number of free fastbin blocks */\n"
+        msg += f"{'hblks': <10}= {(info.hblks): >15}   /* Number of mmapped regions */\n"
+        msg += f"{'hblkhd': <10}= {(info.hblkhd/2**30):15.5f}   /* Space allocated in mmapped regions (GB) */\n"
+        msg += f"{'usmblks': <10}= {(info.usmblks): >15}   /* Unused */\n"
+        msg += f"{'fsmblks': <10}= {(info.fsmblks/2**30):15.5f}   /* Space in freed fastbin blocks (GB) */\n"
+        msg += f"{'uordblks': <10}= {(info.uordblks/2**30):15.5f}   /* Total allocated space (GB) */\n"
+        msg += f"{'fordblks': <10}= {(info.fordblks/2**30):15.5f}   /* Total free space (GB) */\n"
+        msg += f"{'keepcost': <10}= {(info.keepcost/2**30):15.5f}   /* Top-most, releasable space (GB) */\n"
+        print(msg)
+
+
 class MemorySnapshot:
     """A snapshot of RAM and VRAM usage. All values are in bytes."""
 
-    def __init__(self, process_ram: int, uss: int, vram: Optional[int]):
+    def __init__(self, process_ram: int, uss: int, malloc_info: MALLINFO2, vram: Optional[int]):
         """Initialize a MemorySnapshot.
 
         Most of the time, `MemorySnapshot` will be constructed with `MemorySnapshot.capture()`.
@@ -552,6 +620,7 @@ class MemorySnapshot:
         self.process_ram = process_ram
         self.vram = vram
         self.uss = uss
+        self.malloc_info = malloc_info
 
     @classmethod
     def capture(cls, run_garbage_collector: bool = True):
@@ -575,6 +644,9 @@ class MemorySnapshot:
         process_ram = memory_info.rss
         uss = memory_info.uss
 
+        libc = LibcUtils()
+        malloc_info = libc.mallinfo2()
+
         if choose_torch_device() == torch.device("cuda"):
             vram = torch.cuda.memory_allocated()
         else:
@@ -582,21 +654,32 @@ class MemorySnapshot:
             # time to test it properly.
             vram = None
 
-        return cls(process_ram, uss, vram)
+        return cls(process_ram, uss, malloc_info, vram)
 
 
 def get_pretty_snapshot_diff(snapshot_1: MemorySnapshot, snapshot_2: MemorySnapshot) -> str:
     """Get a pretty string describing the difference between two `MemorySnapshot`s."""
-    ram_diff = snapshot_2.process_ram - snapshot_1.process_ram
-    msg = f"RAM ({(ram_diff/GIG):+.2f}): {(snapshot_1.process_ram/GIG):.2f}GB -> {(snapshot_2.process_ram/GIG):.2f}GB"
 
-    uss_diff = snapshot_2.uss - snapshot_1.uss
-    msg += f", USS ({(uss_diff/GIG):+.2f}): {(snapshot_1.uss/GIG):.2f}GB -> {(snapshot_2.uss/GIG):.2f}GB"
+    def get_log_line(prefix, val1, val2):
+        diff = None
+        if val1 is not None and val2 is not None:
+            diff = val2 - val1
+        return f"{prefix: <30} ({(diff/GIG):+5.3f}): {(val1/GIG):5.3f}GB -> {(val2/GIG):5.3f}GB"
 
-    vram_diff = None
-    if snapshot_1.vram is not None and snapshot_2.vram is not None:
-        vram_diff = snapshot_2.vram - snapshot_1.vram
+    msg = ""
 
-    msg += f", VRAM ({(vram_diff/GIG):+.2f}): {(snapshot_1.vram/GIG):.2f}GB -> {(snapshot_2.vram/GIG):.2f}GB"
+    msg += get_log_line("RAM RSS", snapshot_1.process_ram, snapshot_2.process_ram) + "\n"
+
+    msg += get_log_line("RAM USS", snapshot_1.uss, snapshot_2.uss) + "\n"
+
+    libc_total_allocated_1 = snapshot_1.malloc_info.arena + snapshot_1.malloc_info.hblkhd
+    libc_total_allocated_2 = snapshot_2.malloc_info.arena + snapshot_2.malloc_info.hblkhd
+    msg += get_log_line("libc total allocated", libc_total_allocated_1, libc_total_allocated_2) + "\n"
+
+    libc_total_used_1 = snapshot_1.malloc_info.uordblks + snapshot_1.malloc_info.hblkhd
+    libc_total_used_2 = snapshot_2.malloc_info.uordblks + snapshot_2.malloc_info.hblkhd
+    msg += get_log_line("libc total used", libc_total_used_1, libc_total_used_2) + "\n"
+
+    msg += get_log_line("VRAM", snapshot_1.vram, snapshot_2.vram) + "\n"
 
     return msg
