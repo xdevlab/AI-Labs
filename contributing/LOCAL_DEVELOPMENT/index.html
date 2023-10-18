@@ -16,7 +16,7 @@
         <link rel="prev" href="../contribution_guides/contributingToFrontend/">
       
       
-        <link rel="next" href="../contribution_guides/documentation/">
+        <link rel="next" href="../TESTS/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
@@ -780,6 +780,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -884,6 +886,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../nodes/detailedNodes/faceTools/" class="md-nav__link">
+        Facetool Node
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../nodes/contributingNodes/" class="md-nav__link">
         Contributing Nodes
       </a>
@@ -917,6 +933,8 @@
         
           
             
+          
+        
           
         
           
@@ -1077,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/overview" class="md-nav__link">
+      <a href="../../nodes/overview/" class="md-nav__link">
         Using Nodes
       </a>
     </li>
@@ -1189,6 +1207,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/UTILITIES/" class="md-nav__link">
+        Maintenance Utilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/OTHER/" class="md-nav__link">
         Other
       </a>
@@ -1234,6 +1266,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1266,6 +1300,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../CODE_OF_CONDUCT/" class="md-nav__link">
+        InvokeAI Code of Conduct
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1275,7 +1323,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
       
       
         
@@ -1289,15 +1337,17 @@
         
           
         
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
           Development
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_5_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5_3">
           <span class="md-nav__icon md-icon"></span>
           Development
         </label>
@@ -1414,8 +1464,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#running-tests" class="md-nav__link">
-    Running Tests
+  <a href="#tests" class="md-nav__link">
+    Tests
   </a>
   
 </li>
@@ -1517,6 +1567,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TESTS/" class="md-nav__link">
+        Adding Tests
+      </a>
     </li>
   
 
@@ -1631,6 +1695,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1653,6 +1723,34 @@
     <li class="md-nav__item">
       <a href="../../deprecated/CLI/" class="md-nav__link">
         Command Line Interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deprecated/VARIATIONS/" class="md-nav__link">
+        Variations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deprecated/TRANSLATION/" class="md-nav__link">
+        Translations
       </a>
     </li>
   
@@ -1695,6 +1793,20 @@
     <li class="md-nav__item">
       <a href="../../deprecated/OUTPAINTING/" class="md-nav__link">
         Outpainting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/deprecated/TROUBLESHOOT/" class="md-nav__link">
+        Troubleshooting
       </a>
     </li>
   
@@ -1910,25 +2022,8 @@ To get started please install the development dependencies.</p>
 </code></pre></div>
 <p>These are optional groups of packages which are defined within the <code>pyproject.toml</code>
 and will be required for testing the changes you make to the code.</p>
-<h3 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">#</a></h3>
-<p>We use <a href="https://docs.pytest.org/en/7.2.x/">pytest</a> for our test suite. Tests can
-be found under the <code>./tests</code> folder and can be run with a single <code>pytest</code>
-command. Optionally, to review test coverage you can append <code>--cov</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pytest<span class="w"> </span>--cov
-</code></pre></div>
-<p>Test outcomes and coverage will be reported in the terminal. In addition a more
-detailed report is created in both XML and HTML format in the <code>./coverage</code>
-folder. The HTML one in particular can help identify missing statements
-requiring tests to ensure coverage. This can be run by opening
-<code>./coverage/html/index.html</code>.</p>
-<p>For example.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pytest<span class="w"> </span>--cov<span class="p">;</span><span class="w"> </span>open<span class="w"> </span>./coverage/html/index.html
-</code></pre></div>
-<details class="info">
-<summary>HTML coverage report output</summary>
-<p><img alt="html-overview" src="../../assets/contributing/html-overview.png" /></p>
-<p><img alt="html-detail" src="../../assets/contributing/html-detail.png" /></p>
-</details>
+<h3 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">#</a></h3>
+<p>See the <a href="../TESTS/">tests documentation</a> for information about running and writing tests.</p>
 <h3 id="reloading-changes">Reloading Changes<a class="headerlink" href="#reloading-changes" title="Permanent link">#</a></h3>
 <p>Experimenting with changes to the Python source code is a drag if you have to re-start the server —
 and re-load those multi-gigabyte models —
@@ -1978,23 +2073,23 @@ can hold InvokeAI-specific settings and configs.</p>
   python</li>
 </ul>
 <p>Should look something like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>{
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  // I like to have all InvokeAI-related folders in my workspace
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  &quot;folders&quot;: [
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    {
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>      // repo root
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>      &quot;path&quot;: &quot;InvokeAI&quot;
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    },
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    {
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>      // InvokeAI root dir, where `invokeai.yaml` lives
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>      &quot;path&quot;: &quot;/path/to/invokeai_root&quot;
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    }
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>  ],
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>  &quot;settings&quot;: {
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    // Where your InvokeAI `venv`&#39;s python executable lives
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    &quot;python.defaultInterpreterPath&quot;: &quot;/path/to/invokeai_root/.venv/bin/python&quot;
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>  }
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  // I like to have all InvokeAI-related folders in my workspace
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  &quot;folders&quot;: [
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    {
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      // repo root
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      &quot;path&quot;: &quot;InvokeAI&quot;
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    },
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    {
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      // InvokeAI root dir, where `invokeai.yaml` lives
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>      &quot;path&quot;: &quot;/path/to/invokeai_root&quot;
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    }
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  ],
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  &quot;settings&quot;: {
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    // Where your InvokeAI `venv`&#39;s python executable lives
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    &quot;python.defaultInterpreterPath&quot;: &quot;/path/to/invokeai_root/.venv/bin/python&quot;
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  }
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>}
 </code></pre></div>
 <p>Now when you open the VSCode integrated terminal, or do anything that needs to
 run python, it will automatically be in your InvokeAI virtual environment.</p>
@@ -2020,67 +2115,67 @@ these can be scoped to a workspace or folder.</p>
 <p>Follow the <a href="https://code.visualstudio.com/docs/python/debugging">official guide</a>
 to set up your <code>launch.json</code> and try it out.</p>
 <p>Now we can create the InvokeAI debugging configs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  // Use IntelliSense to learn about possible attributes.
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  // Hover to view descriptions of existing attributes.
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  &quot;version&quot;: &quot;0.2.0&quot;,
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  &quot;configurations&quot;: [
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    {
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>      // Run the InvokeAI backend &amp; serve the pre-built UI
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>      &quot;name&quot;: &quot;InvokeAI Web&quot;,
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>      &quot;type&quot;: &quot;python&quot;,
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>      &quot;request&quot;: &quot;launch&quot;,
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>      &quot;program&quot;: &quot;scripts/invokeai-web.py&quot;,
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>      &quot;args&quot;: [
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        // Your InvokeAI root dir (where `invokeai.yaml` lives)
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        &quot;--root&quot;,
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>        &quot;/path/to/invokeai_root&quot;,
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>        // Access the app from anywhere on your local network
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        &quot;--host&quot;,
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>        &quot;0.0.0.0&quot;
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>      ],
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>      &quot;justMyCode&quot;: true
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    },
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    {
-<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>      // Run the nodes-based CLI
-<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>      &quot;name&quot;: &quot;InvokeAI CLI&quot;,
-<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>      &quot;type&quot;: &quot;python&quot;,
-<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>      &quot;request&quot;: &quot;launch&quot;,
-<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>      &quot;program&quot;: &quot;scripts/invokeai-cli.py&quot;,
-<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>      &quot;justMyCode&quot;: true
-<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>    },
-<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>    {
-<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>      // Run tests
-<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>      &quot;name&quot;: &quot;InvokeAI Test&quot;,
-<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>      &quot;type&quot;: &quot;python&quot;,
-<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>      &quot;request&quot;: &quot;launch&quot;,
-<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>      &quot;module&quot;: &quot;pytest&quot;,
-<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>      &quot;args&quot;: [&quot;--capture=no&quot;],
-<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>      &quot;justMyCode&quot;: true
-<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>    },
-<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>    {
-<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>      // Run a single test
-<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>      &quot;name&quot;: &quot;InvokeAI Single Test&quot;,
-<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>      &quot;type&quot;: &quot;python&quot;,
-<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>      &quot;request&quot;: &quot;launch&quot;,
-<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>      &quot;module&quot;: &quot;pytest&quot;,
-<a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>      &quot;args&quot;: [
-<a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>        // Change this to point to the specific test you are working on
-<a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>        &quot;tests/nodes/test_invoker.py&quot;
-<a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>      ],
-<a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>      &quot;justMyCode&quot;: true
-<a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a>    },
-<a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a>    {
-<a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>      // This is the default, useful to just run a single file
-<a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a>      &quot;name&quot;: &quot;Python: File&quot;,
-<a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a>      &quot;type&quot;: &quot;python&quot;,
-<a id="__codelineno-6-56" name="__codelineno-6-56" href="#__codelineno-6-56"></a>      &quot;request&quot;: &quot;launch&quot;,
-<a id="__codelineno-6-57" name="__codelineno-6-57" href="#__codelineno-6-57"></a>      &quot;program&quot;: &quot;${file}&quot;,
-<a id="__codelineno-6-58" name="__codelineno-6-58" href="#__codelineno-6-58"></a>      &quot;justMyCode&quot;: true
-<a id="__codelineno-6-59" name="__codelineno-6-59" href="#__codelineno-6-59"></a>    }
-<a id="__codelineno-6-60" name="__codelineno-6-60" href="#__codelineno-6-60"></a>  ]
-<a id="__codelineno-6-61" name="__codelineno-6-61" href="#__codelineno-6-61"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  // Use IntelliSense to learn about possible attributes.
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  // Hover to view descriptions of existing attributes.
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  &quot;version&quot;: &quot;0.2.0&quot;,
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  &quot;configurations&quot;: [
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    {
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>      // Run the InvokeAI backend &amp; serve the pre-built UI
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      &quot;name&quot;: &quot;InvokeAI Web&quot;,
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>      &quot;type&quot;: &quot;python&quot;,
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>      &quot;request&quot;: &quot;launch&quot;,
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>      &quot;program&quot;: &quot;scripts/invokeai-web.py&quot;,
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>      &quot;args&quot;: [
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        // Your InvokeAI root dir (where `invokeai.yaml` lives)
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        &quot;--root&quot;,
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        &quot;/path/to/invokeai_root&quot;,
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        // Access the app from anywhere on your local network
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        &quot;--host&quot;,
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>        &quot;0.0.0.0&quot;
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>      ],
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>      &quot;justMyCode&quot;: true
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    },
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    {
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>      // Run the nodes-based CLI
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>      &quot;name&quot;: &quot;InvokeAI CLI&quot;,
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>      &quot;type&quot;: &quot;python&quot;,
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>      &quot;request&quot;: &quot;launch&quot;,
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>      &quot;program&quot;: &quot;scripts/invokeai-cli.py&quot;,
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>      &quot;justMyCode&quot;: true
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    },
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    {
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>      // Run tests
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>      &quot;name&quot;: &quot;InvokeAI Test&quot;,
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>      &quot;type&quot;: &quot;python&quot;,
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>      &quot;request&quot;: &quot;launch&quot;,
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>      &quot;module&quot;: &quot;pytest&quot;,
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>      &quot;args&quot;: [&quot;--capture=no&quot;],
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>      &quot;justMyCode&quot;: true
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    },
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    {
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>      // Run a single test
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>      &quot;name&quot;: &quot;InvokeAI Single Test&quot;,
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>      &quot;type&quot;: &quot;python&quot;,
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>      &quot;request&quot;: &quot;launch&quot;,
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>      &quot;module&quot;: &quot;pytest&quot;,
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>      &quot;args&quot;: [
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>        // Change this to point to the specific test you are working on
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>        &quot;tests/nodes/test_invoker.py&quot;
+<a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>      ],
+<a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>      &quot;justMyCode&quot;: true
+<a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>    },
+<a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>    {
+<a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>      // This is the default, useful to just run a single file
+<a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>      &quot;name&quot;: &quot;Python: File&quot;,
+<a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>      &quot;type&quot;: &quot;python&quot;,
+<a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>      &quot;request&quot;: &quot;launch&quot;,
+<a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>      &quot;program&quot;: &quot;${file}&quot;,
+<a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>      &quot;justMyCode&quot;: true
+<a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>    }
+<a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>  ]
+<a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>}
 </code></pre></div>
 <p>You'll see these configs in the debugging configs drop down. Running them will
 start InvokeAI with attached debugger, in the correct environment, and work just
@@ -2102,10 +2197,10 @@ in <code>Preferences: Open Remote Settings (ssh: hostname)</code>. Search for
 <p>To forward ports very reliably, use SSH on the remote dev client (e.g. your
 macbook). Here's how to forward both backend API port (<code>9090</code>) and the frontend
 live dev server port (<code>5173</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ssh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>-L<span class="w"> </span><span class="m">9090</span>:localhost:9090<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span>-L<span class="w"> </span><span class="m">5173</span>:localhost:5173<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span>user@remote-dev-host
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ssh<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span>-L<span class="w"> </span><span class="m">9090</span>:localhost:9090<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span>-L<span class="w"> </span><span class="m">5173</span>:localhost:5173<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span>user@remote-dev-host
 </code></pre></div>
 <p>The forwarding stops when you close the terminal window, so suggest to do this
 <em>outside</em> the VSCode integrated terminal in case you need to restart VSCode for
