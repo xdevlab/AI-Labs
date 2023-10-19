@@ -1083,15 +1083,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    How it works
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#models" class="md-nav__link">
-    Models
+  <a href="#controlnet-models" class="md-nav__link">
+    ControlNet Models
   </a>
   
 </li>
@@ -1099,6 +1099,33 @@
           <li class="md-nav__item">
   <a href="#using-controlnet" class="md-nav__link">
     Using ControlNet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t2i-adapter" class="md-nav__link">
+    T2I-Adapter
+  </a>
+  
+    <nav class="md-nav" aria-label="T2I-Adapter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
   
 </li>
@@ -1117,7 +1144,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#installation_2" class="md-nav__link">
     Installation
   </a>
   
@@ -1946,41 +1973,39 @@ process in Invoke.</p>
 image generation, providing you with a way to direct the network
 towards generating images that better fit your desired style or
 outcome.</p>
-<h4 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h4>
 <p>ControlNet works by analyzing an input image, pre-processing that
 image to identify relevant information that can be interpreted by each
 specific ControlNet model, and then inserting that control information
 into the generation process. This can be used to adjust the style,
 composition, or other aspects of the image to better achieve a
 specific result.</p>
-<h4 id="models">Models<a class="headerlink" href="#models" title="Permanent link">#</a></h4>
+<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h4>
 <p>InvokeAI provides access to a series of ControlNet models that provide
-different effects or styles in your generated images.  Currently
-InvokeAI only supports "diffuser" style ControlNet models. These are
-folders that contain the files <code>config.json</code> and/or
-<code>diffusion_pytorch_model.safetensors</code> and
-<code>diffusion_pytorch_model.fp16.safetensors</code>. The name of the folder is
-the name of the model.</p>
-<p><strong><em>InvokeAI does not currently support checkpoint-format
-ControlNets. These come in the form of a single file with the
-extension <code>.safetensors</code>.</em></strong></p>
-<p>Diffuser-style ControlNet models are available at HuggingFace
-(<a href="http://huggingface.co">http://huggingface.co</a>) and accessed via their repo IDs (identifiers
-in the format "author/modelname"). The easiest way to install them is
+different effects or styles in your generated images.</p>
+<p>To install ControlNet Models:</p>
+<ol>
+<li>The easiest way to install them is
 to use the InvokeAI model installer application. Use the
 <code>invoke.sh</code>/<code>invoke.bat</code> launcher to select item [4] and then navigate
 to the CONTROLNETS section. Select the models you wish to install and
 press "APPLY CHANGES". You may also enter additional HuggingFace
-repo_ids in the "Additional models" textbox:</p>
-<p><img alt="Model Installer -
-Controlnetl" src="../../assets/installing-models/model-installer-controlnet.png" width="640px" /></p>
-<p>Command-line users can launch the model installer using the command
-<code>invokeai-model-install</code>.</p>
+repo_ids in the "Additional models" textbox. </li>
+<li>Using the "Add Model" function of the  model manager, enter the HuggingFace Repo ID of the ControlNet. The ID is in the format "author/repoName"</li>
+</ol>
 <p><em>Be aware that some ControlNet models require additional code
 functionality in order to work properly, so just installing a
 third-party ControlNet model may not have the desired effect.</em> Please
 read and follow the documentation for installing a third party model
 not currently included among InvokeAI's default list.</p>
+<p>Currently InvokeAI <strong>only</strong> supports 🤗 Diffusers-format ControlNet models. These are
+folders that contain the files <code>config.json</code> and/or
+<code>diffusion_pytorch_model.safetensors</code> and
+<code>diffusion_pytorch_model.fp16.safetensors</code>. The name of the folder is
+the name of the model.</p>
+<p>🤗 Diffusers-format ControlNet models are available at HuggingFace
+(<a href="http://huggingface.co">http://huggingface.co</a>) and accessed via their repo IDs (identifiers
+in the format "author/modelname").</p>
+<h4 id="controlnet-models">ControlNet Models<a class="headerlink" href="#controlnet-models" title="Permanent link">#</a></h4>
 <p>The models currently supported include:</p>
 <p><strong>Canny</strong>:</p>
 <p>When the Canny model is used in ControlNet, Invoke will attempt to generate images that match the edges detected. </p>
@@ -2020,11 +2045,30 @@ The OpenPose control model allows for the identification of the general pose of 
 <p>Weight - Strength of the Controlnet model applied to the generation for the section, defined by start/end.</p>
 <p>Start/End  - 0 represents the start of the generation, 1 represents the end. The Start/end setting controls what steps during the generation process have the ControlNet applied.</p>
 <p>Additionally, each ControlNet section can be expanded in order to manipulate settings for the image pre-processor that adjusts your uploaded image before using it in when you Invoke.</p>
+<h2 id="t2i-adapter">T2I-Adapter<a class="headerlink" href="#t2i-adapter" title="Permanent link">#</a></h2>
+<p><a href="https://github.com/TencentARC/T2I-Adapter">T2I-Adapter</a> is a tool similar to ControlNet that allows for control over the generation process by providing control information during the generation process. T2I-Adapter models tend to be smaller and more efficient than ControlNets. </p>
+<h5 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">#</a></h5>
+<p>To install T2I-Adapter Models:</p>
+<ol>
+<li>The easiest way to install models is
+to use the InvokeAI model installer application. Use the
+<code>invoke.sh</code>/<code>invoke.bat</code> launcher to select item [5] and then navigate
+to the T2I-Adapters section. Select the models you wish to install and
+press "APPLY CHANGES". You may also enter additional HuggingFace
+repo_ids in the "Additional models" textbox. </li>
+<li>Using the "Add Model" function of the  model manager, enter the HuggingFace Repo ID of the T2I-Adapter. The ID is in the format "author/repoName"</li>
+</ol>
+<h4 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h4>
+<p>Each T2I Adapter has two settings that are applied.</p>
+<p>Weight - Strength of the model applied to the generation for the section, defined by start/end.</p>
+<p>Start/End  - 0 represents the start of the generation, 1 represents the end. The Start/end setting controls what steps during the generation process have the ControlNet applied.</p>
+<p>Additionally, each  section can be expanded with the "Show Advanced" button in order to manipulate settings for the image pre-processor that adjusts your uploaded image before using it in during the generation process.</p>
+<p><strong>Note:</strong> T2I-Adapter models and ControlNet models cannot currently be used together.</p>
 <h2 id="ip-adapter">IP-Adapter<a class="headerlink" href="#ip-adapter" title="Permanent link">#</a></h2>
 <p><a href="https://ip-adapter.github.io">IP-Adapter</a> is a tooling that allows for image prompt capabilities with text-to-image diffusion models. IP-Adapter works by analyzing the given image prompt to extract features, then passing those features to the UNet along with any other conditioning provided. </p>
 <p><img alt="IP-Adapter + T2I" src="https://github.com/tencent-ailab/IP-Adapter/raw/main/assets/demo/ip_adpter_plus_multi.jpg" /></p>
-<p><img alt="IP-Adapter + IMG2IMG" src="https://github.com/tencent-ailab/IP-Adapter/blob/main/assets/demo/image-to-image.jpg" /></p>
-<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h4>
+<p><img alt="IP-Adapter + IMG2IMG" src="https://raw.githubusercontent.com/tencent-ailab/IP-Adapter/main/assets/demo/image-to-image.jpg" /></p>
+<h4 id="installation_2">Installation<a class="headerlink" href="#installation_2" title="Permanent link">#</a></h4>
 <p>There are several ways to install IP-Adapter models with an existing InvokeAI installation:</p>
 <ol>
 <li>Through the command line interface launched from the invoke.sh / invoke.bat scripts, option [4] to download models.</li>
@@ -2045,7 +2089,7 @@ The OpenPose control model allows for the identification of the general pose of 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 19, 2023</span>
       
         <br>
         Created:
