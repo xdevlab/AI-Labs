@@ -88,23 +88,27 @@ def test_fast_torch_to_no_speed_regression(src_device, src_dtype, dst_device, ds
 
 
 def test_fast_torch_to_speed_improvement():
-    src_device = "cuda"
-    src_dtype = torch.bfloat16
-    dst_device = "cpu"
-    dst_dtype = torch.float16
-    copy = True
-
-    dim = 600
-    fast_times = []
-    slow_times = []
+    dim = 2000
+    total_slow = 0
+    total_fast = 0
     for src_device, src_dtype, dst_device, dst_dtype, copy in itertools.product(
         ["cpu", "cuda"],
         [torch.float32, torch.float16, torch.bfloat16],
-        ["cpu", "cuda", None],
-        [torch.float32, torch.float16, torch.bfloat16, None],
+        ["cpu", "cuda"],
+        [torch.float32, torch.float16, torch.bfloat16],
         [True, False],
     ):
-        for i in range(4):
+        if (
+            src_device == "cuda"
+            and src_dtype == torch.float16
+            and dst_device == "cpu"
+            and dst_dtype == torch.bfloat16
+            and copy == True
+        ):
+            pass
+        slow_times = []
+        fast_times = []
+        for _ in range(6):
             # Prepare matching inputs for fast_torch_to(...) and Tensor.to(...).
             slow_input = torch.randn((dim, dim), device=src_device, dtype=src_dtype)
             fast_input = slow_input.detach().clone()
@@ -114,20 +118,26 @@ def test_fast_torch_to_speed_improvement():
             slow_start = time.time()
             slow_input.to(device=dst_device, dtype=dst_dtype, copy=copy)
             torch.cuda.synchronize()
-            if i != 0:  # Warm-up
-                slow_times.append(time.time() - slow_start)
+            slow_times.append(time.time() - slow_start)
 
             # Run fast_torch_to(...) and record the time taken.
             torch.cuda.synchronize()
             fast_start = time.time()
             fast_torch_to(fast_input, device=dst_device, dtype=dst_dtype, copy=copy)
             torch.cuda.synchronize()
-            if i != 0:  # Warm-up
-                fast_times.append(time.time() - fast_start)
+            fast_times.append(time.time() - fast_start)
 
-    total_fast_time = np.sum(fast_times)
-    total_slow_time = np.sum(slow_times)
-    change = total_fast_time - total_slow_time
+        # Log all results for development purposes.
+        slow_mean = np.mean(slow_times[1:])  # Skip first result as warm-up.
+        fast_mean = np.mean(fast_times[1:])  # Skip first result as warm-up.
+        print(
+            f"src=({str(src_device): <5}, {str(src_dtype): <14}), dst=({str(dst_device): <5}, {str(dst_dtype): <16}),"
+            f" copy={str(copy): <5}:   Tensor.to()={slow_mean:.5f}s,   fast_torch_to()={fast_mean:.5f}s,   change="
+            f" {(fast_mean-slow_mean) / slow_mean * 100:6.2f}%"
+        )
+        total_slow += slow_mean
+        total_fast += fast_mean
 
     # We expect a 20% reduction in total execution time.
-    assert change < (-0.1 * total_slow_time)
+    change = total_fast - total_slow
+    assert change < (-0.5 * total_slow)
