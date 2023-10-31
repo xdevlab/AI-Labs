@@ -1,6 +1,5 @@
 import bisect
 import os
-import time
 from enum import Enum
 from pathlib import Path
 from typing import Dict, Optional, Union
@@ -50,13 +49,11 @@ class LoRAModel(ModelBase):
         if child_type is not None:
             raise Exception("There is no child models in lora")
 
-        start = time.time()
         model = LoRAModelRaw.from_checkpoint(
             file_path=self.model_path,
             dtype=torch_dtype,
             base_model=self.base_model,
         )
-        print(f"Loading LoRA from checkpoint took {time.time() - start}s")
 
         self.model_size = model.calc_size()
         return model
@@ -548,20 +545,15 @@ class LoRAModelRaw:  # (torch.nn.Module):
             layers=dict(),
         )
 
-        start = time.time()
         if file_path.suffix == ".safetensors":
             state_dict = load_file(file_path.absolute().as_posix(), device="cpu")
         else:
             state_dict = torch.load(file_path, map_location="cpu")
-        end_load_ckpt = time.time()
-        print(f"Loaded checkpoint from disk in: {end_load_ckpt - start}s")
 
         state_dict = cls._group_state(state_dict)
 
         if base_model == BaseModelType.StableDiffusionXL:
             state_dict = cls._convert_sdxl_keys_to_diffusers_format(state_dict)
-        end_convert_keys = time.time()
-        print(f"Converted keys in: {end_convert_keys - end_load_ckpt}")
 
         for layer_key, values in state_dict.items():
             # lora and locon
