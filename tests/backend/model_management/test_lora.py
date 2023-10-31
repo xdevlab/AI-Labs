@@ -1,6 +1,7 @@
 import time
 
 import pytest
+import torch
 
 from invokeai.backend.model_management.lora import ModelPatcher
 from invokeai.backend.model_management.models.base import BaseModelType, ModelType, SubModelType
@@ -31,14 +32,35 @@ def test_apply_lora(model_installer, torch_device):
     unet_done = time.time()
     print(f"Loaded UNet from disk in {unet_done - unet_start}s")
 
-    with ModelPatcher.apply_lora_unet(unet_info.context.model, [(lora_info.context.model, 0.5)]):
-        patch_done = time.time()
-        print(f"Lora applied to UNet in {patch_done - unet_done}s")
-        with unet_info as unet:
-            unet_to_cuda_done = time.time()
-            print(f"UNet to cuda took {unet_to_cuda_done - patch_done}s")
+    # Move to GPU, then apply.
+    with unet_info as unet:
+        torch.cuda.synchronize()
+        unet_to_cuda = time.time()
+        print(f"Moved UNet to CUDA: {unet_to_cuda - unet_done}s")
+        with ModelPatcher.apply_lora_unet(unet, [(lora_info.context.model, 0.5)]):
+            patch_done = time.time()
+            print(f"Lora applied to UNet in {patch_done - unet_done}s")
             pass
+
+    # Start on CPU, move to GPU as each LoRA layer is applied.
+    # with ModelPatcher.apply_lora_unet(unet_info.context.model, [(lora_info.context.model, 0.5)]):
+    #     patch_done = time.time()
+    #     print(f"Lora applied to UNet in {patch_done - unet_done}s")
+    #     with unet_info as unet:
+    #         unet_to_cuda_done = time.time()
+    #         print(f"UNet to cuda took {unet_to_cuda_done - patch_done}s")
+    #         pass
+
+    # with ModelPatcher.apply_lora_unet(unet_info.context.model, [(lora_info.context.model, 0.5)]):
+    #     patch_done = time.time()
+    #     print(f"Lora applied to UNet in {patch_done - unet_done}s")
+    #     with unet_info as unet:
+    #         unet_to_cuda_done = time.time()
+    #         print(f"UNet to cuda took {unet_to_cuda_done - patch_done}s")
+    #         pass
+
+    unpatch_done = time.time()
+    print(f"Unpatch done in {unpatch_done - patch_done}s")
 
     ctx_done = time.time()
     print(f"Full context took {ctx_done - unet_done}s")
-    assert False
