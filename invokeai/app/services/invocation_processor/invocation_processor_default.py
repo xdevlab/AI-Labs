@@ -1,3 +1,4 @@
+import cProfile
 import time
 import traceback
 from threading import BoundedSemaphore, Event, Thread
@@ -35,6 +36,8 @@ class DefaultInvocationProcessor(InvocationProcessorABC):
         self.__stop_event.set()
 
     def __process(self, stop_event: Event):
+        pr = None
+
         try:
             self.__threadLimit.acquire()
             queue_item: Optional[InvocationQueueItem] = None
@@ -50,6 +53,9 @@ class DefaultInvocationProcessor(InvocationProcessorABC):
                     time.sleep(0.5)
                     continue
                 try:
+                    if pr is None:
+                        pr = cProfile.Profile()
+                        pr.enable()
                     graph_execution_state = self.__invoker.services.graph_execution_manager.get(
                         queue_item.graph_execution_state_id
                     )
@@ -199,6 +205,12 @@ class DefaultInvocationProcessor(InvocationProcessorABC):
                         queue_id=queue_item.session_queue_id,
                         graph_execution_state_id=graph_execution_state.id,
                     )
+                    # Save profiling results.
+                    pr.disable()
+                    gesid_profile_path = f"profile_gesid_{graph_execution_state.id}.prof"
+                    pr.dump_stats(gesid_profile_path)
+                    self.__invoker.services.logger.info(f"Saved profile to '{gesid_profile_path}'.")
+                    pr = None
 
         except KeyboardInterrupt:
             pass  # Log something? KeyboardInterrupt is probably not going to be seen by the processor
