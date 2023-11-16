@@ -1982,13 +1982,15 @@ most LoRAs perform best at a weight of .75-1.</p>
 <h2 id="lcm-loras">LCM-LoRAs<a class="headerlink" href="#lcm-loras" title="Permanent link">#</a></h2>
 <p>Latent Consistency Models (LCMs) allowed a reduced number of steps to be used to generate images with Stable Diffusion. These are created by distilling base models, creating models that only require a small number of steps to generate images. However, LCMs require that any fine-tune of a base model be distilled to be used as an LCM. </p>
 <p>LCM-LoRAs are models that provide the benefit of LCMs but are able to be used as LoRAs and applied to any fine tune of a base model. LCM-LoRAs are created by training a small number of adapters, rather than distilling the entire fine-tuned base model. The resulting LoRA can be used the same way as a standard LoRA, but with a greatly reduced step count. This enables SDXL images to be generated up to 10x faster than without the use of LCM-LoRAs. </p>
-<p><strong>Using LCM-LoRAs</strong>
-LCM-LoRAs are natively supported in InvokeAI throughout the application. To get started, install any diffusers format LCM-LoRAs using the model manager and select it in the LoRA field.</p>
-<p>There are a number parameter differences when using LCM-LoRAs and standard generation: 
-- When using LCM-LoRAs, the LoRA strength should be lower than if using a standard LoRA, with 0.35 recommended as a starting point.<br />
-- The LCM scheduler should be used for generation
-- CFG-Scale should be reduced to ~1
-- Steps should be reduced in the range of 4-8</p>
+<p><strong>Using LCM-LoRAs</strong></p>
+<p>LCM-LoRAs are natively supported in InvokeAI throughout the application. To get started, install any diffusers format LCM-LoRAs using the model manager and select it in the LoRA field.</p>
+<p>There are a number parameter differences when using LCM-LoRAs and standard generation: </p>
+<ul>
+<li>When using LCM-LoRAs, the LoRA strength should be lower than if using a standard LoRA, with 0.35 recommended as a starting point.  </li>
+<li>The LCM scheduler should be used for generation</li>
+<li>CFG-Scale should be reduced to ~1</li>
+<li>Steps should be reduced in the range of 4-8</li>
+</ul>
 <p>Standard LoRAs can also be used alongside LCM-LoRAs, but will also require a lower strength, with 0.45 being recommended as a starting point. </p>
 <p>More information can be found here: <a href="https://huggingface.co/blog/lcm_lora#fast-inference-with-sdxl-lcm-loras">https://huggingface.co/blog/lcm_lora#fast-inference-with-sdxl-lcm-loras</a></p>
 
