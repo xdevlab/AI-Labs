@@ -10,20 +10,20 @@
         <meta name="author" content="mauwii">
       
       
-        <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/installation/050_INSTALLING_MODELS/">
+        <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/features/LORAS/">
       
       
-        <link rel="prev" href="../040_INSTALL_DOCKER/">
+        <link rel="prev" href="../LOGGING/">
       
       
-        <link rel="next" href="../060_INSTALL_PATCHMATCH/">
+        <link rel="next" href="../MODEL_MERGING/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
-        <title>Installing Models - InvokeAI Documentation</title>
+        <title>LoRAs & LCM-LoRAs - InvokeAI Documentation</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installing-models" class="md-skip">
+        <a href="#loras-lcm-loras" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installing Models
+              LoRAs & LCM-LoRAs
             
           </span>
         </div>
@@ -228,15 +228,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../INSTALLATION/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../installation/INSTALLATION/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -262,13 +260,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../features/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Features
       </a>
     </li>
@@ -424,16 +424,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
         
@@ -464,7 +462,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Installation
@@ -477,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../INSTALLATION/" class="md-nav__link">
+      <a href="../../installation/INSTALLATION/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -491,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../010_INSTALL_AUTOMATED/" class="md-nav__link">
+      <a href="../../installation/010_INSTALL_AUTOMATED/" class="md-nav__link">
         Installing with the Automated Installer
       </a>
     </li>
@@ -505,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../020_INSTALL_MANUAL/" class="md-nav__link">
+      <a href="../../installation/020_INSTALL_MANUAL/" class="md-nav__link">
         Installing Manually
       </a>
     </li>
@@ -519,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../030_INSTALL_CUDA_AND_ROCM/" class="md-nav__link">
+      <a href="../../installation/030_INSTALL_CUDA_AND_ROCM/" class="md-nav__link">
         NVIDIA Cuda / AMD ROCm
       </a>
     </li>
@@ -533,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../040_INSTALL_DOCKER/" class="md-nav__link">
+      <a href="../../installation/040_INSTALL_DOCKER/" class="md-nav__link">
         Installing with Docker
       </a>
     </li>
@@ -545,107 +543,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Installing Models
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../installation/050_INSTALLING_MODELS/" class="md-nav__link">
         Installing Models
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#checkpoint-and-diffusers-models" class="md-nav__link">
-    Checkpoint and Diffusers Models
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#base-models" class="md-nav__link">
-    Base Models
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-contributed-models" class="md-nav__link">
-    Community-Contributed Models
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-via-invokeai-model-install" class="md-nav__link">
-    Installation via invokeai-model-install
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-via-the-web-gui" class="md-nav__link">
-    Installation via the Web GUI
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-via-the-autoimport-function" class="md-nav__link">
-    Installation via the autoimport function
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-models-that-live-in-huggingface-subfolders" class="md-nav__link">
-    Installing models that live in HuggingFace subfolders
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -657,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../060_INSTALL_PATCHMATCH/" class="md-nav__link">
+      <a href="../../installation/060_INSTALL_PATCHMATCH/" class="md-nav__link">
         Installing PyPatchMatch
       </a>
     </li>
@@ -671,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../070_INSTALL_XFORMERS/" class="md-nav__link">
+      <a href="../../installation/070_INSTALL_XFORMERS/" class="md-nav__link">
         Installing xFormers
       </a>
     </li>
@@ -685,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Developers_documentation/BUILDING_BINARY_INSTALLERS/" class="md-nav__link">
+      <a href="../../installation/Developers_documentation/BUILDING_BINARY_INSTALLERS/" class="md-nav__link">
         Developers Documentation
       </a>
     </li>
@@ -742,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deprecated_documentation/INSTALL_BINARY/" class="md-nav__link">
+      <a href="../../installation/deprecated_documentation/INSTALL_BINARY/" class="md-nav__link">
         Binary Installer
       </a>
     </li>
@@ -756,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deprecated_documentation/INSTALL_JUPYTER/" class="md-nav__link">
+      <a href="../../installation/deprecated_documentation/INSTALL_JUPYTER/" class="md-nav__link">
         Runninng InvokeAI on Google Colab
       </a>
     </li>
@@ -770,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deprecated_documentation/INSTALL_LINUX/" class="md-nav__link">
+      <a href="../../installation/deprecated_documentation/INSTALL_LINUX/" class="md-nav__link">
         Manual Installation on Linux
       </a>
     </li>
@@ -784,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deprecated_documentation/INSTALL_MAC/" class="md-nav__link">
+      <a href="../../installation/deprecated_documentation/INSTALL_MAC/" class="md-nav__link">
         Manual Installation on macOS
       </a>
     </li>
@@ -798,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deprecated_documentation/INSTALL_WINDOWS/" class="md-nav__link">
+      <a href="../../installation/deprecated_documentation/INSTALL_WINDOWS/" class="md-nav__link">
         Manual Installation on Windows
       </a>
     </li>
@@ -812,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deprecated_documentation/INSTALL_PCP/" class="md-nav__link">
+      <a href="../../installation/deprecated_documentation/INSTALL_PCP/" class="md-nav__link">
         Installing Invoke with pip
       </a>
     </li>
@@ -826,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deprecated_documentation/INSTALL_SOURCE/" class="md-nav__link">
+      <a href="../../installation/deprecated_documentation/INSTALL_SOURCE/" class="md-nav__link">
         Source Installer
       </a>
     </li>
@@ -1018,14 +920,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
@@ -1074,7 +978,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../features/">Features</a>
+          <a href="../">Features</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1082,7 +986,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Features
@@ -1111,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/CONCEPTS.md" class="md-nav__link">
+      <a href="../CONCEPTS.md" class="md-nav__link">
         Concepts
       </a>
     </li>
@@ -1125,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/CONFIGURATION/" class="md-nav__link">
+      <a href="../CONFIGURATION/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -1139,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/CONTROLNET/" class="md-nav__link">
+      <a href="../CONTROLNET/" class="md-nav__link">
         Control Adapters
       </a>
     </li>
@@ -1153,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/IMG2IMG/" class="md-nav__link">
+      <a href="../IMG2IMG/" class="md-nav__link">
         Image-to-Image
       </a>
     </li>
@@ -1167,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/LOGGING/" class="md-nav__link">
+      <a href="../LOGGING/" class="md-nav__link">
         Controlling Logging
       </a>
     </li>
@@ -1179,11 +1083,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../features/LORAS/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LoRAs & LCM-LoRAs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         LoRAs & LCM-LoRAs
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loras" class="md-nav__link">
+    LoRAs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lcm-loras" class="md-nav__link">
+    LCM-LoRAs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1195,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/MODEL_MERGING/" class="md-nav__link">
+      <a href="../MODEL_MERGING/" class="md-nav__link">
         Model Merging
       </a>
     </li>
@@ -1223,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/WATERMARK%2BNSFW/" class="md-nav__link">
+      <a href="../WATERMARK%2BNSFW/" class="md-nav__link">
         NSFW Checker
       </a>
     </li>
@@ -1237,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/POSTPROCESS/" class="md-nav__link">
+      <a href="../POSTPROCESS/" class="md-nav__link">
         Postprocessing
       </a>
     </li>
@@ -1251,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/PROMPTS/" class="md-nav__link">
+      <a href="../PROMPTS/" class="md-nav__link">
         Prompting Features
       </a>
     </li>
@@ -1298,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/TEXTUAL_INVERSIONS/" class="md-nav__link">
+      <a href="../TEXTUAL_INVERSIONS/" class="md-nav__link">
         Textual Inversions
       </a>
     </li>
@@ -1312,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/TRAINING/" class="md-nav__link">
+      <a href="../TRAINING/" class="md-nav__link">
         Textual Inversion Training
       </a>
     </li>
@@ -1333,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/UNIFIED_CANVAS/" class="md-nav__link">
+      <a href="../UNIFIED_CANVAS/" class="md-nav__link">
         Unified Canvas
       </a>
     </li>
@@ -1347,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/WEB/" class="md-nav__link">
+      <a href="../WEB/" class="md-nav__link">
         InvokeAI Web Server
       </a>
     </li>
@@ -1361,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/WEBUIHOTKEYS/" class="md-nav__link">
+      <a href="../WEBUIHOTKEYS/" class="md-nav__link">
         WebUI Hotkeys
       </a>
     </li>
@@ -1375,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/UTILITIES/" class="md-nav__link">
+      <a href="../UTILITIES/" class="md-nav__link">
         Maintenance Utilities
       </a>
     </li>
@@ -1389,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/OTHER/" class="md-nav__link">
+      <a href="../OTHER/" class="md-nav__link">
         Other
       </a>
     </li>
@@ -2022,177 +1974,50 @@
   
 
 
-<h1 id="installing-models"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.134 1.535c.7-.509 1.416-.942 2.076-1.155.649-.21 1.463-.267 2.069.34.603.601.568 1.411.368 2.07-.202.668-.624 1.39-1.125 2.096-1.011 1.424-2.496 2.987-3.775 4.249-1.098 1.084-2.132 1.839-3.04 2.3a3.744 3.744 0 0 1-1.055 3.217c-.431.431-1.065.691-1.657.861-.614.177-1.294.287-1.914.357A21.151 21.151 0 0 1 .797 16H.743l.007-.75H.749L.742 16a.75.75 0 0 1-.743-.742l.743-.008-.742.007v-.054a21.25 21.25 0 0 1 .13-2.284c.067-.647.187-1.287.358-1.914.17-.591.43-1.226.86-1.657a3.746 3.746 0 0 1 3.227-1.054c.466-.893 1.225-1.907 2.314-2.982 1.271-1.255 2.833-2.75 4.245-3.777ZM1.62 13.089c-.051.464-.086.929-.104 1.395.466-.018.932-.053 1.396-.104a10.511 10.511 0 0 0 1.668-.309c.526-.151.856-.325 1.011-.48a2.25 2.25 0 1 0-3.182-3.182c-.155.155-.329.485-.48 1.01a10.515 10.515 0 0 0-.309 1.67Zm10.396-10.34c-1.224.89-2.605 2.189-3.822 3.384l1.718 1.718c1.21-1.205 2.51-2.597 3.387-3.833.47-.662.78-1.227.912-1.662.134-.444.032-.551.009-.575h-.001V1.78c-.014-.014-.113-.113-.548.027-.432.14-.995.462-1.655.942Zm-4.832 7.266-.001.001a9.859 9.859 0 0 0 1.63-1.142L7.155 7.216a9.7 9.7 0 0 0-1.161 1.607c.482.302.889.71 1.19 1.192Z"/></svg></span> Installing Models<a class="headerlink" href="#installing-models" title="Permanent link">#</a></h1>
-<h2 id="checkpoint-and-diffusers-models">Checkpoint and Diffusers Models<a class="headerlink" href="#checkpoint-and-diffusers-models" title="Permanent link">#</a></h2>
-<p>The model checkpoint files ('*.ckpt') are the Stable Diffusion
-"secret sauce". They are the product of training the AI on millions of
-captioned images gathered from multiple sources.</p>
-<p>Originally there was only a single Stable Diffusion weights file,
-which many people named <code>model.ckpt</code>. Now there are dozens or more
-that have been fine tuned to provide particulary styles, genres, or
-other features. In addition, there are several new formats that
-improve on the original checkpoint format: a <code>.safetensors</code> format
-which prevents malware from masquerading as a model, and <code>diffusers</code>
-models, the most recent innovation.</p>
-<p>InvokeAI supports all three formats but strongly prefers the
-<code>diffusers</code> format. These are distributed as directories containing
-multiple subfolders, each of which contains a different aspect of the
-model. The advantage of this is that the models load from disk really
-fast. Another advantage is that <code>diffusers</code> models are supported by a
-large and active set of open source developers working at and with
-HuggingFace organization, and improvements in both rendering quality
-and performance are being made at a rapid pace. Among other features
-is the ability to download and install a <code>diffusers</code> model just by
-providing its HuggingFace repository ID.</p>
-<p>While InvokeAI will continue to support <code>.ckpt</code> and <code>.safetensors</code>
-models for the near future, these are deprecated and support will
-likely be withdrawn at some point in the not-too-distant future.</p>
-<p>This manual will guide you through installing and configuring model
-weight files and converting legacy <code>.ckpt</code> and <code>.safetensors</code> files
-into performant <code>diffusers</code> models.</p>
-<h2 id="base-models">Base Models<a class="headerlink" href="#base-models" title="Permanent link">#</a></h2>
-<p>InvokeAI comes with support for a good set of starter models. You'll
-find them listed in the master models file
-<code>configs/INITIAL_MODELS.yaml</code> in the InvokeAI root directory. The
-subset that are currently installed are found in
-<code>configs/models.yaml</code>.</p>
-<p>Note that these files are covered by an "Ethical AI" license which
-forbids certain uses. When you initially download them, you are asked
-to accept the license terms. In addition, some of these models carry
-additional license terms that limit their use in commercial
-applications or on public servers. Be sure to familiarize yourself
-with the model terms by visiting the URLs in the table above.</p>
-<h2 id="community-contributed-models">Community-Contributed Models<a class="headerlink" href="#community-contributed-models" title="Permanent link">#</a></h2>
-<p><a href="https://huggingface.co/models?library=diffusers">HuggingFace</a>
-is a great resource for diffusers models, and is also the home of a
-<a href="https://huggingface.co/sd-concepts-library">fast-growing repository</a>
-of embedding (".bin") models that add subjects and/or styles to your
-images. The latter are automatically installed on the fly when you
-include the text <code>&lt;concept-name&gt;</code> in your prompt. See <a href="../features/CONCEPTS.md">Concepts
-Library</a> for more information.</p>
-<p>Another popular site for community-contributed models is
-<a href="https://civitai.com">CIVITAI</a>. This extensive site currently supports
-only <code>.safetensors</code> and <code>.ckpt</code> models, but they can be easily loaded
-into InvokeAI and/or converted into optimized <code>diffusers</code> models. Be
-aware that CIVITAI hosts many models that generate NSFW content.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<p>There are two ways to install and manage models:</p>
-<ol>
-<li>
-<p>The <code>invokeai-model-install</code> script which will download and install
-them for you.  In addition to supporting main models, you can install
-ControlNet, LoRA and Textual Inversion models.</p>
-</li>
-<li>
-<p>The web interface (WebUI) has a GUI for importing and managing
-   models.</p>
-</li>
-<li>
-<p>By placing models (or symbolic links to models) inside one of the
-InvokeAI root directory's <code>autoimport</code> folder.</p>
-</li>
-</ol>
-<h3 id="installation-via-invokeai-model-install">Installation via <code>invokeai-model-install</code><a class="headerlink" href="#installation-via-invokeai-model-install" title="Permanent link">#</a></h3>
-<p>From the <code>invoke</code> launcher, choose option [4] "Download and install
-models." This will launch the same script that prompted you to select
-models at install time. You can use this to add models that you
-skipped the first time around. It is all right to specify a model that
-was previously downloaded; the script will just confirm that the files
-are complete.</p>
-<p>The installer has different panels for installing main models from
-HuggingFace, models from Civitai and other arbitrary web sites,
-ControlNet models, LoRA/LyCORIS models, and Textual Inversion
-embeddings. Each section has a text box in which you can enter a new
-model to install. You can refer to a model using its:</p>
-<ol>
-<li>Local path to the .ckpt, .safetensors or diffusers folder on your local machine</li>
-<li>A directory on your machine that contains multiple models</li>
-<li>A URL that points to a downloadable model</li>
-<li>A HuggingFace repo id</li>
-</ol>
-<p>Previously-installed models are shown with checkboxes. Uncheck a box
-to unregister the model from InvokeAI. Models that are physically
-installed inside the InvokeAI root directory will be deleted and
-purged (after a confirmation warning). Models that are located outside
-the InvokeAI root directory will be unregistered but not deleted.</p>
-<p>Note: The installer script uses a console-based text interface that requires
-significant amounts of horizontal and vertical space. If the display
-looks messed up, just enlarge the terminal window and/or relaunch the
-script.</p>
-<p>If you wish you can script model addition and deletion, as well as
-listing installed models. Start the "developer's console" and give the
-command <code>invokeai-model-install --help</code>. This will give you a series
-of command-line parameters that will let you control model
-installation. Examples:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># (list all controlnet models)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>invokeai-model-install --list controlnet
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># (install the model at the indicated URL)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>invokeai-model-install --add https://civitai.com/api/download/models/128713
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a># (delete the named model)
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>invokeai-model-install --delete sd-1/main/analog-diffusion
-</code></pre></div>
-<h3 id="installation-via-the-web-gui">Installation via the Web GUI<a class="headerlink" href="#installation-via-the-web-gui" title="Permanent link">#</a></h3>
-<p>To install a new model using the Web GUI, do the following:</p>
-<ol>
-<li>
-<p>Open the InvokeAI Model Manager (cube at the bottom of the
-left-hand panel) and navigate to <em>Import Models</em></p>
-</li>
-<li>
-<p>In the field labeled <em>Location</em> type in the path to the model you
-wish to install. You may use a URL, HuggingFace repo id, or a path on
-your local disk.</p>
-</li>
-<li>
-<p>Alternatively, the <em>Scan for Models</em> button allows you to paste in
-the path to a folder somewhere on your machine. It will be scanned for
-importable models and prompt you to add the ones of your choice.</p>
-</li>
-<li>
-<p>Press <em>Add Model</em> and wait for confirmation that the model
-was added.</p>
-</li>
-</ol>
-<p>To delete a model, Select <em>Model Manager</em> to list all the currently
-installed models. Press the trash can icons to delete any models you
-wish to get rid of. Models whose weights are located inside the
-InvokeAI <code>models</code> directory will be purged from disk, while those
-located outside will be unregistered from InvokeAI, but not deleted.</p>
-<p>You can see where model weights are located by clicking on the model name.
-This will bring up an editable info panel showing the model's characteristics,
-including the <code>Model Location</code> of its files.</p>
-<h3 id="installation-via-the-autoimport-function">Installation via the <code>autoimport</code> function<a class="headerlink" href="#installation-via-the-autoimport-function" title="Permanent link">#</a></h3>
-<p>In the InvokeAI root directory you will find a series of folders under
-<code>autoimport</code>, one each for main models, controlnets, embeddings and
-Loras.  Any models that you add to these directories will be scanned
-at startup time and registered automatically.</p>
-<p>You may create symbolic links from these folders to models located
-elsewhere on disk and they will be autoimported. You can also create
-subfolders and organize them as you wish.</p>
-<p>The location of the autoimport directories are controlled by settings
-in <code>invokeai.yaml</code>. See <a href="../../features/CONFIGURATION/">Configuration</a>.</p>
-<h3 id="installing-models-that-live-in-huggingface-subfolders">Installing models that live in HuggingFace subfolders<a class="headerlink" href="#installing-models-that-live-in-huggingface-subfolders" title="Permanent link">#</a></h3>
-<p>On rare occasions you may need to install a diffusers-style model that
-lives in a subfolder of a HuggingFace repo id. In this event, simply
-add ":<em>subfolder-name</em>" to the end of the repo id. For example, if the
-repo id is "monster-labs/control_v1p_sd15_qrcode_monster" and the model
-you wish to fetch lives in a subfolder named "v2", then the repo id to
-pass to the various model installers should be </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>monster-labs/control_v1p_sd15_qrcode_monster:v2
-</code></pre></div>
+<h1 id="loras-lcm-loras"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 9V1.5h-3V9h-3V1.5h-3V9h-3V1.5H4.65V9H3v1.5h18V9h-1.5m0 4.5h-3V21h-3v-7.5h-3V21h-3v-7.5H4.65V21H3v1.5h18V21h-1.5v-7.5Z"/></svg></span> LoRAs &amp; LCM-LoRAs<a class="headerlink" href="#loras-lcm-loras" title="Permanent link">#</a></h1>
+<p>With the advances in research, many new capabilities are available to customize the knowledge and understanding of novel concepts not originally contained in the base model. </p>
+<h2 id="loras">LoRAs<a class="headerlink" href="#loras" title="Permanent link">#</a></h2>
+<p>Low-Rank Adaptation (LoRA) files are models that customize the output of Stable Diffusion
+image generation.  Larger than embeddings, but much smaller than full
+models, they augment SD with improved understanding of subjects and
+artistic styles.</p>
+<p>Unlike TI files, LoRAs do not introduce novel vocabulary into the
+model's known tokens. Instead, LoRAs augment the model's weights that
+are applied to generate imagery. LoRAs may be supplied with a
+"trigger" word that they have been explicitly trained on, or may
+simply apply their effect without being triggered.</p>
+<p>LoRAs are typically stored in .safetensors files, which are the most
+secure way to store and transmit these types of weights. You may
+install any number of <code>.safetensors</code> LoRA files simply by copying them
+into the <code>autoimport/lora</code> directory of the corresponding InvokeAI models
+directory (usually <code>invokeai</code> in your home directory).</p>
+<p>To use these when generating, open the LoRA menu item in the options
+panel, select the LoRAs you want to apply and ensure that they have
+the appropriate weight recommended by the model provider. Typically,
+most LoRAs perform best at a weight of .75-1.</p>
+<h2 id="lcm-loras">LCM-LoRAs<a class="headerlink" href="#lcm-loras" title="Permanent link">#</a></h2>
+<p>Latent Consistency Models (LCMs) allowed a reduced number of steps to be used to generate images with Stable Diffusion. These are created by distilling base models, creating models that only require a small number of steps to generate images. However, LCMs require that any fine-tune of a base model be distilled to be used as an LCM. </p>
+<p>LCM-LoRAs are models that provide the benefit of LCMs but are able to be used as LoRAs and applied to any fine tune of a base model. LCM-LoRAs are created by training a small number of adapters, rather than distilling the entire fine-tuned base model. The resulting LoRA can be used the same way as a standard LoRA, but with a greatly reduced step count. This enables SDXL images to be generated up to 10x faster than without the use of LCM-LoRAs. </p>
+<p><strong>Using LCM-LoRAs</strong>
+LCM-LoRAs are natively supported in InvokeAI throughout the application. To get started, install any diffusers format LCM-LoRAs using the model manager and select it in the LoRA field.</p>
+<p>There are a number parameter differences when using LCM-LoRAs and standard generation: 
+- When using LCM-LoRAs, the LoRA strength should be lower than if using a standard LoRA, with 0.35 recommended as a starting point.<br />
+- The LCM scheduler should be used for generation
+- CFG-Scale should be reduced to ~1
+- Steps should be reduced in the range of 4-8</p>
+<p>Standard LoRAs can also be used alongside LCM-LoRAs, but will also require a lower strength, with 0.45 being recommended as a starting point. </p>
+<p>More information can be found here: <a href="https://huggingface.co/blog/lcm_lora#fast-inference-with-sdxl-lcm-loras">https://huggingface.co/blog/lcm_lora#fast-inference-with-sdxl-lcm-loras</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2023</span>
       
     
   </small>

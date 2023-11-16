@@ -1088,6 +1088,8 @@
         
           
         
+          
+        
       
       
         
@@ -1130,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/CONCEPTS/" class="md-nav__link">
+      <a href="../../features/CONCEPTS.md" class="md-nav__link">
         Concepts
       </a>
     </li>
@@ -1200,6 +1202,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/LORAS/" class="md-nav__link">
+        LoRAs & LCM-LoRAs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/MODEL_MERGING/" class="md-nav__link">
         Model Merging
       </a>
@@ -1215,7 +1231,7 @@
   
     <li class="md-nav__item">
       <a href="../../nodes/overview/" class="md-nav__link">
-        Using Nodes
+        Nodes & Workflows
       </a>
     </li>
   
@@ -1269,10 +1285,64 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+          Textual Inversions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_14">
+          <span class="md-nav__icon md-icon"></span>
+          Textual Inversions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/TEXTUAL_INVERSIONS/" class="md-nav__link">
+        Textual Inversions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../features/TRAINING/" class="md-nav__link">
         Textual Inversion Training
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1808,6 +1878,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1830,6 +1902,20 @@
     <li class="md-nav__item">
       <a href="../../help/gettingStartedWithAI/" class="md-nav__link">
         Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/FAQ/" class="md-nav__link">
+        FAQs
       </a>
     </li>
   
@@ -2124,7 +2210,7 @@ Click on "More Info" and then select "Run Anyway." You trust us, right?</p>
     you will have the choice of CUDA (NVidia cards), ROCm (AMD cards),
     or CPU (no graphics acceleration). On Windows, you'll have the
     choice of CUDA vs CPU, and on Macs you'll be offered CPU only. When
-    you select CPU on M1 or M2 Macintoshes, you will get MPS-based
+    you select CPU on M1/M2/M3 Macintoshes, you will get MPS-based
     graphics acceleration without installing additional drivers. If you
     are unsure what GPU you are using, you can ask the installer to
     guess.</p>
@@ -2406,7 +2492,7 @@ will take you to a command-line prompt.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">NVIDIA System</label><label for="__tabbed_2_2">AMD System</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--force-reinstall<span class="w"> </span>--extra-index-url<span class="w"> </span>https://download.pytorch.org/whl/cu118
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--force-reinstall<span class="w"> </span>--extra-index-url<span class="w"> </span>https://download.pytorch.org/whl/cu121
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>pip<span class="w"> </span>install<span class="w"> </span>xformers
 </code></pre></div>
 </div>
@@ -2513,7 +2599,7 @@ version (recommended), follow these steps:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2023</span>
       
         <br>
         Created:

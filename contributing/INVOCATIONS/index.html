@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#invocations" class="md-skip">
+        <a href="#nodes" class="md-skip">
           Skip to content
         </a>
       
@@ -969,6 +969,8 @@
         
           
         
+          
+        
       
       
         
@@ -1011,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/CONCEPTS/" class="md-nav__link">
+      <a href="../../features/CONCEPTS.md" class="md-nav__link">
         Concepts
       </a>
     </li>
@@ -1081,6 +1083,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/LORAS/" class="md-nav__link">
+        LoRAs & LCM-LoRAs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/MODEL_MERGING/" class="md-nav__link">
         Model Merging
       </a>
@@ -1096,7 +1112,7 @@
   
     <li class="md-nav__item">
       <a href="../../nodes/overview/" class="md-nav__link">
-        Using Nodes
+        Nodes & Workflows
       </a>
     </li>
   
@@ -1150,10 +1166,64 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+          Textual Inversions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_14">
+          <span class="md-nav__icon md-icon"></span>
+          Textual Inversions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/TEXTUAL_INVERSIONS/" class="md-nav__link">
+        Textual Inversions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../features/TRAINING/" class="md-nav__link">
         Textual Inversion Training
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1807,6 +1877,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1829,6 +1901,20 @@
     <li class="md-nav__item">
       <a href="../../help/gettingStartedWithAI/" class="md-nav__link">
         Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/FAQ/" class="md-nav__link">
+        FAQs
       </a>
     </li>
   
@@ -1956,18 +2042,34 @@
   
 
 
-<h1 id="invocations">Invocations<a class="headerlink" href="#invocations" title="Permanent link">#</a></h1>
-<p>Features in InvokeAI are added in the form of modular node-like systems called
+<h1 id="nodes">Nodes<a class="headerlink" href="#nodes" title="Permanent link">#</a></h1>
+<p>Features in InvokeAI are added in the form of modular nodes systems called
 <strong>Invocations</strong>.</p>
 <p>An Invocation is simply a single operation that takes in some inputs and gives
 out some outputs. We can then chain multiple Invocations together to create more
 complex functionality.</p>
 <h2 id="invocations-directory">Invocations Directory<a class="headerlink" href="#invocations-directory" title="Permanent link">#</a></h2>
-<p>InvokeAI Invocations can be found in the <code>invokeai/app/invocations</code> directory.</p>
-<p>You can add your new functionality to one of the existing Invocations in this
-directory or create a new file in this directory as per your needs.</p>
-<p><strong>Note:</strong> <em>All Invocations must be inside this directory for InvokeAI to
-recognize them as valid Invocations.</em></p>
+<p>InvokeAI Nodes can be found in the <code>invokeai/app/invocations</code> directory. These can be used as examples to create your own nodes.</p>
+<p>New nodes should be added to a subfolder in <code>nodes</code> direction found at the root level of the InvokeAI installation location. Nodes added to this folder will be able to be used upon application startup. </p>
+<p>Example <code>nodes</code>  subfolder structure:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">├──</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="c1"># Invoke-managed custom node loader</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">│</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">├──</span> <span class="n">cool_node</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">│</span>   <span class="err">├──</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="c1"># see example below</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="err">│</span>   <span class="err">└──</span> <span class="n">cool_node</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">│</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">└──</span> <span class="n">my_node_pack</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="err">├──</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="c1"># see example below</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="err">├──</span> <span class="n">tasty_node</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="err">├──</span> <span class="n">bodacious_node</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="err">├──</span> <span class="n">utils</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="err">└──</span> <span class="n">extra_nodes</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="err">└──</span> <span class="n">fancy_node</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div></p>
+<p>Each node folder must have an <code>__init__.py</code> file that imports its nodes. Only nodes imported in the <code>__init__.py</code> file are loaded.
+ See the README in the nodes folder for more examples: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">.cool_node</span> <span class="kn">import</span> <span class="n">CoolInvocation</span>
+</code></pre></div>
 <h2 id="creating-a-new-invocation">Creating A New Invocation<a class="headerlink" href="#creating-a-new-invocation" title="Permanent link">#</a></h2>
 <p>In order to understand the process of creating a new Invocation, let us actually
 create one.</p>
@@ -1990,11 +2092,11 @@ it and output the resized image.</p>
   validation.</li>
 </ul>
 <p>So let us do that.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">invocation</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">invocation</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
 </code></pre></div>
 <p>That's great.</p>
 <p>Now we have setup the base of our new Invocation. Let us think about what inputs
@@ -2017,17 +2119,17 @@ for image inputs.</p>
 written to handle how images are dealt with in InvokeAI. We will cover how to
 create your own custom field types later in this guide. For now, let's go ahead
 and use it.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># Inputs</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># Inputs</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Let us break down our input code.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2056,17 +2158,17 @@ and use it.</p>
 </tbody>
 </table>
 <p>Great. Now let us create our other inputs for <code>width</code> and <code>height</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="c1"># Inputs</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="c1"># Inputs</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>As you might have noticed, we added two new arguments to the <code>InputField</code>
 definition for <code>width</code> and <code>height</code>, called <code>gt</code> and <code>le</code>. They stand for
@@ -2083,20 +2185,20 @@ the <code>context</code> parameter that is of the type <code>InvocationContext</
 you access to the current context of the generation and all the other services
 that are provided by it by InvokeAI.</p>
 <p>Let us create this function first.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="c1"># Inputs</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">InvocationContext</span><span class="p">):</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="c1"># Inputs</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">InvocationContext</span><span class="p">):</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="k">pass</span>
 </code></pre></div>
 <h3 id="outputs"><strong>Outputs</strong><a class="headerlink" href="#outputs" title="Permanent link">#</a></h3>
 <p>The output of our Invocation will be whatever is returned by this <code>invoke</code>
@@ -2106,21 +2208,21 @@ too.</p>
 type for this but InvokeAI already offers you an <code>ImageOutput</code> type that handles
 all the necessary info related to image outputs. So let us use that.</p>
 <p>We will cover how to create your own output types later in this guide.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">ImageOutput</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="c1"># Inputs</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">InvocationContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageOutput</span><span class="p">:</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">ImageOutput</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Resizes an image&#39;&#39;&#39;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="c1"># Inputs</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">InvocationContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageOutput</span><span class="p">:</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="k">pass</span>
 </code></pre></div>
 <p>Perfect. Now that we have our Invocation setup, let us do what we want to do.</p>
 <ul>
@@ -2130,43 +2232,43 @@ all the necessary info related to image outputs. So let us use that.</p>
 <li>We will output this image in the format we set above.</li>
 </ul>
 <p>So let's do that.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">ImageOutput</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s2">&quot;resize&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Resizes an image&quot;&quot;&quot;</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">InvocationContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageOutput</span><span class="p">:</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="c1"># Load the image using InvokeAI&#39;s predefined Image Service. Returns the PIL image.</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="n">image</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">get_pil_image</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">image_name</span><span class="p">)</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>        <span class="c1"># Resizing the image</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        <span class="n">resized_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">))</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>        <span class="c1"># Save the image using InvokeAI&#39;s predefined Image Service. Returns the prepared PIL image.</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>        <span class="n">output_image</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>            <span class="n">image</span><span class="o">=</span><span class="n">resized_image</span><span class="p">,</span>
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>            <span class="n">image_origin</span><span class="o">=</span><span class="n">ResourceOrigin</span><span class="o">.</span><span class="n">INTERNAL</span><span class="p">,</span>
-<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>            <span class="n">image_category</span><span class="o">=</span><span class="n">ImageCategory</span><span class="o">.</span><span class="n">GENERAL</span><span class="p">,</span>
-<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>            <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>            <span class="n">session_id</span><span class="o">=</span><span class="n">context</span><span class="o">.</span><span class="n">graph_execution_state_id</span><span class="p">,</span>
-<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>            <span class="n">is_intermediate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">is_intermediate</span><span class="p">,</span>
-<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>        <span class="p">)</span>
-<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
-<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>        <span class="c1"># Returning the Image</span>
-<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>        <span class="k">return</span> <span class="n">ImageOutput</span><span class="p">(</span>
-<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>            <span class="n">image</span><span class="o">=</span><span class="n">ImageField</span><span class="p">(</span>
-<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>                <span class="n">image_name</span><span class="o">=</span><span class="n">output_image</span><span class="o">.</span><span class="n">image_name</span><span class="p">,</span>
-<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>            <span class="p">),</span>
-<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>            <span class="n">width</span><span class="o">=</span><span class="n">output_image</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
-<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>            <span class="n">height</span><span class="o">=</span><span class="n">output_image</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
-<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>        <span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocation</span><span class="p">,</span> <span class="n">InputField</span><span class="p">,</span> <span class="n">invocation</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">ImageOutput</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s2">&quot;resize&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Resizes an image&quot;&quot;&quot;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Width of the new image&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Height of the new image&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">InvocationContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageOutput</span><span class="p">:</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        <span class="c1"># Load the image using InvokeAI&#39;s predefined Image Service. Returns the PIL image.</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        <span class="n">image</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">get_pil_image</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">image_name</span><span class="p">)</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>        <span class="c1"># Resizing the image</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>        <span class="n">resized_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">))</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>        <span class="c1"># Save the image using InvokeAI&#39;s predefined Image Service. Returns the prepared PIL image.</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>        <span class="n">output_image</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>            <span class="n">image</span><span class="o">=</span><span class="n">resized_image</span><span class="p">,</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>            <span class="n">image_origin</span><span class="o">=</span><span class="n">ResourceOrigin</span><span class="o">.</span><span class="n">INTERNAL</span><span class="p">,</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>            <span class="n">image_category</span><span class="o">=</span><span class="n">ImageCategory</span><span class="o">.</span><span class="n">GENERAL</span><span class="p">,</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>            <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>            <span class="n">session_id</span><span class="o">=</span><span class="n">context</span><span class="o">.</span><span class="n">graph_execution_state_id</span><span class="p">,</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>            <span class="n">is_intermediate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">is_intermediate</span><span class="p">,</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>        <span class="p">)</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>        <span class="c1"># Returning the Image</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>        <span class="k">return</span> <span class="n">ImageOutput</span><span class="p">(</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>            <span class="n">image</span><span class="o">=</span><span class="n">ImageField</span><span class="p">(</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>                <span class="n">image_name</span><span class="o">=</span><span class="n">output_image</span><span class="o">.</span><span class="n">image_name</span><span class="p">,</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>            <span class="p">),</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>            <span class="n">width</span><span class="o">=</span><span class="n">output_image</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>            <span class="n">height</span><span class="o">=</span><span class="n">output_image</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>        <span class="p">)</span>
 </code></pre></div>
 <p><strong>Note:</strong> Do not be overwhelmed by the <code>ImageOutput</code> process. InvokeAI has a
 certain way that the images need to be dispatched in order to be stored and read
@@ -2178,12 +2280,12 @@ UI, like a custom title, tags and category.</p>
 <p>We also encourage providing a version. This must be a
 <a href="https://semver.org/">semver</a> version string ("<span class="arithmatex">\(MAJOR.\)</span>MINOR.$PATCH"). The UI
 will let users know if their workflow is using a mismatched version of the node.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Resizer&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">],</span> <span class="n">category</span><span class="o">=</span><span class="s2">&quot;My Invocations&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Resizes an image&quot;&quot;&quot;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@invocation</span><span class="p">(</span><span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Resizer&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">],</span> <span class="n">category</span><span class="o">=</span><span class="s2">&quot;My Invocations&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">class</span> <span class="nc">ResizeInvocation</span><span class="p">(</span><span class="n">BaseInvocation</span><span class="p">):</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Resizes an image&quot;&quot;&quot;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">InputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The input image&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="o">...</span>
 </code></pre></div>
 <p>That's it. You made your own <strong>Resize Invocation</strong>.</p>
 <h2 id="result">Result<a class="headerlink" href="#result" title="Permanent link">#</a></h2>
@@ -2222,16 +2324,16 @@ field.</p>
 </ul>
 <p>Now that we know the basic rules for creating a new output type, let us go ahead
 and make it.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocationOutput</span><span class="p">,</span> <span class="n">OutputField</span><span class="p">,</span> <span class="n">invocation_output</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span><span class="p">,</span> <span class="n">ColorField</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nd">@invocation_output</span><span class="p">(</span><span class="s1">&#39;image_color_string_output&#39;</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">class</span> <span class="nc">ImageColorStringOutput</span><span class="p">(</span><span class="n">BaseInvocationOutput</span><span class="p">):</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Base class for nodes that output a single image&#39;&#39;&#39;</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">OutputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The image&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">color</span><span class="p">:</span> <span class="n">ColorField</span> <span class="o">=</span> <span class="n">OutputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The color&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">OutputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The string&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">.baseinvocation</span> <span class="kn">import</span> <span class="n">BaseInvocationOutput</span><span class="p">,</span> <span class="n">OutputField</span><span class="p">,</span> <span class="n">invocation_output</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">from</span> <span class="nn">.primitives</span> <span class="kn">import</span> <span class="n">ImageField</span><span class="p">,</span> <span class="n">ColorField</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nd">@invocation_output</span><span class="p">(</span><span class="s1">&#39;image_color_string_output&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">class</span> <span class="nc">ImageColorStringOutput</span><span class="p">(</span><span class="n">BaseInvocationOutput</span><span class="p">):</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Base class for nodes that output a single image&#39;&#39;&#39;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">image</span><span class="p">:</span> <span class="n">ImageField</span> <span class="o">=</span> <span class="n">OutputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The image&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">color</span><span class="p">:</span> <span class="n">ColorField</span> <span class="o">=</span> <span class="n">OutputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The color&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">OutputField</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The string&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>That's all there is to it.</p>
 <!-- TODO: DANGER - we probably do not want people to create their own field types, because this requires a lot of work on the frontend to accomodate.
@@ -2261,11 +2363,11 @@ general good practices to keep in mind.
 All input types a class that derive from the `BaseModel` type from `pydantic`.
 So let's create one.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">class</span> <span class="nc">ColorField</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;A field that holds the rgba values of a color&#39;&#39;&#39;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">class</span> <span class="nc">ColorField</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;A field that holds the rgba values of a color&#39;&#39;&#39;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="k">pass</span>
 </code></pre></div>
 
 Perfect. Now let us create our custom inputs for our field. This is exactly
@@ -2273,18 +2375,18 @@ similar how you created input fields for your Invocation. All the same rules
 apply. Let us create four fields representing the _red(r)_, _blue(b)_,
 _green(g)_ and _alpha(a)_ channel of the color.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span> <span class="nc">ColorField</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;A field that holds the rgba values of a color&#39;&#39;&#39;</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">r</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The red channel&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">g</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The green channel&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">b</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The blue channel&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The alpha channel&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">class</span> <span class="nc">ColorField</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;A field that holds the rgba values of a color&#39;&#39;&#39;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">r</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The red channel&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">g</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The green channel&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">b</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The blue channel&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The alpha channel&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 That's it. We now have a new input field type that we can use in our Invocations
 like this.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">color</span><span class="p">:</span> <span class="n">ColorField</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">ColorField</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Background color of an image&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">color</span><span class="p">:</span> <span class="n">ColorField</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">ColorField</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Background color of an image&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 ### Custom Components For Frontend
@@ -2312,7 +2414,7 @@ now.
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2023</span>
       
         <br>
         Created:

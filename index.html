@@ -1121,6 +1121,8 @@
         
           
         
+          
+        
       
       
         
@@ -1163,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/CONCEPTS/" class="md-nav__link">
+      <a href="features/CONCEPTS.md" class="md-nav__link">
         Concepts
       </a>
     </li>
@@ -1233,6 +1235,20 @@
   
   
     <li class="md-nav__item">
+      <a href="features/LORAS/" class="md-nav__link">
+        LoRAs & LCM-LoRAs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="features/MODEL_MERGING/" class="md-nav__link">
         Model Merging
       </a>
@@ -1248,7 +1264,7 @@
   
     <li class="md-nav__item">
       <a href="nodes/overview/" class="md-nav__link">
-        Using Nodes
+        Nodes & Workflows
       </a>
     </li>
   
@@ -1302,10 +1318,64 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+          Textual Inversions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_14">
+          <span class="md-nav__icon md-icon"></span>
+          Textual Inversions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/TEXTUAL_INVERSIONS/" class="md-nav__link">
+        Textual Inversions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="features/TRAINING/" class="md-nav__link">
         Textual Inversion Training
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1841,6 +1911,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1863,6 +1935,20 @@
     <li class="md-nav__item">
       <a href="help/gettingStartedWithAI/" class="md-nav__link">
         Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="help/FAQ/" class="md-nav__link">
+        FAQs
       </a>
     </li>
   
@@ -2050,15 +2136,12 @@ features and options to aid the image generation process. It runs on Windows,
 Mac and Linux machines, and runs on GPU cards with as little as 4 GB of RAM.</p>
 <div align="center"><img src="assets/invoke-web-server-1.png" width=640></div>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This project is rapidly evolving. Please use the <a href="https://github.com/invoke-ai/InvokeAI/issues">Issues tab</a> to report bugs and make feature requests. Be sure to use the provided templates as it will help aid response time.</p>
-</div>
 <h2 id="quick-links"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.78 3.653a3.936 3.936 0 1 1 5.567 5.567l-3.627 3.627a3.936 3.936 0 0 1-5.88-.353.75.75 0 0 0-1.18.928 5.436 5.436 0 0 0 8.12.486l3.628-3.628a5.436 5.436 0 1 0-7.688-7.688l-3 3a.75.75 0 0 0 1.06 1.061l3-3Z"/><path d="M7.28 11.153a3.936 3.936 0 0 1 5.88.353.75.75 0 0 0 1.18-.928 5.436 5.436 0 0 0-8.12-.486L2.592 13.72a5.436 5.436 0 1 0 7.688 7.688l3-3a.75.75 0 1 0-1.06-1.06l-3 3a3.936 3.936 0 0 1-5.567-5.568l3.627-3.627Z"/></svg></span> Quick Links<a class="headerlink" href="#quick-links" title="Permanent link">#</a></h2>
 <div class="button-container">
     <a href="installation/INSTALLATION"> <button class="button">Installation</button> </a>
     <a href="features/"> <button class="button">Features</button> </a>
     <a href="help/gettingStartedWithAI/"> <button class="button">Getting Started</button> </a>
+    <a href="help/FAQ/"> <button class="button">FAQ</button> </a>
     <a href="contributing/CONTRIBUTING/"> <button class="button">Contributing</button> </a>
     <a href="https://github.com/invoke-ai/InvokeAI/"> <button class="button">Code and Downloads</button> </a>
     <a href="https://github.com/invoke-ai/InvokeAI/issues"> <button class="button">Bug Reports </button> </a>
@@ -2077,7 +2160,7 @@ Mac and Linux machines, and runs on GPU cards with as little as 4 GB of RAM.</p>
 <h3 id="image-management">Image Management<a class="headerlink" href="#image-management" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="features/IMG2IMG/">Image2Image</a></li>
-<li><a href="features/CONCEPTS/">Adding custom styles and subjects</a></li>
+<li><a href="features/CONCEPTS.md">Adding custom styles and subjects</a></li>
 <li><a href="features/POSTPROCESS/">Upscaling and Face Reconstruction</a></li>
 <li><a href="features/OTHER/">Other Features</a></li>
 </ul>
@@ -2087,7 +2170,7 @@ Mac and Linux machines, and runs on GPU cards with as little as 4 GB of RAM.</p>
 <li><a href="installation/050_INSTALLING_MODELS/">Installing</a></li>
 <li><a href="features/MODEL_MERGING/">Model Merging</a></li>
 <li><a href="features/CONTROLNET/">ControlNet Models</a></li>
-<li><a href="features/CONCEPTS/">Style/Subject Concepts and Embeddings</a></li>
+<li><a href="features/CONCEPTS.md">Style/Subject Concepts and Embeddings</a></li>
 <li><a href="features/WATERMARK%2BNSFW/">Watermarking and the Not Safe for Work (NSFW) Checker</a></li>
 </ul>
 <!-- seperator -->
@@ -2206,6 +2289,11 @@ model to follow. Full details are found in <a href="features/CONTROLNET/">Contro
 <td>UniPCMultistepScheduler</td>
 <td>CPU only</td>
 </tr>
+<tr>
+<td><strong>lcm</strong></td>
+<td>LCMScheduler</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <p>Please see <a href="https://github.com/invoke-ai/InvokeAI/releases/tag/v3.0.0">3.0.0 Release Notes</a> for further details.</p>
@@ -2235,7 +2323,7 @@ by <a href="https://github.com/invoke-ai">The InvokeAI Team</a>.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2023</span>
       
         <br>
         Created:

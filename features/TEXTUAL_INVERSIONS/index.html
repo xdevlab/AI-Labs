@@ -10,20 +10,20 @@
         <meta name="author" content="mauwii">
       
       
-        <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/features/CONCEPTS/">
+        <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/features/TEXTUAL_INVERSIONS/">
       
       
-        <link rel="prev" href="../../help/gettingStartedWithAI/">
+        <link rel="prev" href="../PROMPTS/">
       
       
-        <link rel="next" href="../CONFIGURATION/">
+        <link rel="next" href="../TRAINING/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
-        <title>Textual Inversion Embeddings and LoRAs - InvokeAI Documentation</title>
+        <title>Textual Inversions - InvokeAI Documentation</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#textual-inversions-and-loras" class="md-skip">
+        <a href="#using-textual-inversion-files" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Textual Inversion Embeddings and LoRAs
+              Textual Inversions
             
           </span>
         </div>
@@ -971,6 +971,8 @@
         
           
         
+          
+        
       
       
         
@@ -1011,79 +1013,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Concepts
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../CONCEPTS.md" class="md-nav__link">
         Concepts
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#using-textual-inversion-files" class="md-nav__link">
-    Using Textual Inversion Files
-  </a>
-  
-    <nav class="md-nav" aria-label="Using Textual Inversion Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#an-example" class="md-nav__link">
-    An Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-your-own-ti-files" class="md-nav__link">
-    Installing your Own TI Files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-loras" class="md-nav__link">
-    Using LoRAs
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1151,6 +1085,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../LORAS/" class="md-nav__link">
+        LoRAs & LCM-LoRAs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../MODEL_MERGING/" class="md-nav__link">
         Model Merging
       </a>
@@ -1166,7 +1114,7 @@
   
     <li class="md-nav__item">
       <a href="../../nodes/overview/" class="md-nav__link">
-        Using Nodes
+        Nodes & Workflows
       </a>
     </li>
   
@@ -1219,11 +1167,124 @@
               
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" checked>
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+          Textual Inversions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_14">
+          <span class="md-nav__icon md-icon"></span>
+          Textual Inversions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Textual Inversions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Textual Inversions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-textual-inversion-files" class="md-nav__link">
+    Using Textual Inversion Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Textual Inversion Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#an-example" class="md-nav__link">
+    An Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-your-own-ti-files" class="md-nav__link">
+    Installing your Own TI Files
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../TRAINING/" class="md-nav__link">
         Textual Inversion Training
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1759,6 +1820,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1781,6 +1844,20 @@
     <li class="md-nav__item">
       <a href="../../help/gettingStartedWithAI/" class="md-nav__link">
         Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/FAQ/" class="md-nav__link">
+        FAQs
       </a>
     </li>
   
@@ -1908,8 +1985,8 @@
   
 
 
-<h1 id="textual-inversions-and-loras"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 9V1.5h-3V9h-3V1.5h-3V9h-3V1.5H4.65V9H3v1.5h18V9h-1.5m0 4.5h-3V21h-3v-7.5h-3V21h-3v-7.5H4.65V21H3v1.5h18V21h-1.5v-7.5Z"/></svg></span> Textual Inversions and LoRAs<a class="headerlink" href="#textual-inversions-and-loras" title="Permanent link">#</a></h1>
-<p>With the advances in research, many new capabilities are available to customize the knowledge and understanding of novel concepts not originally contained in the base model. </p>
+  <h1>Textual Inversions</h1>
+
 <h2 id="using-textual-inversion-files">Using Textual Inversion Files<a class="headerlink" href="#using-textual-inversion-files" title="Permanent link">#</a></h2>
 <p>Textual inversion (TI) files are small models that customize the output of
 Stable Diffusion image generation. They can augment SD with specialized subjects
@@ -1975,32 +2052,13 @@ files it finds there for compatible models. At startup you will see a message si
 </code></pre></div>
 To use these when generating, simply type the <code>&lt;</code> key in your prompt to open the Textual Inversion WebUI and 
 select the embedding you'd like to use. This UI has type-ahead support, so you can easily find supported embeddings.</p>
-<h2 id="using-loras">Using LoRAs<a class="headerlink" href="#using-loras" title="Permanent link">#</a></h2>
-<p>LoRA files are models that customize the output of Stable Diffusion
-image generation.  Larger than embeddings, but much smaller than full
-models, they augment SD with improved understanding of subjects and
-artistic styles.</p>
-<p>Unlike TI files, LoRAs do not introduce novel vocabulary into the
-model's known tokens. Instead, LoRAs augment the model's weights that
-are applied to generate imagery. LoRAs may be supplied with a
-"trigger" word that they have been explicitly trained on, or may
-simply apply their effect without being triggered.</p>
-<p>LoRAs are typically stored in .safetensors files, which are the most
-secure way to store and transmit these types of weights. You may
-install any number of <code>.safetensors</code> LoRA files simply by copying them
-into the <code>autoimport/lora</code> directory of the corresponding InvokeAI models
-directory (usually <code>invokeai</code> in your home directory).</p>
-<p>To use these when generating, open the LoRA menu item in the options
-panel, select the LoRAs you want to apply and ensure that they have
-the appropriate weight recommended by the model provider. Typically,
-most LoRAs perform best at a weight of .75-1.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2023</span>
       
         <br>
         Created:
