@@ -1472,6 +1472,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -1522,6 +1524,20 @@
     <li class="md-nav__item">
       <a href="../../contributing/ARCHITECTURE/" class="md-nav__link">
         InvokeAI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/MODEL_MANAGER/" class="md-nav__link">
+        Model Manager v2
       </a>
     </li>
   
@@ -2258,6 +2274,16 @@ to get usage instructions.</p>
 </li>
 </ol>
 <h2 id="developer-install">Developer Install<a class="headerlink" href="#developer-install" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>InvokeAI uses a SQLite database. By running on <code>main</code>, you accept responsibility for your database. This
+means making regular backups (especially before pulling) and/or fixing it yourself in the event that a
+PR introduces a schema change.</p>
+<p>If you don't need persistent backend storage, you can use an ephemeral in-memory database by setting
+<code>use_memory_db: true</code> under <code>Path:</code> in your <code>invokeai.yaml</code> file.</p>
+<p>If this is untenable, you should run the application via the official installer or a manual install of the
+python package from pypi. These releases will not break your database.</p>
+</div>
 <p>If you have an interest in how InvokeAI works, or you would like to
 add features or bugfixes, you are encouraged to install the source
 code for InvokeAI. For this to work, you will need to install the
@@ -2353,7 +2379,7 @@ staff will <strong>not</strong> be able to help you out. Caveat Emptor!</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
       
         <br>
         Created:
@@ -2416,6 +2442,14 @@ staff will <strong>not</strong> be able to help you out. Caveat Emptor!</p>
       
         
           <script src="../../javascripts/tablesort.js"></script>
+        
+      
+        
+          <script src="https://widget.kapa.ai/kapa-widget.bundle.js"></script>
+        
+      
+        
+          <script src="../../javascript/init_kapa_widget.js"></script>
         
       
     

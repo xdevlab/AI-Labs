@@ -13,13 +13,17 @@
         <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/contributing/MODEL_MANAGER/">
       
       
+        <link rel="prev" href="../ARCHITECTURE/">
+      
+      
+        <link rel="next" href="../contribution_guides/contributingToFrontend/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
-        <title>Introduction to the Model Manager V2 - InvokeAI Documentation</title>
+        <title>Model Manager v2 - InvokeAI Documentation</title>
       
     
     
@@ -118,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to the Model Manager V2
+              Model Manager v2
             
           </span>
         </div>
@@ -272,13 +276,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../CONTRIBUTING/" class="md-tabs__link">
+      <a href="../CONTRIBUTING/" class="md-tabs__link md-tabs__link--active">
         Contributing
       </a>
     </li>
@@ -1289,14 +1295,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
       
       
         
@@ -1321,7 +1329,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Contributing
@@ -1360,16 +1368,20 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
       
       
+        
+          
         
           
         
@@ -1390,7 +1402,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5_3">
           <span class="md-nav__icon md-icon"></span>
           Development
@@ -1434,6 +1446,376 @@
       <a href="../ARCHITECTURE/" class="md-nav__link">
         InvokeAI Architecture
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Model Manager v2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Model Manager v2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location-of-the-code" class="md-nav__link">
+    Location of the Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-a-model-the-modelrecordservice" class="md-nav__link">
+    What's in a Model? The ModelRecordService
+  </a>
+  
+    <nav class="md-nav" aria-label="What's in a Model? The ModelRecordService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelconfigbase" class="md-nav__link">
+    ModelConfigBase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkpointconfig" class="md-nav__link">
+    CheckpointConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mainconfig" class="md-nav__link">
+    MainConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onnxsd2config" class="md-nav__link">
+    ONNXSD2Config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-config-classes" class="md-nav__link">
+    Other config classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-of-the-data-model" class="md-nav__link">
+    Limitations of the Data Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-and-writing-model-configuration-records" class="md-nav__link">
+    Reading and Writing Model Configuration Records
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading and Writing Model Configuration Records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-modelrecordservice" class="md-nav__link">
+    Creating a ModelRecordService
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetching-a-models-configuration-from-modelrecordservicebase" class="md-nav__link">
+    Fetching a Model's Configuration from ModelRecordServiceBase
+  </a>
+  
+    <nav class="md-nav" aria-label="Fetching a Model's Configuration from ModelRecordServiceBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_modelkey-anymodelconfig" class="md-nav__link">
+    get_model(key) -&gt; AnyModelConfig:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existskey-anymodelconfig" class="md-nav__link">
+    exists(key) -&gt; AnyModelConfig:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_by_pathpath-anymodelconfig" class="md-nav__link">
+    search_by_path(path) -&gt; AnyModelConfig:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_by_namename-base-type-listanymodelconfig" class="md-nav__link">
+    search_by_name(name, base, type) -&gt; List[AnyModelConfig]:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_models-listanymodelconfig" class="md-nav__link">
+    all_models() -&gt; List[AnyModelConfig]:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_by_tagtags-listanymodelconfig" class="md-nav__link">
+    search_by_tag(tags) -&gt; List[AnyModelConfig]:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-str" class="md-nav__link">
+    version() -&gt; str:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model_info_by_namename-base_model-model_type-modelconfigbase" class="md-nav__link">
+    model_info_by_name(name, base_model, model_type) -&gt; ModelConfigBase:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-model-configs-to-the-database" class="md-nav__link">
+    Writing model configs to the database
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing model configs to the database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add_modelkey-config-anymodelconfig" class="md-nav__link">
+    add_model(key, config) -&gt; AnyModelConfig:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_modelkey-config-anymodelconfig" class="md-nav__link">
+    update_model(key, config) -&gt; AnyModelConfig:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-installation" class="md-nav__link">
+    Model installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Model installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initializing-the-installer" class="md-nav__link">
+    Initializing the installer
+  </a>
+  
+    <nav class="md-nav" aria-label="Initializing the installer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install_job-installerimport_model" class="md-nav__link">
+    install_job = installer.import_model()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-the-install-job-process" class="md-nav__link">
+    Monitoring the install job process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-confguration-and-probing" class="md-nav__link">
+    Model confguration and probing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-installer-methods" class="md-nav__link">
+    Other installer methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Other installer methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jobs-installerwait_for_installs" class="md-nav__link">
+    jobs = installer.wait_for_installs()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jobs-installerlist_jobssource" class="md-nav__link">
+    jobs = installer.list_jobs([source])
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jobs-installerget_jobsource" class="md-nav__link">
+    jobs = installer.get_job(source)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installerprune_jobs" class="md-nav__link">
+    installer.prune_jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installerapp_config-installerrecord_store" class="md-nav__link">
+    installer.app_config, installer.record_store,
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-installerregister_pathmodel_path-config-key-installerinstall_pathmodel_path-config" class="md-nav__link">
+    key = installer.register_path(model_path, config), key = installer.install_path(model_path, config)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installerunregisterkey" class="md-nav__link">
+    installer.unregister(key)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installerdeletekey" class="md-nav__link">
+    installer.delete(key)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installerunconditionally_deletekey" class="md-nav__link">
+    installer.unconditionally_delete(key)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liststrinstallerscan_directoryscan_dir-path-install-bool" class="md-nav__link">
+    List[str]=installer.scan_directory(scan_dir: Path, install: bool)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installersync_to_config" class="md-nav__link">
+    installer.sync_to_config()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installerstartinvoker" class="md-nav__link">
+    installer.start(invoker)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1915,22 +2297,24 @@ model. These are the:</p>
   found on disk.</p>
 </li>
 <li>
-<p><em>ModelLoadServiceBase</em> Responsible for loading a model from disk
-  into RAM and VRAM and getting it ready for inference.</p>
+<p><em>ModelInstallServiceBase</em> A service for installing models to
+  disk. It uses <code>DownloadQueueServiceBase</code> to download models and
+  their metadata, and <code>ModelRecordServiceBase</code> to store that
+  information. It is also responsible for managing the InvokeAI
+  <code>models</code> directory and its contents.</p>
 </li>
 <li>
-<p><em>DownloadQueueServiceBase</em> A multithreaded downloader responsible
+<p><em>DownloadQueueServiceBase</em> (<strong>CURRENTLY UNDER DEVELOPMENT - NOT IMPLEMENTED</strong>)
+  A multithreaded downloader responsible
   for downloading models from a remote source to disk. The download
   queue has special methods for downloading repo_id folders from
   Hugging Face, as well as discriminating among model versions in
   Civitai, but can be used for arbitrary content.</p>
 </li>
 <li>
-<p><em>ModelInstallServiceBase</em> A service for installing models to
-  disk. It uses <code>DownloadQueueServiceBase</code> to download models and
-  their metadata, and <code>ModelRecordServiceBase</code> to store that
-  information. It is also responsible for managing the InvokeAI
-  <code>models</code> directory and its contents.</p>
+<p><em>ModelLoadServiceBase</em> (<strong>CURRENTLY UNDER DEVELOPMENT - NOT IMPLEMENTED</strong>)
+  Responsible for loading a model from disk
+  into RAM and VRAM and getting it ready for inference.</p>
 </li>
 </ul>
 <h2 id="location-of-the-code">Location of the Code<a class="headerlink" href="#location-of-the-code" title="Permanent link">#</a></h2>
@@ -1938,18 +2322,12 @@ model. These are the:</p>
 <code>invokeai/app/services</code> in the following directories:</p>
 <ul>
 <li><code>invokeai/app/services/model_records/</code></li>
-<li><code>invokeai/app/services/downloads/</code></li>
-<li><code>invokeai/app/services/model_loader/</code></li>
 <li><code>invokeai/app/services/model_install/</code></li>
+<li><code>invokeai/app/services/model_loader/</code> (<strong>under development</strong>)</li>
+<li><code>invokeai/app/services/downloads/</code>(<strong>under development</strong>)</li>
 </ul>
-<p>With the exception of the install service, each of these is a thin
-shell around a corresponding implementation located in
-<code>invokeai/backend/model_manager</code>. The main difference between the
-modules found in app services and those in the backend folder is that
-the former add support for event reporting and are more tied to the
-needs of the InvokeAI API.</p>
 <p>Code related to the FastAPI web API can be found in
-<code>invokeai/app/api/routers/models.py</code>.</p>
+<code>invokeai/app/api/routers/model_records.py</code>.</p>
 <hr />
 <h2 id="whats-in-a-model-the-modelrecordservice">What's in a Model? The ModelRecordService<a class="headerlink" href="#whats-in-a-model-the-modelrecordservice" title="Permanent link">#</a></h2>
 <p>The <code>ModelRecordService</code> manages the model's metadata. It supports a
@@ -2137,9 +2515,6 @@ include runtime information such as load status and bytes used. Some
 of the fields, including <code>name</code>, <code>model_type</code> and <code>base_model</code>, are
 shared between <code>ModelConfigBase</code> and <code>ModelBase</code>, and this is a
 potential source of confusion.</p>
-<p>** TO DO: ** The <code>ModelBase</code> code needs to be revised to reduce the
-duplication of similar classes and to support using the <code>key</code> as the
-primary model identifier.</p>
 <h2 id="reading-and-writing-model-configuration-records">Reading and Writing Model Configuration Records<a class="headerlink" href="#reading-and-writing-model-configuration-records" title="Permanent link">#</a></h2>
 <p>The <code>ModelRecordService</code> provides the ability to retrieve model
 configuration records from SQL or YAML databases, update them, and
@@ -2281,7 +2656,7 @@ model and pass its key to <code>get_model()</code>.</p>
 <h3 id="writing-model-configs-to-the-database">Writing model configs to the database<a class="headerlink" href="#writing-model-configs-to-the-database" title="Permanent link">#</a></h3>
 <p>Several methods allow you to create and update stored model config
 records.</p>
-<h4 id="add_modelkey-config-modelconfigbase">add_model(key, config) -&gt; ModelConfigBase:<a class="headerlink" href="#add_modelkey-config-modelconfigbase" title="Permanent link">#</a></h4>
+<h4 id="add_modelkey-config-anymodelconfig">add_model(key, config) -&gt; AnyModelConfig:<a class="headerlink" href="#add_modelkey-config-anymodelconfig" title="Permanent link">#</a></h4>
 <p>Given a key and a configuration, this will add the model's
 configuration record to the database. <code>config</code> can either be a subclass of
 <code>ModelConfigBase</code> (i.e. any class listed in <code>AnyModelConfig</code>), or a
@@ -2300,20 +2675,395 @@ instance of <code>ModelConfigBase</code>, or a sparse <code>dict</code> containi
 fields to be updated. This will return an <code>AnyModelConfig</code> on success,
 or raise <code>InvalidModelConfigException</code> or <code>UnknownModelException</code>
 exceptions on failure.</p>
-<p><strong><em>TO DO:</em></strong> Investigate why <code>update_model()</code> returns an
-<code>AnyModelConfig</code> while <code>add_model()</code> returns a <code>ModelConfigBase</code>.</p>
-<h3 id="rename_modelkey-new_name-modelconfigbase">rename_model(key, new_name) -&gt; ModelConfigBase:<a class="headerlink" href="#rename_modelkey-new_name-modelconfigbase" title="Permanent link">#</a></h3>
-<p>This is a special case of <code>update_model()</code> for the use case of
-changing the model's name. It is broken out because there are cases in
-which the InvokeAI application wants to synchronize the model's name
-with its path in the <code>models</code> directory after changing the name, type
-or base. However, when using the ModelRecordService directly, the call
-is equivalent to:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>store.rename_model(key, {&#39;name&#39;: &#39;new_name&#39;})
-</code></pre></div>
-<p><strong><em>TO DO:</em></strong> Investigate why <code>rename_model()</code> is returning a
-<code>ModelConfigBase</code> while <code>update_model()</code> returns a <code>AnyModelConfig</code>.</p>
 <hr />
+<h2 id="model-installation">Model installation<a class="headerlink" href="#model-installation" title="Permanent link">#</a></h2>
+<p>The <code>ModelInstallService</code> class implements the
+<code>ModelInstallServiceBase</code> abstract base class, and provides a one-stop
+shop for all your model install needs. It provides the following
+functionality:</p>
+<ul>
+<li>
+<p>Registering a model config record for a model already located on the
+  local filesystem, without moving it or changing its path.</p>
+</li>
+<li>
+<p>Installing a model alreadiy located on the local filesystem, by
+  moving it into the InvokeAI root directory under the
+  <code>models</code> folder (or wherever config parameter <code>models_dir</code>
+  specifies).</p>
+</li>
+<li>
+<p>Probing of models to determine their type, base type and other key
+  information.</p>
+</li>
+<li>
+<p>Interface with the InvokeAI event bus to provide status updates on
+  the download, installation and registration process.</p>
+</li>
+<li>
+<p>Downloading a model from an arbitrary URL and installing it in
+  <code>models_dir</code> (<em>implementation pending</em>).</p>
+</li>
+<li>
+<p>Special handling for Civitai model URLs which allow the user to
+  paste in a model page's URL or download link (<em>implementation pending</em>).</p>
+</li>
+<li>
+<p>Special handling for HuggingFace repo_ids to recursively download
+  the contents of the repository, paying attention to alternative
+  variants such as fp16. (<em>implementation pending</em>)</p>
+</li>
+</ul>
+<h3 id="initializing-the-installer">Initializing the installer<a class="headerlink" href="#initializing-the-installer" title="Permanent link">#</a></h3>
+<p>A default installer is created at InvokeAI api startup time and stored
+in <code>ApiDependencies.invoker.services.model_install</code> and can
+also be retrieved from an invocation's <code>context</code> argument with
+<code>context.services.model_install</code>.</p>
+<p>In the event you wish to create a new installer, you may use the
+following initialization pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>from invokeai.app.services.config import InvokeAIAppConfig
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>from invokeai.app.services.model_records import ModelRecordServiceSQL
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>from invokeai.app.services.model_install import ModelInstallService
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>from invokeai.app.services.shared.sqlite import SqliteDatabase
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>from invokeai.backend.util.logging import InvokeAILogger
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>config = InvokeAIAppConfig.get_config()
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>config.parse_args()
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>logger = InvokeAILogger.get_logger(config=config)
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>db = SqliteDatabase(config, logger)
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>store = ModelRecordServiceSQL(db)
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>installer = ModelInstallService(config, store)
+</code></pre></div>
+<p>The full form of <code>ModelInstallService()</code> takes the following
+required parameters:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Argument</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td>InvokeAIAppConfig</td>
+<td>InvokeAI app configuration object</td>
+</tr>
+<tr>
+<td><code>record_store</code></td>
+<td>ModelRecordServiceBase</td>
+<td>Config record storage database</td>
+</tr>
+<tr>
+<td><code>event_bus</code></td>
+<td>EventServiceBase</td>
+<td>Optional event bus to send download/install progress events to</td>
+</tr>
+</tbody>
+</table>
+<p>Once initialized, the installer will provide the following methods:</p>
+<h4 id="install_job-installerimport_model">install_job = installer.import_model()<a class="headerlink" href="#install_job-installerimport_model" title="Permanent link">#</a></h4>
+<p>The <code>import_model()</code> method is the core of the installer. The
+following illustrates basic usage:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>from invokeai.app.services.model_install import (
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    LocalModelSource,
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    HFModelSource,
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    URLModelSource,
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>)
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>source1 = LocalModelSource(path=&#39;/opt/models/sushi.safetensors&#39;)   # a local safetensors file
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>source2 = LocalModelSource(path=&#39;/opt/models/sushi_diffusers&#39;)     # a local diffusers folder
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>source3 = HFModelSource(repo_id=&#39;runwayml/stable-diffusion-v1-5&#39;)  # a repo_id
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>source4 = HFModelSource(repo_id=&#39;runwayml/stable-diffusion-v1-5&#39;, subfolder=&#39;vae&#39;)  # a subfolder within a repo_id
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>source5 = HFModelSource(repo_id=&#39;runwayml/stable-diffusion-v1-5&#39;, variant=&#39;fp16&#39;)   # a named variant of a HF model
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>source6 = URLModelSource(url=&#39;https://civitai.com/api/download/models/63006&#39;)       # model located at a URL
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>source7 = URLModelSource(url=&#39;https://civitai.com/api/download/models/63006&#39;, access_token=&#39;letmein&#39;) # with an access token
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>for source in [source1, source2, source3, source4, source5, source6, source7]:
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>   install_job = installer.install_model(source)
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>source2job = installer.wait_for_installs()
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>for source in sources:
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    job = source2job[source]
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>    if job.status == &quot;completed&quot;:
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>        model_config = job.config_out
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>        model_key = model_config.key
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>        print(f&quot;{source} installed as {model_key}&quot;)
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>    elif job.status == &quot;error&quot;:
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>        print(f&quot;{source}: {job.error_type}.\nStack trace:\n{job.error}&quot;)
+</code></pre></div>
+<p>As shown here, the <code>import_model()</code> method accepts a variety of
+sources, including local safetensors files, local diffusers folders,
+HuggingFace repo_ids with and without a subfolder designation,
+Civitai model URLs and arbitrary URLs that point to checkpoint files
+(but not to folders).</p>
+<p>Each call to <code>import_model()</code> return a <code>ModelInstallJob</code> job, 
+an object which tracks the progress of the install.</p>
+<p>If a remote model is requested, the model's files are downloaded in
+parallel across a multiple set of threads using the download
+queue. During the download process, the <code>ModelInstallJob</code> is updated
+to provide status and progress information. After the files (if any)
+are downloaded, the remainder of the installation runs in a single
+serialized background thread. These are the model probing, file
+copying, and config record database update steps.</p>
+<p>Multiple install jobs can be queued up. You may block until all
+install jobs are completed (or errored) by calling the
+<code>wait_for_installs()</code> method as shown in the code
+example. <code>wait_for_installs()</code> will return a <code>dict</code> that maps the
+requested source to its job. This object can be interrogated
+to determine its status. If the job errored out, then the error type
+and details can be recovered from <code>job.error_type</code> and <code>job.error</code>.</p>
+<p>The full list of arguments to <code>import_model()</code> is as follows:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Argument</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source</code></td>
+<td>Union[str, Path, AnyHttpUrl]</td>
+<td></td>
+<td>The source of the model, Path, URL or repo_id</td>
+</tr>
+<tr>
+<td><code>inplace</code></td>
+<td>bool</td>
+<td>True</td>
+<td>Leave a local model in its current location</td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td>str</td>
+<td>None</td>
+<td>Desired variant, such as 'fp16' or 'onnx' (HuggingFace only)</td>
+</tr>
+<tr>
+<td><code>subfolder</code></td>
+<td>str</td>
+<td>None</td>
+<td>Repository subfolder (HuggingFace only)</td>
+</tr>
+<tr>
+<td><code>config</code></td>
+<td>Dict[str, Any]</td>
+<td>None</td>
+<td>Override all or a portion of model's probed attributes</td>
+</tr>
+<tr>
+<td><code>access_token</code></td>
+<td>str</td>
+<td>None</td>
+<td>Provide authorization information needed to download</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>inplace</code> field controls how local model Paths are handled. If
+True (the default), then the model is simply registered in its current
+location by the installer's <code>ModelConfigRecordService</code>. Otherwise, a
+copy of the model put into the location specified by the <code>models_dir</code>
+application configuration parameter.</p>
+<p>The <code>variant</code> field is used for HuggingFace repo_ids only. If
+provided, the repo_id download handler will look for and download
+tensors files that follow the convention for the selected variant:</p>
+<ul>
+<li>"fp16" will select files named "*model.fp16.{safetensors,bin}"</li>
+<li>"onnx" will select files ending with the suffix ".onnx"</li>
+<li>"openvino" will select files beginning with "openvino_model"</li>
+</ul>
+<p>In the special case of the "fp16" variant, the installer will select
+the 32-bit version of the files if the 16-bit version is unavailable.</p>
+<p><code>subfolder</code> is used for HuggingFace repo_ids only. If provided, the
+model will be downloaded from the designated subfolder rather than the
+top-level repository folder. If a subfolder is attached to the repo_id
+using the format <code>repo_owner/repo_name:subfolder</code>, then the subfolder
+specified by the repo_id will override the subfolder argument.</p>
+<p><code>config</code> can be used to override all or a portion of the configuration
+attributes returned by the model prober. See the section below for
+details.</p>
+<p><code>access_token</code> is passed to the download queue and used to access
+repositories that require it.</p>
+<h4 id="monitoring-the-install-job-process">Monitoring the install job process<a class="headerlink" href="#monitoring-the-install-job-process" title="Permanent link">#</a></h4>
+<p>When you create an install job with <code>import_model()</code>, it launches the
+download and installation process in the background and returns a
+<code>ModelInstallJob</code> object for monitoring the process.</p>
+<p>The <code>ModelInstallJob</code> class has the following structure:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Attribute</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td><code>InstallStatus</code></td>
+<td>An enum of ["waiting", "running", "completed" and "error"</td>
+</tr>
+<tr>
+<td><code>config_in</code></td>
+<td><code>dict</code></td>
+<td>Overriding configuration values provided by the caller</td>
+</tr>
+<tr>
+<td><code>config_out</code></td>
+<td><code>AnyModelConfig</code></td>
+<td>After successful completion, contains the configuration record written to the database</td>
+</tr>
+<tr>
+<td><code>inplace</code></td>
+<td><code>boolean</code></td>
+<td>True if the caller asked to install the model in place using its local path</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>ModelSource</code></td>
+<td>The local path, remote URL or repo_id of the model to be installed</td>
+</tr>
+<tr>
+<td><code>local_path</code></td>
+<td><code>Path</code></td>
+<td>If a remote model, holds the path of the model after it is downloaded; if a local model, same as <code>source</code></td>
+</tr>
+<tr>
+<td><code>error_type</code></td>
+<td><code>str</code></td>
+<td>Name of the exception that led to an error status</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td><code>str</code></td>
+<td>Traceback of the error</td>
+</tr>
+</tbody>
+</table>
+<p>If the <code>event_bus</code> argument was provided, events will also be
+broadcast to the InvokeAI event bus. The events will appear on the bus
+as an event of type <code>EventServiceBase.model_event</code>, a timestamp and
+the following event names:</p>
+<ul>
+<li><code>model_install_started</code></li>
+</ul>
+<p>The payload will contain the keys <code>timestamp</code> and <code>source</code>. The latter
+indicates the requested model source for installation.</p>
+<ul>
+<li><code>model_install_progress</code></li>
+</ul>
+<p>Emitted at regular intervals when downloading a remote model, the
+payload will contain the keys <code>timestamp</code>, <code>source</code>, <code>current_bytes</code>
+and <code>total_bytes</code>. These events are <em>not</em> emitted when a local model
+already on the filesystem is imported.</p>
+<ul>
+<li><code>model_install_completed</code></li>
+</ul>
+<p>Issued once at the end of a successful installation. The payload will
+contain the keys <code>timestamp</code>, <code>source</code> and <code>key</code>, where <code>key</code> is the
+ID under which the model has been registered.</p>
+<ul>
+<li><code>model_install_error</code></li>
+</ul>
+<p>Emitted if the installation process fails for some reason. The payload
+will contain the keys <code>timestamp</code>, <code>source</code>, <code>error_type</code> and
+<code>error</code>. <code>error_type</code> is a short message indicating the nature of the
+error, and <code>error</code> is the long traceback to help debug the problem.</p>
+<h4 id="model-confguration-and-probing">Model confguration and probing<a class="headerlink" href="#model-confguration-and-probing" title="Permanent link">#</a></h4>
+<p>The install service uses the <code>invokeai.backend.model_manager.probe</code>
+module during import to determine the model's type, base type, and
+other configuration parameters. Among other things, it assigns a
+default name and description for the model based on probed
+fields. </p>
+<p>When downloading remote models is implemented, additional
+configuration information, such as list of trigger terms, will be
+retrieved from the HuggingFace and Civitai model repositories.</p>
+<p>The probed values can be overriden by providing a dictionary in the
+optional <code>config</code> argument passed to <code>import_model()</code>. You may provide
+overriding values for any of the model's configuration
+attributes. Here is an example of setting the
+<code>SchedulerPredictionType</code> and <code>name</code> for an sd-2 model:</p>
+<p>This is typically used to set
+the model's name and description, but can also be used to overcome
+cases in which automatic probing is unable to (correctly) determine
+the model's attribute. The most common situation is the
+<code>prediction_type</code> field for sd-2 (and rare sd-1) models. Here is an
+example of how it works:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>install_job = installer.import_model(
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>               source=&#39;stabilityai/stable-diffusion-2-1&#39;,
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>               variant=&#39;fp16&#39;,
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>               config=dict(
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>                     prediction_type=SchedulerPredictionType(&#39;v_prediction&#39;)
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>                     name=&#39;stable diffusion 2 base model&#39;,
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>               )
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>          )
+</code></pre></div>
+<h3 id="other-installer-methods">Other installer methods<a class="headerlink" href="#other-installer-methods" title="Permanent link">#</a></h3>
+<p>This section describes additional methods provided by the installer class.</p>
+<h4 id="jobs-installerwait_for_installs">jobs = installer.wait_for_installs()<a class="headerlink" href="#jobs-installerwait_for_installs" title="Permanent link">#</a></h4>
+<p>Block until all pending installs are completed or errored and then
+returns a list of completed jobs.</p>
+<h4 id="jobs-installerlist_jobssource">jobs = installer.list_jobs([source])<a class="headerlink" href="#jobs-installerlist_jobssource" title="Permanent link">#</a></h4>
+<p>Return a list of all active and complete <code>ModelInstallJobs</code>. An
+optional <code>source</code> argument allows you to filter the returned list by a
+model source string pattern using a partial string match.</p>
+<h4 id="jobs-installerget_jobsource">jobs = installer.get_job(source)<a class="headerlink" href="#jobs-installerget_jobsource" title="Permanent link">#</a></h4>
+<p>Return a list of <code>ModelInstallJob</code> corresponding to the indicated
+model source.</p>
+<h4 id="installerprune_jobs">installer.prune_jobs<a class="headerlink" href="#installerprune_jobs" title="Permanent link">#</a></h4>
+<p>Remove non-pending jobs (completed or errored) from the job list
+returned by <code>list_jobs()</code> and <code>get_job()</code>.</p>
+<h4 id="installerapp_config-installerrecord_store">installer.app_config, installer.record_store,<a class="headerlink" href="#installerapp_config-installerrecord_store" title="Permanent link">#</a></h4>
+<p>installer.event_bus</p>
+<p>Properties that provide access to the installer's <code>InvokeAIAppConfig</code>,
+<code>ModelRecordServiceBase</code> and <code>EventServiceBase</code> objects.</p>
+<h4 id="key-installerregister_pathmodel_path-config-key-installerinstall_pathmodel_path-config">key = installer.register_path(model_path, config), key = installer.install_path(model_path, config)<a class="headerlink" href="#key-installerregister_pathmodel_path-config-key-installerinstall_pathmodel_path-config" title="Permanent link">#</a></h4>
+<p>These methods bypass the download queue and directly register or
+install the model at the indicated path, returning the unique ID for
+the installed model.</p>
+<p>Both methods accept a Path object corresponding to a checkpoint or
+diffusers folder, and an optional dict of config attributes to use to
+override the values derived from model probing.</p>
+<p>The difference between <code>register_path()</code> and <code>install_path()</code> is that
+the former creates a model configuration record without changing the
+location of the model in the filesystem. The latter makes a copy of
+the model inside the InvokeAI models directory before registering
+it.</p>
+<h4 id="installerunregisterkey">installer.unregister(key)<a class="headerlink" href="#installerunregisterkey" title="Permanent link">#</a></h4>
+<p>This will remove the model config record for the model at key, and is
+equivalent to <code>installer.record_store.del_model(key)</code></p>
+<h4 id="installerdeletekey">installer.delete(key)<a class="headerlink" href="#installerdeletekey" title="Permanent link">#</a></h4>
+<p>This is similar to <code>unregister()</code> but has the additional effect of
+conditionally deleting the underlying model file(s) if they reside
+within the InvokeAI models directory</p>
+<h4 id="installerunconditionally_deletekey">installer.unconditionally_delete(key)<a class="headerlink" href="#installerunconditionally_deletekey" title="Permanent link">#</a></h4>
+<p>This method is similar to <code>unregister()</code>, but also unconditionally
+deletes the corresponding model weights file(s), regardless of whether
+they are inside or outside the InvokeAI models hierarchy.</p>
+<h4 id="liststrinstallerscan_directoryscan_dir-path-install-bool">List[str]=installer.scan_directory(scan_dir: Path, install: bool)<a class="headerlink" href="#liststrinstallerscan_directoryscan_dir-path-install-bool" title="Permanent link">#</a></h4>
+<p>This method will recursively scan the directory indicated in
+<code>scan_dir</code> for new models and either install them in the models
+directory or register them in place, depending on the setting of
+<code>install</code> (default False).</p>
+<p>The return value is the list of keys of the new installed/registered
+models.</p>
+<h4 id="installersync_to_config">installer.sync_to_config()<a class="headerlink" href="#installersync_to_config" title="Permanent link">#</a></h4>
+<p>This method synchronizes models in the models directory and autoimport
+directory to those in the <code>ModelConfigRecordService</code> database. New
+models are registered and orphan models are unregistered.</p>
+<h4 id="installerstartinvoker">installer.start(invoker)<a class="headerlink" href="#installerstartinvoker" title="Permanent link">#</a></h4>
+<p>The <code>start</code> method is called by the API intialization routines when
+the API starts up. Its effect is to call <code>sync_to_config()</code> to
+synchronize the model record store database with what's currently on
+disk.</p>
+<h1 id="the-remainder-of-this-documentation-is-provisional-pending-implementation-of-the-download-and-load-services">The remainder of this documentation is provisional, pending implementation of the Download and Load services<a class="headerlink" href="#the-remainder-of-this-documentation-is-provisional-pending-implementation-of-the-download-and-load-services" title="Permanent link">#</a></h1>
 <h2 id="lets-get-loaded-the-lowdown-on-modelloadservice">Let's get loaded, the lowdown on ModelLoadService<a class="headerlink" href="#lets-get-loaded-the-lowdown-on-modelloadservice" title="Permanent link">#</a></h2>
 <p>The <code>ModelLoadService</code> is responsible for loading a named model into
 memory so that it can be used for inference. Despite the fact that it
@@ -2330,13 +3080,13 @@ information such as the user's desired GPU and precision, and with a
 previously-created <code>ModelRecordServiceBase</code> object, from which it
 loads the requested model's configuration information.</p>
 <p>Here is a typical initialization pattern:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>from invokeai.app.services.config import InvokeAIAppConfig
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>from invokeai.app.services.model_record_service import ModelRecordServiceBase
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>from invokeai.app.services.model_loader_service import ModelLoadService
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>config = InvokeAIAppConfig.get_config()
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>store = ModelRecordServiceBase.open(config)
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>loader = ModelLoadService(config, store)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>from invokeai.app.services.config import InvokeAIAppConfig
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>from invokeai.app.services.model_record_service import ModelRecordServiceBase
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>from invokeai.app.services.model_loader_service import ModelLoadService
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>config = InvokeAIAppConfig.get_config()
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>store = ModelRecordServiceBase.open(config)
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>loader = ModelLoadService(config, store)
 </code></pre></div>
 <p>Note that we are relying on the contents of the application
 configuration to choose the implementation of
@@ -2405,9 +3155,9 @@ details.</p>
 <code>invokeai.app.services.model_loader_service</code>.</p>
 <p>To use the model, you use the <code>ModelInfo</code> as a context manager using
 the following pattern:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>model_info = loader.get_model(&#39;f13dd932c0c35c22dcb8d6cda4203764&#39;, SubModelType(&#39;vae&#39;))
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>with model_info as vae:
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    image = vae.decode(latents)[0]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>model_info = loader.get_model(&#39;f13dd932c0c35c22dcb8d6cda4203764&#39;, SubModelType(&#39;vae&#39;))
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>with model_info as vae:
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    image = vae.decode(latents)[0]
 </code></pre></div>
 <p>The <code>vae</code> model will stay locked in the GPU during the period of time
 it is in the context manager's scope.</p>
@@ -2425,17 +3175,17 @@ retrieve the invocation event bus from the passed <code>InvocationContext</code>
 object to emit events on the invocation bus. The two events are
 "model_load_started" and "model_load_completed". Both carry the
 following payload:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>payload=dict(
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    queue_id=queue_id,
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    queue_item_id=queue_item_id,
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    queue_batch_id=queue_batch_id,
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    graph_execution_state_id=graph_execution_state_id,
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    model_key=model_key,
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    submodel=submodel,
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    hash=model_info.hash,
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    location=str(model_info.location),
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    precision=str(model_info.precision),
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>payload=dict(
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    queue_id=queue_id,
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    queue_item_id=queue_item_id,
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    queue_batch_id=queue_batch_id,
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    graph_execution_state_id=graph_execution_state_id,
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    model_key=model_key,
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    submodel=submodel,
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    hash=model_info.hash,
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    location=str(model_info.location),
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    precision=str(model_info.precision),
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>)
 </code></pre></div>
 <hr />
 <h2 id="get-on-line-the-download-queue">Get on line: The Download Queue<a class="headerlink" href="#get-on-line-the-download-queue" title="Permanent link">#</a></h2>
@@ -2696,8 +3446,8 @@ event handlers is traversed and executed in the same thread that the
 download job is running in.</p>
 <p>Event handlers have the signature <code>Callable[["DownloadJobBase"],
 None]</code>, i.e.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>def handler(job: DownloadJobBase):
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>   pass
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>def handler(job: DownloadJobBase):
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>   pass
 </code></pre></div>
 <p>A typical handler will examine <code>job.status</code> and decide if there's
 something to be done. This can include cancelling or erroring the job,
@@ -2713,7 +3463,7 @@ the file is transferred. This is to provide just enough granularity to
 update a tqdm progress bar smoothly.</p>
 <p>Handlers can be added to a job after the fact using the job's
 <code>add_event_handler</code> method:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>job.add_event_handler(my_handler)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>job.add_event_handler(my_handler)
 </code></pre></div>
 <p>All handlers can be cleared using the job's <code>clear_event_handlers()</code>
 method. Note that it might be a good idea to pause the job before
@@ -2757,14 +3507,14 @@ altering its handlers.</p>
 </tbody>
 </table>
 <p>A typical initialization sequence will look like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>from invokeai.app.services.download_manager import DownloadQueueService
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>def log_download_event(job: DownloadJobBase):
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    logger.info(f&#39;job={job.id}: status={job.status}&#39;)
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>queue = DownloadQueueService(
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>                      event_handlers=[log_download_event]
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>                          )
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>from invokeai.app.services.download_manager import DownloadQueueService
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>def log_download_event(job: DownloadJobBase):
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    logger.info(f&#39;job={job.id}: status={job.status}&#39;)
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>queue = DownloadQueueService(
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>                      event_handlers=[log_download_event]
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>                          )
 </code></pre></div>
 <p>Event handlers can be provided to the queue at initialization time as
 shown in the example. These will be automatically appended to the
@@ -2784,12 +3534,12 @@ manually and passing it to the queue's <code>submit_download_job()</code> method
 or using the <code>create_download_job()</code> method, which will do the same
 thing on your behalf.</p>
 <p>To use the former method, follow this example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>job = DownloadJobRemoteSource(
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>         source=&#39;http://www.civitai.com/models/13456&#39;,
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>         destination=&#39;/tmp/models/&#39;,
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>         event_handlers=[my_handler1, my_handler2], # if desired
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>         )
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>queue.submit_download_job(job, start=True)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>job = DownloadJobRemoteSource(
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>         source=&#39;http://www.civitai.com/models/13456&#39;,
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>         destination=&#39;/tmp/models/&#39;,
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>         event_handlers=[my_handler1, my_handler2], # if desired
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>         )
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>queue.submit_download_job(job, start=True)
 </code></pre></div>
 <p><code>submit_download_job()</code> takes just two arguments: the job to submit,
 and a flag indicating whether to immediately start the job (defaulting
@@ -2797,404 +3547,114 @@ to True). If you choose not to start the job immediately, you can
 start it later by calling the queue's <code>start_job()</code> or
 <code>start_all_jobs()</code> methods, which are described later.</p>
 <p>To have the queue create the job for you, follow this example instead:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>job = queue.create_download_job(
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>         source=&#39;http://www.civitai.com/models/13456&#39;,
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>         destdir=&#39;/tmp/models/&#39;,
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>         filename=&#39;my_model.safetensors&#39;,
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>         event_handlers=[my_handler1, my_handler2], # if desired
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>         start=True,
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    )
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a> ```
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>The `filename` argument forces the downloader to use the specified
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>name for the file rather than the name provided by the remote source,
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>and is equivalent to manually specifying a destination of
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>`/tmp/models/my_model.safetensors&#39; in the submitted job.
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>Here is the full list of arguments that can be provided to
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>`create_download_job()`:
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
-<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>| **Argument**     | **Type**                     | **Default** | **Description**                           |
-<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>|------------------|------------------------------|-------------|-------------------------------------------|
-<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>| `source`         | Union[str, Path, AnyHttpUrl] |             | Download remote or local source           |
-<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>| `destdir`        | Path                         |             | Destination directory for downloaded file |
-<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>| `filename`       | Path                         | None        | Filename for downloaded file              |
-<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>| `start`          | bool                         | True        | Enqueue the job immediately               |
-<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>| `priority`       | int                          | 10          | Starting priority for this job            |
-<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>| `access_token`   | str                          | None        | Authorization token for this resource     |
-<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>| `event_handlers` | List[DownloadEventHandler]   | []          | Event handlers for this job                |
-<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>
-<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>Internally, `create_download_job()` has a little bit of internal logic
-<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>that looks at the type of the source and selects the right subclass of
-<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>`DownloadJobBase` to create and enqueue. 
-<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>
-<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>**TODO**: move this logic into its own method for overriding in
-<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>subclasses.
-<a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a>
-<a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>### Job control
-<a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a>
-<a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a>Prior to completion, jobs can be controlled with a series of queue
-<a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a>method calls. Do not attempt to modify jobs by directly writing to
-<a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a>their fields, as this is likely to lead to unexpected results.
-<a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a>
-<a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a>Any method that accepts a job argument may raise an
-<a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>`UnknownJobIDException` if the job has not yet been submitted to the
-<a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>queue or was not created by this queue.
-<a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a>
-<a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a>#### queue.join()
-<a id="__codelineno-17-47" name="__codelineno-17-47" href="#__codelineno-17-47"></a>
-<a id="__codelineno-17-48" name="__codelineno-17-48" href="#__codelineno-17-48"></a>This method will block until all the active jobs in the queue have
-<a id="__codelineno-17-49" name="__codelineno-17-49" href="#__codelineno-17-49"></a>reached a terminal state (completed, errored or cancelled).
-<a id="__codelineno-17-50" name="__codelineno-17-50" href="#__codelineno-17-50"></a>
-<a id="__codelineno-17-51" name="__codelineno-17-51" href="#__codelineno-17-51"></a>#### jobs = queue.list_jobs()
-<a id="__codelineno-17-52" name="__codelineno-17-52" href="#__codelineno-17-52"></a>
-<a id="__codelineno-17-53" name="__codelineno-17-53" href="#__codelineno-17-53"></a>This will return a list of all jobs, including ones that have not yet
-<a id="__codelineno-17-54" name="__codelineno-17-54" href="#__codelineno-17-54"></a>been enqueued and those that have completed or errored out.
-<a id="__codelineno-17-55" name="__codelineno-17-55" href="#__codelineno-17-55"></a>
-<a id="__codelineno-17-56" name="__codelineno-17-56" href="#__codelineno-17-56"></a>#### job = queue.id_to_job(int)
-<a id="__codelineno-17-57" name="__codelineno-17-57" href="#__codelineno-17-57"></a>
-<a id="__codelineno-17-58" name="__codelineno-17-58" href="#__codelineno-17-58"></a>This method allows you to recover a submitted job using its ID.
-<a id="__codelineno-17-59" name="__codelineno-17-59" href="#__codelineno-17-59"></a>
-<a id="__codelineno-17-60" name="__codelineno-17-60" href="#__codelineno-17-60"></a>#### queue.prune_jobs()
-<a id="__codelineno-17-61" name="__codelineno-17-61" href="#__codelineno-17-61"></a>
-<a id="__codelineno-17-62" name="__codelineno-17-62" href="#__codelineno-17-62"></a>Remove completed and errored jobs from the job list.
-<a id="__codelineno-17-63" name="__codelineno-17-63" href="#__codelineno-17-63"></a>
-<a id="__codelineno-17-64" name="__codelineno-17-64" href="#__codelineno-17-64"></a>#### queue.start_job(job)
-<a id="__codelineno-17-65" name="__codelineno-17-65" href="#__codelineno-17-65"></a>
-<a id="__codelineno-17-66" name="__codelineno-17-66" href="#__codelineno-17-66"></a>If the job was submitted with `start=False`, then it can be started
-<a id="__codelineno-17-67" name="__codelineno-17-67" href="#__codelineno-17-67"></a>using this method.
-<a id="__codelineno-17-68" name="__codelineno-17-68" href="#__codelineno-17-68"></a>
-<a id="__codelineno-17-69" name="__codelineno-17-69" href="#__codelineno-17-69"></a>#### queue.pause_job(job)
-<a id="__codelineno-17-70" name="__codelineno-17-70" href="#__codelineno-17-70"></a>
-<a id="__codelineno-17-71" name="__codelineno-17-71" href="#__codelineno-17-71"></a>This will temporarily pause the job, if possible. It can later be
-<a id="__codelineno-17-72" name="__codelineno-17-72" href="#__codelineno-17-72"></a>restarted and pick up where it left off using `queue.start_job()`.
-<a id="__codelineno-17-73" name="__codelineno-17-73" href="#__codelineno-17-73"></a>
-<a id="__codelineno-17-74" name="__codelineno-17-74" href="#__codelineno-17-74"></a>#### queue.cancel_job(job)
-<a id="__codelineno-17-75" name="__codelineno-17-75" href="#__codelineno-17-75"></a>
-<a id="__codelineno-17-76" name="__codelineno-17-76" href="#__codelineno-17-76"></a>This will cancel the job if possible and clean up temporary files and
-<a id="__codelineno-17-77" name="__codelineno-17-77" href="#__codelineno-17-77"></a>other resources that it might have been using.
-<a id="__codelineno-17-78" name="__codelineno-17-78" href="#__codelineno-17-78"></a>
-<a id="__codelineno-17-79" name="__codelineno-17-79" href="#__codelineno-17-79"></a>#### queue.start_all_jobs(), queue.pause_all_jobs(), queue.cancel_all_jobs()
-<a id="__codelineno-17-80" name="__codelineno-17-80" href="#__codelineno-17-80"></a>
-<a id="__codelineno-17-81" name="__codelineno-17-81" href="#__codelineno-17-81"></a>This will start/pause/cancel all jobs that have been submitted to the
-<a id="__codelineno-17-82" name="__codelineno-17-82" href="#__codelineno-17-82"></a>queue and have not yet reached a terminal state.
-<a id="__codelineno-17-83" name="__codelineno-17-83" href="#__codelineno-17-83"></a>
-<a id="__codelineno-17-84" name="__codelineno-17-84" href="#__codelineno-17-84"></a>## Model installation
-<a id="__codelineno-17-85" name="__codelineno-17-85" href="#__codelineno-17-85"></a>
-<a id="__codelineno-17-86" name="__codelineno-17-86" href="#__codelineno-17-86"></a>The `ModelInstallService` class implements the
-<a id="__codelineno-17-87" name="__codelineno-17-87" href="#__codelineno-17-87"></a>`ModelInstallServiceBase` abstract base class, and provides a one-stop
-<a id="__codelineno-17-88" name="__codelineno-17-88" href="#__codelineno-17-88"></a>shop for all your model install needs. It provides the following
-<a id="__codelineno-17-89" name="__codelineno-17-89" href="#__codelineno-17-89"></a>functionality:
-<a id="__codelineno-17-90" name="__codelineno-17-90" href="#__codelineno-17-90"></a>
-<a id="__codelineno-17-91" name="__codelineno-17-91" href="#__codelineno-17-91"></a>- Registering a model config record for a model already located on the
-<a id="__codelineno-17-92" name="__codelineno-17-92" href="#__codelineno-17-92"></a>  local filesystem, without moving it or changing its path.
-<a id="__codelineno-17-93" name="__codelineno-17-93" href="#__codelineno-17-93"></a>
-<a id="__codelineno-17-94" name="__codelineno-17-94" href="#__codelineno-17-94"></a>- Installing a model alreadiy located on the local filesystem, by
-<a id="__codelineno-17-95" name="__codelineno-17-95" href="#__codelineno-17-95"></a>  moving it into the InvokeAI root directory under the
-<a id="__codelineno-17-96" name="__codelineno-17-96" href="#__codelineno-17-96"></a>  `models` folder (or wherever config parameter `models_dir`
-<a id="__codelineno-17-97" name="__codelineno-17-97" href="#__codelineno-17-97"></a>  specifies).
-<a id="__codelineno-17-98" name="__codelineno-17-98" href="#__codelineno-17-98"></a>
-<a id="__codelineno-17-99" name="__codelineno-17-99" href="#__codelineno-17-99"></a>- Downloading a model from an arbitrary URL and installing it in
-<a id="__codelineno-17-100" name="__codelineno-17-100" href="#__codelineno-17-100"></a>  `models_dir`.
-<a id="__codelineno-17-101" name="__codelineno-17-101" href="#__codelineno-17-101"></a>
-<a id="__codelineno-17-102" name="__codelineno-17-102" href="#__codelineno-17-102"></a>- Special handling for Civitai model URLs which allow the user to
-<a id="__codelineno-17-103" name="__codelineno-17-103" href="#__codelineno-17-103"></a>  paste in a model page&#39;s URL or download link. Any metadata provided
-<a id="__codelineno-17-104" name="__codelineno-17-104" href="#__codelineno-17-104"></a>  by Civitai, such as trigger terms, are captured and placed in the
-<a id="__codelineno-17-105" name="__codelineno-17-105" href="#__codelineno-17-105"></a>  model config record.
-<a id="__codelineno-17-106" name="__codelineno-17-106" href="#__codelineno-17-106"></a>
-<a id="__codelineno-17-107" name="__codelineno-17-107" href="#__codelineno-17-107"></a>- Special handling for HuggingFace repo_ids to recursively download
-<a id="__codelineno-17-108" name="__codelineno-17-108" href="#__codelineno-17-108"></a>  the contents of the repository, paying attention to alternative
-<a id="__codelineno-17-109" name="__codelineno-17-109" href="#__codelineno-17-109"></a>  variants such as fp16.
-<a id="__codelineno-17-110" name="__codelineno-17-110" href="#__codelineno-17-110"></a>
-<a id="__codelineno-17-111" name="__codelineno-17-111" href="#__codelineno-17-111"></a>- Probing of models to determine their type, base type and other key
-<a id="__codelineno-17-112" name="__codelineno-17-112" href="#__codelineno-17-112"></a>  information.
-<a id="__codelineno-17-113" name="__codelineno-17-113" href="#__codelineno-17-113"></a>
-<a id="__codelineno-17-114" name="__codelineno-17-114" href="#__codelineno-17-114"></a>- Interface with the InvokeAI event bus to provide status updates on
-<a id="__codelineno-17-115" name="__codelineno-17-115" href="#__codelineno-17-115"></a>  the download, installation and registration process.
-<a id="__codelineno-17-116" name="__codelineno-17-116" href="#__codelineno-17-116"></a>
-<a id="__codelineno-17-117" name="__codelineno-17-117" href="#__codelineno-17-117"></a>### Initializing the installer
-<a id="__codelineno-17-118" name="__codelineno-17-118" href="#__codelineno-17-118"></a>
-<a id="__codelineno-17-119" name="__codelineno-17-119" href="#__codelineno-17-119"></a>A default installer is created at InvokeAI api startup time and stored
-<a id="__codelineno-17-120" name="__codelineno-17-120" href="#__codelineno-17-120"></a>in `ApiDependencies.invoker.services.model_install_service` and can
-<a id="__codelineno-17-121" name="__codelineno-17-121" href="#__codelineno-17-121"></a>also be retrieved from an invocation&#39;s `context` argument with
-<a id="__codelineno-17-122" name="__codelineno-17-122" href="#__codelineno-17-122"></a>`context.services.model_install_service`.
-<a id="__codelineno-17-123" name="__codelineno-17-123" href="#__codelineno-17-123"></a>
-<a id="__codelineno-17-124" name="__codelineno-17-124" href="#__codelineno-17-124"></a>In the event you wish to create a new installer, you may use the
-<a id="__codelineno-17-125" name="__codelineno-17-125" href="#__codelineno-17-125"></a>following initialization pattern:
-</code></pre></div>
-from invokeai.app.services.config import InvokeAIAppConfig
-from invokeai.app.services.download_manager import DownloadQueueServive
-from invokeai.app.services.model_record_service import ModelRecordServiceBase</p>
-<p>config = InvokeAI.get_config()
-queue = DownloadQueueService()
-store = ModelRecordServiceBase.open(config)
-installer = ModelInstallService(config=config, queue=queue, store=store)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>The full form of `ModelInstallService()` takes the following
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>parameters. Each parameter will default to a reasonable value, but it
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>is recommended that you set them explicitly as shown in the above example.
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>| **Argument**     | **Type**                     | **Default** | **Description**                           |
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>|------------------|------------------------------|-------------|-------------------------------------------|
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>| `config`         | InvokeAIAppConfig        | Use system-wide config  | InvokeAI app configuration object |
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>| `queue`          | DownloadQueueServiceBase  | Create a new download queue for internal use  | Download queue |
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>| `store`          | ModelRecordServiceBase  | Use config to select the database to open  | Config storage database |
-<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>| `event_bus`      | EventServiceBase        | None | An event bus to send download/install progress events to |
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>| `event_handlers` | List[DownloadEventHandler]  | None | Event handlers for the download queue |
-<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
-<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>Note that if `store` is not provided, then the class will use
-<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>`ModelRecordServiceBase.open(config)` to select the database to use.
-<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>
-<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>Once initialized, the installer will provide the following methods:
-<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>
-<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>#### install_job = installer.install_model()
-<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>
-<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>The `install_model()` method is the core of the installer. The
-<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>following illustrates basic usage:
-</code></pre></div>
-sources = [
-    Path('/opt/models/sushi.safetensors'),   # a local safetensors file
-    Path('/opt/models/sushi_diffusers/'),    # a local diffusers folder
-    'runwayml/stable-diffusion-v1-5',        # a repo_id
-    'runwayml/stable-diffusion-v1-5:vae',    # a subfolder within a repo_id
-    '<a href="https://civitai.com/api/download/models/63006">https://civitai.com/api/download/models/63006</a>', # a civitai direct download link
-    '<a href="https://civitai.com/models/8765?modelVersionId=10638">https://civitai.com/models/8765?modelVersionId=10638</a>',  # civitai model page
-    '<a href="https://s3.amazon.com/fjacks/sd-3.safetensors">https://s3.amazon.com/fjacks/sd-3.safetensors</a>', # arbitrary URL
-]</p>
-<p>for source in sources:
-   install_job = installer.install_model(source)</p>
-<p>source2key = installer.wait_for_installs()
-for source in sources:
-    model_key = source2key[source]
-    print(f"{source} installed as {model_key}")
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>As shown here, the `install_model()` method accepts a variety of
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>sources, including local safetensors files, local diffusers folders,
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>HuggingFace repo_ids with and without a subfolder designation,
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Civitai model URLs and arbitrary URLs that point to checkpoint files
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>(but not to folders).
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>Each call to `install_model()` will return a `ModelInstallJob` job, a
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>subclass of `DownloadJobBase`. The install job has additional
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>install-specific fields described in the next section.
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>Each install job will run in a series of background threads using
-<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>the object&#39;s download queue. You may block until all install jobs are
-<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>completed (or errored) by calling the `wait_for_installs()` method as
-<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>shown in the code example. `wait_for_installs()` will return a `dict`
-<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>that maps the requested source to the key of the installed model. In
-<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>the case that a model fails to download or install, its value in the
-<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>dict will be None. The actual cause of the error will be reported in
-<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>the corresponding job&#39;s `error` field.
-<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
-<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>Alternatively you may install event handlers and/or listen for events
-<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>on the InvokeAI event bus in order to monitor the progress of the
-<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>requested installs.
-<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>
-<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>The full list of arguments to `model_install()` is as follows:
-<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>
-<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>| **Argument**     | **Type**                     | **Default** | **Description**                           |
-<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>|------------------|------------------------------|-------------|-------------------------------------------|
-<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>| `source`         | Union[str, Path, AnyHttpUrl] |             | The source of the model, Path, URL or repo_id |
-<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>| `inplace`        | bool                         | True        | Leave a local model in its current location |
-<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>| `variant`        | str                          | None        | Desired variant, such as &#39;fp16&#39; or &#39;onnx&#39; (HuggingFace only) |
-<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>| `subfolder`      | str                          | None        | Repository subfolder (HuggingFace only)   |
-<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>| `probe_override` | Dict[str, Any]               | None        | Override all or a portion of model&#39;s probed attributes |
-<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>| `metadata`       | ModelSourceMetadata          | None        | Provide metadata that will be added to model&#39;s config |
-<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>| `access_token`   | str                          | None        | Provide authorization information needed to download |
-<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>| `priority`       | int                          | 10          | Download queue priority for the job       |
-<a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>
-<a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>
-<a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a>The `inplace` field controls how local model Paths are handled. If
-<a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>True (the default), then the model is simply registered in its current
-<a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>location by the installer&#39;s `ModelConfigRecordService`. Otherwise, the
-<a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>model will be moved into the location specified by the  `models_dir`
-<a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>application configuration parameter. 
-<a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>
-<a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a>The `variant` field is used for HuggingFace repo_ids only. If
-<a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>provided, the repo_id download handler will look for and download
-<a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>tensors files that follow the convention for the selected variant:
-<a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a>
-<a id="__codelineno-19-48" name="__codelineno-19-48" href="#__codelineno-19-48"></a>- &quot;fp16&quot; will select files named &quot;*model.fp16.{safetensors,bin}&quot;
-<a id="__codelineno-19-49" name="__codelineno-19-49" href="#__codelineno-19-49"></a>- &quot;onnx&quot; will select files ending with the suffix &quot;.onnx&quot;
-<a id="__codelineno-19-50" name="__codelineno-19-50" href="#__codelineno-19-50"></a>- &quot;openvino&quot; will select files beginning with &quot;openvino_model&quot;
-<a id="__codelineno-19-51" name="__codelineno-19-51" href="#__codelineno-19-51"></a>
-<a id="__codelineno-19-52" name="__codelineno-19-52" href="#__codelineno-19-52"></a>In the special case of the &quot;fp16&quot; variant, the installer will select
-<a id="__codelineno-19-53" name="__codelineno-19-53" href="#__codelineno-19-53"></a>the 32-bit version of the files if the 16-bit version is unavailable.
-<a id="__codelineno-19-54" name="__codelineno-19-54" href="#__codelineno-19-54"></a>
-<a id="__codelineno-19-55" name="__codelineno-19-55" href="#__codelineno-19-55"></a>`subfolder` is used for HuggingFace repo_ids only. If provided, the
-<a id="__codelineno-19-56" name="__codelineno-19-56" href="#__codelineno-19-56"></a>model will be downloaded from the designated subfolder rather than the
-<a id="__codelineno-19-57" name="__codelineno-19-57" href="#__codelineno-19-57"></a>top-level repository folder. If a subfolder is attached to the repo_id
-<a id="__codelineno-19-58" name="__codelineno-19-58" href="#__codelineno-19-58"></a>using the format `repo_owner/repo_name:subfolder`, then the subfolder
-<a id="__codelineno-19-59" name="__codelineno-19-59" href="#__codelineno-19-59"></a>specified by the repo_id will override the subfolder argument.
-<a id="__codelineno-19-60" name="__codelineno-19-60" href="#__codelineno-19-60"></a>
-<a id="__codelineno-19-61" name="__codelineno-19-61" href="#__codelineno-19-61"></a>`probe_override` can be used to override all or a portion of the
-<a id="__codelineno-19-62" name="__codelineno-19-62" href="#__codelineno-19-62"></a>attributes returned by the model prober. This can be used to overcome
-<a id="__codelineno-19-63" name="__codelineno-19-63" href="#__codelineno-19-63"></a>cases in which automatic probing is unable to (correctly) determine
-<a id="__codelineno-19-64" name="__codelineno-19-64" href="#__codelineno-19-64"></a>the model&#39;s attribute. The most common situation is the
-<a id="__codelineno-19-65" name="__codelineno-19-65" href="#__codelineno-19-65"></a>`prediction_type` field for sd-2 (and rare sd-1) models. Here is an
-<a id="__codelineno-19-66" name="__codelineno-19-66" href="#__codelineno-19-66"></a>example of how it works:
-</code></pre></div>
-install_job = installer.install_model(
-               source='stabilityai/stable-diffusion-2-1',
-               variant='fp16',
-               probe_override=dict(
-                     prediction_type=SchedulerPredictionType('v_prediction')
-               )
-          )
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>`metadata` allows you to attach custom metadata to the installed
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>model. See the next section for details.
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>`priority` and `access_token` are passed to the download queue and
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>have the same effect as they do for the DownloadQueueServiceBase.
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>#### Monitoring the install job process
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>When you create an install job with `model_install()`, events will be
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>passed to the list of `DownloadEventHandlers` provided at installer
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>initialization time. Event handlers can also be added to individual
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>model install jobs by calling their `add_handler()` method as
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>described earlier for the `DownloadQueueService`.
-<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>If the `event_bus` argument was provided, events will also be
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>broadcast to the InvokeAI event bus. The events will appear on the bus
-<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>as a singular event type named `model_event` with a payload of
-<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>`job`. You can then retrieve the job and check its status.
-<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>
-<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>** TO DO: ** consider breaking `model_event` into
-<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>`model_install_started`, `model_install_completed`, etc. The event bus
-<a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>features have not yet been tested with FastAPI/websockets, and it may
-<a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>turn out that the job object is not serializable.
-<a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>
-<a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>#### Model metadata and probing
-<a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>
-<a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>The install service has special handling for HuggingFace and Civitai
-<a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>URLs that capture metadata from the source and include it in the model
-<a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>configuration record. For example, fetching the Civitai model 8765
-<a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>will produce a config record similar to this (using YAML
-<a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a>representation):
-</code></pre></div>
-5abc3ef8600b6c1cc058480eaae3091e:
-  path: sd-1/lora/to8contrast-1-5.safetensors
-  name: to8contrast-1-5
-  base_model: sd-1
-  model_type: lora
-  model_format: lycoris
-  key: 5abc3ef8600b6c1cc058480eaae3091e
-  hash: 5abc3ef8600b6c1cc058480eaae3091e
-  description: 'Trigger terms: to8contrast style'
-  author: theovercomer8
-  license: allowCommercialUse=Sell; allowDerivatives=True; allowNoCredit=True
-  source: <a href="https://civitai.com/models/8765?modelVersionId=10638">https://civitai.com/models/8765?modelVersionId=10638</a>
-  thumbnail_url: null
-  tags:
-  - model
-  - style
-  - portraits
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>For sources that do not provide model metadata, you can attach custom
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>fields by providing a `metadata` argument to `model_install()` using
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>an initialized `ModelSourceMetadata` object (available for import from
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>`model_install_service.py`):
-</code></pre></div>
-from invokeai.app.services.model_install_service import ModelSourceMetadata
-meta = ModelSourceMetadata(
-                name="my model",
-                author="Sushi Chef",
-                description="Highly customized model; trigger with 'sushi',"
-                license="mit",
-                thumbnail_url="<a href="http://s3.amazon.com/ljack/pics/sushi.png">http://s3.amazon.com/ljack/pics/sushi.png</a>",
-                tags=list('sfw', 'food')
-            )
-install_job = installer.install_model(
-               source='sushi_chef/model3',
-               variant='fp16',
-               metadata=meta,
-          )
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>It is not currently recommended to provide custom metadata when
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>installing from Civitai or HuggingFace source, as the metadata
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>provided by the source will overwrite the fields you provide. Instead,
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>after the model is installed you can use
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>`ModelRecordService.update_model()` to change the desired fields.
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>** TO DO: ** Change the logic so that the caller&#39;s metadata fields take
-<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>precedence over those provided by the source.
-<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
-<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
-<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>#### Other installer methods
-<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
-<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>This section describes additional, less-frequently-used attributes and
-<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>methods provided by the installer class.
-<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>
-<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>##### installer.wait_for_installs()
-<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>
-<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>This is equivalent to the `DownloadQueue` `join()` method. It will
-<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>block until all the active jobs in the install queue have reached a
-<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>terminal state (completed, errored or cancelled).
-<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>
-<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>##### installer.queue, installer.store, installer.config
-<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>
-<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>These attributes provide access to the `DownloadQueueServiceBase`,
-<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>`ModelConfigRecordServiceBase`, and `InvokeAIAppConfig` objects that
-<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>the installer uses.
-<a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>
-<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a>For example, to temporarily pause all pending installations, you can
-<a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a>do this:
-</code></pre></div>
-installer.queue.pause_all_jobs()
-```</p>
-<h5 id="key-installerregister_pathmodel_path-overrides-key-installerinstall_pathmodel_path-overrides">key = installer.register_path(model_path, overrides), key = installer.install_path(model_path, overrides)<a class="headerlink" href="#key-installerregister_pathmodel_path-overrides-key-installerinstall_pathmodel_path-overrides" title="Permanent link">#</a></h5>
-<p>These methods bypass the download queue and directly register or
-install the model at the indicated path, returning the unique ID for
-the installed model.</p>
-<p>Both methods accept a Path object corresponding to a checkpoint or
-diffusers folder, and an optional dict of attributes to use to
-override the values derived from model probing.</p>
-<p>The difference between <code>register_path()</code> and <code>install_path()</code> is that
-the former will not move the model from its current position, while
-the latter will move it into the <code>models_dir</code> hierarchy.</p>
-<h5 id="installerunregisterkey">installer.unregister(key)<a class="headerlink" href="#installerunregisterkey" title="Permanent link">#</a></h5>
-<p>This will remove the model config record for the model at key, and is
-equivalent to <code>installer.store.unregister(key)</code></p>
-<h5 id="installerdeletekey">installer.delete(key)<a class="headerlink" href="#installerdeletekey" title="Permanent link">#</a></h5>
-<p>This is similar to <code>unregister()</code> but has the additional effect of
-deleting the underlying model file(s) -- even if they were outside the
-<code>models_dir</code> directory!</p>
-<h5 id="installerconditionally_deletekey">installer.conditionally_delete(key)<a class="headerlink" href="#installerconditionally_deletekey" title="Permanent link">#</a></h5>
-<p>This method will call <code>unregister()</code> if the model identified by <code>key</code>
-is outside the <code>models_dir</code> hierarchy, and call <code>delete()</code> if the
-model is inside.</p>
-<h4 id="liststrinstallerscan_directoryscan_dir-path-install-bool">List[str]=installer.scan_directory(scan_dir: Path, install: bool)<a class="headerlink" href="#liststrinstallerscan_directoryscan_dir-path-install-bool" title="Permanent link">#</a></h4>
-<p>This method will recursively scan the directory indicated in
-<code>scan_dir</code> for new models and either install them in the models
-directory or register them in place, depending on the setting of
-<code>install</code> (default False).</p>
-<p>The return value is the list of keys of the new installed/registered
-models.</p>
-<h4 id="installerscan_models_directory">installer.scan_models_directory()<a class="headerlink" href="#installerscan_models_directory" title="Permanent link">#</a></h4>
-<p>This method scans the models directory for new models and registers
-them in place. Models that are present in the
-<code>ModelConfigRecordService</code> database whose paths are not found will be
-unregistered.</p>
-<h4 id="installersync_to_config">installer.sync_to_config()<a class="headerlink" href="#installersync_to_config" title="Permanent link">#</a></h4>
-<p>This method synchronizes models in the models directory and autoimport
-directory to those in the <code>ModelConfigRecordService</code> database. New
-models are registered and orphan models are unregistered.</p>
-<h4 id="hashinstallerhashmodel_path">hash=installer.hash(model_path)<a class="headerlink" href="#hashinstallerhashmodel_path" title="Permanent link">#</a></h4>
-<p>This method is calls the fasthash algorithm on a model's Path
-(either a file or a folder) to generate a unique ID based on the
-contents of the model.</p>
-<h5 id="installerstartinvoker">installer.start(invoker)<a class="headerlink" href="#installerstartinvoker" title="Permanent link">#</a></h5>
-<p>The <code>start</code> method is called by the API intialization routines when
-the API starts up. Its effect is to call <code>sync_to_config()</code> to
-synchronize the model record store database with what's currently on
-disk.</p>
-<p>This method should not ordinarily be called manually.</p>
+<p><code>job = queue.create_download_job(
+         source='http://www.civitai.com/models/13456',
+         destdir='/tmp/models/',
+         filename='my_model.safetensors',
+         event_handlers=[my_handler1, my_handler2], # if desired
+         start=True,
+    )</code></p>
+<p>The <code>filename</code> argument forces the downloader to use the specified
+name for the file rather than the name provided by the remote source,
+and is equivalent to manually specifying a destination of
+`/tmp/models/my_model.safetensors' in the submitted job.</p>
+<p>Here is the full list of arguments that can be provided to
+<code>create_download_job()</code>:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Argument</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source</code></td>
+<td>Union[str, Path, AnyHttpUrl]</td>
+<td></td>
+<td>Download remote or local source</td>
+</tr>
+<tr>
+<td><code>destdir</code></td>
+<td>Path</td>
+<td></td>
+<td>Destination directory for downloaded file</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>Path</td>
+<td>None</td>
+<td>Filename for downloaded file</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>bool</td>
+<td>True</td>
+<td>Enqueue the job immediately</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td>int</td>
+<td>10</td>
+<td>Starting priority for this job</td>
+</tr>
+<tr>
+<td><code>access_token</code></td>
+<td>str</td>
+<td>None</td>
+<td>Authorization token for this resource</td>
+</tr>
+<tr>
+<td><code>event_handlers</code></td>
+<td>List[DownloadEventHandler]</td>
+<td>[]</td>
+<td>Event handlers for this job</td>
+</tr>
+</tbody>
+</table>
+<p>Internally, <code>create_download_job()</code> has a little bit of internal logic
+that looks at the type of the source and selects the right subclass of
+<code>DownloadJobBase</code> to create and enqueue. </p>
+<p><strong>TODO</strong>: move this logic into its own method for overriding in
+subclasses.</p>
+<h3 id="job-control">Job control<a class="headerlink" href="#job-control" title="Permanent link">#</a></h3>
+<p>Prior to completion, jobs can be controlled with a series of queue
+method calls. Do not attempt to modify jobs by directly writing to
+their fields, as this is likely to lead to unexpected results.</p>
+<p>Any method that accepts a job argument may raise an
+<code>UnknownJobIDException</code> if the job has not yet been submitted to the
+queue or was not created by this queue.</p>
+<h4 id="queuejoin">queue.join()<a class="headerlink" href="#queuejoin" title="Permanent link">#</a></h4>
+<p>This method will block until all the active jobs in the queue have
+reached a terminal state (completed, errored or cancelled).</p>
+<h4 id="jobs-queuelist_jobs">jobs = queue.list_jobs()<a class="headerlink" href="#jobs-queuelist_jobs" title="Permanent link">#</a></h4>
+<p>This will return a list of all jobs, including ones that have not yet
+been enqueued and those that have completed or errored out.</p>
+<h4 id="job-queueid_to_jobint">job = queue.id_to_job(int)<a class="headerlink" href="#job-queueid_to_jobint" title="Permanent link">#</a></h4>
+<p>This method allows you to recover a submitted job using its ID.</p>
+<h4 id="queueprune_jobs">queue.prune_jobs()<a class="headerlink" href="#queueprune_jobs" title="Permanent link">#</a></h4>
+<p>Remove completed and errored jobs from the job list.</p>
+<h4 id="queuestart_jobjob">queue.start_job(job)<a class="headerlink" href="#queuestart_jobjob" title="Permanent link">#</a></h4>
+<p>If the job was submitted with <code>start=False</code>, then it can be started
+using this method.</p>
+<h4 id="queuepause_jobjob">queue.pause_job(job)<a class="headerlink" href="#queuepause_jobjob" title="Permanent link">#</a></h4>
+<p>This will temporarily pause the job, if possible. It can later be
+restarted and pick up where it left off using <code>queue.start_job()</code>.</p>
+<h4 id="queuecancel_jobjob">queue.cancel_job(job)<a class="headerlink" href="#queuecancel_jobjob" title="Permanent link">#</a></h4>
+<p>This will cancel the job if possible and clean up temporary files and
+other resources that it might have been using.</p>
+<h4 id="queuestart_all_jobs-queuepause_all_jobs-queuecancel_all_jobs">queue.start_all_jobs(), queue.pause_all_jobs(), queue.cancel_all_jobs()<a class="headerlink" href="#queuestart_all_jobs-queuepause_all_jobs-queuecancel_all_jobs" title="Permanent link">#</a></h4>
+<p>This will start/pause/cancel all jobs that have been submitted to the
+queue and have not yet reached a terminal state.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2023</span>
       
         <br>
         Created:
@@ -3257,6 +3717,14 @@ disk.</p>
       
         
           <script src="../../javascripts/tablesort.js"></script>
+        
+      
+        
+          <script src="https://widget.kapa.ai/kapa-widget.bundle.js"></script>
+        
+      
+        
+          <script src="../../javascript/init_kapa_widget.js"></script>
         
       
     
