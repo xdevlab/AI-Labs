@@ -838,6 +838,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#adapters-linked-nodes" class="md-nav__link">
+    Adapters Linked Nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#average-images" class="md-nav__link">
     Average Images
   </a>
@@ -985,8 +992,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#metadata-linked-nodes" class="md-nav__link">
+    Metadata Linked Nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#negative-image" class="md-nav__link">
     Negative Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nightmare-promptgen" class="md-nav__link">
+    Nightmare Promptgen
   </a>
   
 </li>
@@ -1608,6 +1629,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1820,6 +1845,34 @@
     <li class="md-nav__item">
       <a href="../../contributing/INVOCATIONS/" class="md-nav__link">
         Nodes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/MODEL_MANAGER/" class="md-nav__link">
+        Model Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/DOWNLOAD_QUEUE/" class="md-nav__link">
+        Download Queue
       </a>
     </li>
   
@@ -2221,6 +2274,7 @@
 <p>To use a community workflow, download the the <code>.json</code> node graph file and load it into Invoke AI via the <strong>Load Workflow</strong> button in the Workflow Editor. </p>
 <ul>
 <li>Community Nodes<ul>
+<li><a href="#adapters-linked-nodes">Adapters-Linked</a></li>
 <li><a href="#average-images">Average Images</a></li>
 <li><a href="#clean-image-artifacts-after-cut">Clean Image Artifacts After Cut</a></li>
 <li><a href="#close-color-mask">Close Color Mask</a> </li>
@@ -2240,9 +2294,11 @@
 <li><a href="#image-resize-plus">Image Resize Plus</a></li>
 <li><a href="#load-video-frame">Load Video Frame</a></li>
 <li><a href="#make-3d">Make 3D</a></li>
-<li><a href="#mask-operations">Mask Operations</a>    </li>
+<li><a href="#mask-operations">Mask Operations</a></li>
 <li><a href="#match-histogram">Match Histogram</a></li>
-<li><a href="#negative-image">Negative Image</a>    </li>
+<li><a href="#metadata-linked-nodes">Metadata-Linked</a></li>
+<li><a href="#negative-image">Negative Image</a></li>
+<li><a href="#nightmare-promptgen">Nightmare Promptgen</a>    </li>
 <li><a href="#oobabooga">Oobabooga</a></li>
 <li><a href="#prompt-tools">Prompt Tools</a></li>
 <li><a href="#remote-image">Remote Image</a></li>
@@ -2260,6 +2316,16 @@
 <li><a href="#disclaimer">Disclaimer</a></li>
 <li><a href="#help">Help</a></li>
 </ul>
+<hr />
+<h3 id="adapters-linked-nodes">Adapters Linked Nodes<a class="headerlink" href="#adapters-linked-nodes" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> A set of nodes for linked adapters (ControlNet, IP-Adaptor &amp; T2I-Adapter). This allows multiple adapters to be chained together without using a <code>collect</code> node which means it can be used inside an <code>iterate</code> node without any collecting on every iteration issues.</p>
+<ul>
+<li><code>ControlNet-Linked</code> - Collects ControlNet info to pass to other nodes.</li>
+<li><code>IP-Adapter-Linked</code> - Collects IP-Adapter info to pass to other nodes.</li>
+<li><code>T2I-Adapter-Linked</code> - Collects T2I-Adapter info to pass to other nodes.</li>
+</ul>
+<p>Note: These are inherited from the core nodes so any update to the core nodes should be reflected in these. </p>
+<p><strong>Node Link:</strong> <a href="https://github.com/skunkworxdark/adapters-linked-nodes">https://github.com/skunkworxdark/adapters-linked-nodes</a></p>
 <hr />
 <h3 id="average-images">Average Images<a class="headerlink" href="#average-images" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> This node takes in a collection of images of the same size and averages them as output. It converts everything to RGB mode first.</p>
@@ -2417,11 +2483,27 @@
 <p><strong>Output Examples</strong> </p>
 <p><img src="https://github.com/skunkworxdark/match_histogram/assets/21961335/ed12f329-a0ef-444a-9bae-129ed60d6097" width="300" /></p>
 <hr />
+<h3 id="metadata-linked-nodes">Metadata Linked Nodes<a class="headerlink" href="#metadata-linked-nodes" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> A set of nodes for Metadata. Collect Metadata from within an <code>iterate</code> node &amp; extract metadata from an image.</p>
+<ul>
+<li><code>Metadata Item Linked</code> - Allows collecting of metadata while within an iterate node with no need for a collect node or conversion to metadata node.</li>
+<li><code>Metadata From Image</code> - Provides Metadata from an image.</li>
+<li><code>Metadata To String</code> - Extracts a String value of a label from metadata.</li>
+<li><code>Metadata To Integer</code> - Extracts an Integer value of a label from metadata.</li>
+<li><code>Metadata To Float</code> - Extracts a Float value of a label from metadata.</li>
+<li><code>Metadata To Scheduler</code> - Extracts a Scheduler value of a label from metadata.</li>
+</ul>
+<p><strong>Node Link:</strong> <a href="https://github.com/skunkworxdark/metadata-linked-nodes">https://github.com/skunkworxdark/metadata-linked-nodes</a></p>
+<hr />
 <h3 id="negative-image">Negative Image<a class="headerlink" href="#negative-image" title="Permanent link">#</a></h3>
 <p>Description: Creates a negative version of an image, effective for visual effects and mask inversion.</p>
 <p>Node Link: <a href="https://github.com/VeyDlin/negative-image-node">https://github.com/VeyDlin/negative-image-node</a></p>
 <p>View:
 </br><img src="https://raw.githubusercontent.com/VeyDlin/negative-image-node/master/.readme/node.png" width="500" /></p>
+<hr />
+<h3 id="nightmare-promptgen">Nightmare Promptgen<a class="headerlink" href="#nightmare-promptgen" title="Permanent link">#</a></h3>
+<p><strong>Description:</strong> Nightmare Prompt Generator - Uses a local text generation model to create unique imaginative (but usually nightmarish) prompts for InvokeAI. By default, it allows you to choose from some gpt-neo models I finetuned on over 2500 of my own InvokeAI prompts in Compel format, but you're able to add your own, as well. Offers support for replacing any troublesome words with a random choice from list you can also define.</p>
+<p><strong>Node Link:</strong> <a href="https://github.com/gogurtenjoyer/nightmare-promptgen">https://github.com/gogurtenjoyer/nightmare-promptgen</a></p>
 <hr />
 <h3 id="oobabooga">Oobabooga<a class="headerlink" href="#oobabooga" title="Permanent link">#</a></h3>
 <p><strong>Description:</strong> asks a local LLM running in Oobabooga's Text-Generation-Webui to write a prompt based on the user input.</p>
@@ -2552,7 +2634,7 @@ As the sun sets, the Glimmerwing perches on a branch of one of the trees, spread
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 28, 2023</span>
       
         <br>
         Created:

@@ -1322,6 +1322,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1546,6 +1550,34 @@
     <li class="md-nav__item">
       <a href="../../INVOCATIONS/" class="md-nav__link">
         Nodes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODEL_MANAGER/" class="md-nav__link">
+        Model Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DOWNLOAD_QUEUE/" class="md-nav__link">
+        Download Queue
       </a>
     </li>
   
@@ -1972,18 +2004,22 @@
 <h3 id="dev-environment">Dev Environment<a class="headerlink" href="#dev-environment" title="Permanent link">#</a></h3>
 <p><strong>Setup</strong> </p>
 <ol>
-<li>Install <a href="https://nodejs.org/en/download/">node</a>. You can confirm node is installed with:
+<li>
+<p>Install <a href="https://nodejs.org/en/download/">node</a>. You can confirm node is installed with:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>node<span class="w"> </span>--version
-</code></pre></div></li>
-<li>Install <a href="https://classic.yarnpkg.com/lang/en/">yarn classic</a> and confirm it is installed by running this:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>yarn
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>yarn<span class="w"> </span>--version
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
+<li>
+<p>Install <a href="https://pnpm.io/">pnpm</a> and confirm it is installed by running this:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>pnpm
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pnpm<span class="w"> </span>--version
+</code></pre></div></p>
+</li>
 </ol>
-<p>From <code>invokeai/frontend/web/</code> run <code>yarn install</code> to get everything set up.</p>
+<p>From <code>invokeai/frontend/web/</code> run <code>pnpm install</code> to get everything set up.</p>
 <p>Start everything in dev mode:
 1. Ensure your virtual environment is running
-2. Start the dev server: <code>yarn dev</code>
+2. Start the dev server: <code>pnpm dev</code>
 3. Start the InvokeAI Nodes backend: <code>python scripts/invokeai-web.py # run from the repo root</code>
 4. Point your browser to the dev server address e.g. <a href="http://localhost:5173/">http://localhost:5173/</a></p>
 <h3 id="vscode-remote-dev">VSCode Remote Dev<a class="headerlink" href="#vscode-remote-dev" title="Permanent link">#</a></h3>
@@ -1992,14 +2028,14 @@
 <h3 id="production-builds">Production builds<a class="headerlink" href="#production-builds" title="Permanent link">#</a></h3>
 <p>For a number of technical and logistical reasons, we need to commit UI build artefacts to the repo.</p>
 <p>If you submit a PR, there is a good chance we will ask you to include a separate commit with a build of the app.</p>
-<p>To build for production, run <code>yarn build</code>.</p>
+<p>To build for production, run <code>pnpm build</code>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 21, 2023</span>
       
         <br>
         Created:
